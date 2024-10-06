@@ -3,5 +3,5 @@
 *.db-wal
 
 # Build files
-bin/
-obj/
+API/bin/Debug/net8.0
+API/obj/
