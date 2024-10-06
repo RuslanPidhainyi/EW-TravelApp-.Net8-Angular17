@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "57psRCun18s=",
+  "dgSpecHash": "x7CdZcVIGNw=",
   "success": true,
-  "projectFilePath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\API.csproj",
+  "projectFilePath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
