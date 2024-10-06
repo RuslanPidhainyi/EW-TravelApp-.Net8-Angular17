@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\API.csproj": {}
+    "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\API.csproj": {
+    "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\API.csproj",
+        "projectUniqueName": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\API.csproj",
+        "projectPath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\api\\obj\\",
+        "outputPath": "E:\\My documents\\source\\repos\\Engineer Work\\EW\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
