@@ -1,4 +1,6 @@
 using API.Data;
+using API.Interface;
+using API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddCors();
+builder.Services.AddScoped<ITokenService, TokenService>(); //note: AddScoped - Okresla czas uzycza usługi. Usługe te są tworzone raz na ządanie klienta (ządanie HTTP), potem po wykorzystaniu bedzie te ządanie usuniete.
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();//note: odp za Swagger 
