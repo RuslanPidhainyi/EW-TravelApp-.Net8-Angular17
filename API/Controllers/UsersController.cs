@@ -5,7 +5,7 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Properties;
+namespace API.Controllers;
 
 public class UsersController(AppDbContext context) : BaseApiController
 {
