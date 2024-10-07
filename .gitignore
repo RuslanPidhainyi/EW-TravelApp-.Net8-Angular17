@@ -1,0 +1,7 @@
+# SQLite files
+*.db-shm
+*.db-wal
+
+# Build files
+API/bin/Debug/net8.0
+API/obj/
