@@ -1,0 +1,44 @@
+@if(!registerMode){
+<div class='login-page'>
+    <main class='common-card'>
+        <aside class='left-side'>
+            <h1>Welcome on EW!</h1>
+            <div class='list'>
+                <h4>What can you do on EW?</h4>
+                <ul>
+                    <li>Create and manage your projects.</li>
+                    <li>We offer an interactive graphical interface.</li>
+                    <li>Create projects and share with friends.</li>
+                </ul>
+            </div>
+            <span>Do not you have an account?</span>
+            <button (click)="registerToggle()" class="register-btn">Register</button>
+        </aside>
+        <aside class='right-side'>
+            <h1>Log in</h1>
+            <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off">
+                <input name="username" [(ngModel)]="model.username" class="login-input" type="text"
+                    placeholder="Username">
+                <input name="password" [(ngModel)]="model.password" class="login-input" type="password"
+                    placeholder="Password">
+                <button class="login-btn" type="submit">Login</button>
+            </form>
+        </aside>
+    </main>
+</div>
+}
+@else {
+<div class="container mt-5">
+    <div style="text-align: center;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <app-register 
+                        (cancleRegister)="cancelRegisterMode($event)"
+                    ></app-register>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

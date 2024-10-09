@@ -18,7 +18,7 @@ nav {
         margin: 0;
 
         &:hover {
-            color: rgb(137, 137, 137);
+            color: rgb(97, 97, 97);
         }
     }
 
@@ -34,15 +34,38 @@ nav {
 
             .nav-item-link {
                 text-decoration: none;
-                color: rgb(255, 255, 255);
+                color: rgb(182, 182, 182);
                 transition: .2s;
             }
 
             &:hover {
                 cursor: pointer;
                 .nav-item-link {
-                    color: rgb(137, 137, 137);
+                    color: rgb(97, 97, 97);
                 }
+            }
+        }
+    }
+
+    .dropdown {
+        margin-left: auto;
+
+        .dropdown-toggle {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+            .dropdown-menu {
+                
+                .dropdown-item{
+
+                }
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            .dropdown-toggle {
+                color: rgb(97, 97, 97);
             }
         }
     }
