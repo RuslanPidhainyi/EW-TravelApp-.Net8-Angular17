@@ -1,10 +1,4 @@
-// * {
-//     margin: 0;
-//     padding: 0;
-// }
-
 .login-page {
-    // height: 100vh;
     display: flex;
     align-items: center; //verticaly
     justify-content: center; //horizontal
@@ -44,16 +38,16 @@
 
             .register-btn {
                 height: 53px;
-                border-radius: 6px;
-                background-color: black;
+                border-radius: 5px;
+                background-color: green;
                 border: 1px white solid;
                 color: white;
                 padding: 0 1rem;
-                transition: .2s;
+                transition: background-color .3s ease;
 
                 &:hover {
-                    background-color: white;
-                    color: rgb(23, 44, 103);
+                    background-color: darkgreen;
+                    color: white;
                 }
             }
         }
@@ -70,48 +64,38 @@
                 font-weight: 750;
             }
 
-            // form {
-            //     display: flex;
-            //     flex-direction: column;
-            //     gap: 30px;
-
-            //     input {
-
-            //         //padding: 20px 10px;
-
-            //         &:focus {
-            //             outline: none;
-            //         }
-            //     }
-            // }
-
             .login-form {
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
 
                 .login-input {
+                    border: 1px solid #ccc;
                     height: 53px;
                     margin-right: .5rem;
-                    border-radius: 6px;
+                    border-radius: 5px;
+                    font-size: 1.1rem; // Трохи більший шрифт
+                    padding: 12px 20px; // Більші відступи для інпутів
+                    width: 100%;
 
                     &:focus {
                         outline: none;
+                        border-color: rgb(16, 80, 154);
                     }
                 }
 
                 .login-btn {
                     height: 53px;
-                    border-radius: 6px;
-                    background-color: black;
+                    border-radius: 5px;
+                    background-color: rgb(88, 153, 210);
                     border: 1px white solid;
                     color: white;
                     padding: 0 1rem;
-                    transition: .2s;
+                    transition: background-color .3s ease;
 
                     &:hover {
-                        background-color: white;
-                        color: rgb(23, 44, 103);
+                        background-color: black;
+                        color: white;
                     }
                 }
             }
