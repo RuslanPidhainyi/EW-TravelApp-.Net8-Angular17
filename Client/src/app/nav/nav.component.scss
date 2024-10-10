@@ -1,0 +1,103 @@
+nav {
+    width: 100vw;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 4rem;
+
+    .app-title {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        transition: .2s;
+        margin: 0;
+
+        &:hover {
+            color: rgb(97, 97, 97);
+        }
+    }
+
+    .nav-items {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        .nav-item {
+            display: inline-block;
+            margin: 0 10px;
+
+            .nav-item-link {
+                text-decoration: none;
+                color: rgb(182, 182, 182);
+                transition: .2s;
+            }
+
+            &:hover {
+                cursor: pointer;
+                .nav-item-link {
+                    color: rgb(97, 97, 97);
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        margin-left: auto;
+
+        .dropdown-toggle {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+
+            .dropdown-menu {
+                
+                .dropdown-item{
+
+                }
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            .dropdown-toggle {
+                color: rgb(97, 97, 97);
+            }
+        }
+    }
+
+    .login-form {
+        margin-left: auto;
+
+        .login-input {
+            height: 33px;
+            margin-right: .5rem;
+            border-radius: 6px;
+            padding: 12px 10px;
+            border: none;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .login-btn {
+            height: 33px;
+            border-radius: 6px;
+            background-color: transparent;
+            border: 1px white solid;
+            color: white;
+            padding: 0 1rem;
+            transition: .2s;
+
+            &:hover {
+                background-color: white;
+                color: rgb(23, 44, 103);
+            }
+        }
+    }
+}
