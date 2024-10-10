@@ -5,6 +5,7 @@ import { OffersDetailComponent } from './offers/offers-detail/offers-detail.comp
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { authGuard } from './_guards/auth.guard';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -18,8 +19,8 @@ export const routes: Routes = [
             { path: 'offers/:id', component: OffersDetailComponent },
             { path: 'lists', component: ListsComponent },
             { path: 'messages', component: MessagesComponent },
-            { path: '**', component: LoginComponent, pathMatch: 'full' },
         ],
     },
+    { path: 'errors', component: TestErrorsComponent },
     { path: '**', component: LoginComponent, pathMatch: 'full', },
 ];
