@@ -11,6 +11,7 @@ import { Component, inject } from '@angular/core';
 export class TestErrorsComponent {
   private http = inject(HttpClient);
   baseUrl = 'https://localhost:5001/api/';
+  validationErrors: string[] = [];
 
   get400Error() {
     this.http.get(this.baseUrl + 'buggy/bad-request').subscribe({
@@ -45,7 +46,7 @@ export class TestErrorsComponent {
       next: (response) => console.log(response),
       error: (error) => {
         console.log(error);
-        //this.validationErrors = error;
+        this.validationErrors = error;
       },
     });
   }
