@@ -1,23 +1,25 @@
 <nav>
     <a routerLink="/" routerLinkActive="active" class="app-title">EW</a>
 
-    @if(accountService.currentUser()) {
+
     <ul class="nav-items">
-        <li class="nav-item">
-            <a routerLink="/offers" class="nav-item-link">Offers</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="/lists" class="nav-item-link">Lists</a>
-        </li>
-        <li class="nav-item">
-            <a routerLink="/messages" class="nav-item-link">Messages</a>
-        </li>
+        @if(accountService.currentUser()) {
+            <li class="nav-item">
+                <a routerLink="/offers" class="nav-item-link">Offers</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/lists" class="nav-item-link">Lists</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/messages" class="nav-item-link">Messages</a>
+            </li>
+        }
     </ul>
-    }
+
 
     @if(accountService.currentUser()) {
     <div dropdown class="dropdown">
-        <a dropdownToggle class="dropdown-toggle">Welcome user</a>
+        <a dropdownToggle class="dropdown-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</a>
         <div *dropdownMenu class="dropdown-menu">
             <a class="dropdown-item">Edit profile</a>
             <a class="dropdown-item">Settings</a>
