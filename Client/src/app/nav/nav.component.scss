@@ -36,12 +36,10 @@ nav {
                 text-decoration: none;
                 color: rgb(182, 182, 182);
                 transition: .2s;
-            }
 
-            &:hover {
-                cursor: pointer;
-                .nav-item-link {
-                    color: rgb(97, 97, 97);
+                &:focus {
+                    outline: none;
+                    color: rgb(255, 255, 255);
                 }
             }
         }
@@ -55,15 +53,14 @@ nav {
             color: rgb(255, 255, 255);
 
             .dropdown-menu {
-                
-                .dropdown-item{
 
-                }
+                .dropdown-item {}
             }
         }
 
         &:hover {
             cursor: pointer;
+
             .dropdown-toggle {
                 color: rgb(97, 97, 97);
             }

@@ -1,29 +1,31 @@
 <nav>
-    <a class="app-title" href="#">EW</a>
+    <a routerLink="/" routerLinkActive="active" class="app-title">EW</a>
 
-    @if(accountService.currentUser()) {
+
     <ul class="nav-items">
-        <li class="nav-item">
-            <a class="nav-item-link" href="#">Offers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-item-link" href="#">Lists</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-item-link" href="#">Messages</a>
-        </li>
+        @if(accountService.currentUser()) {
+            <li class="nav-item">
+                <a routerLink="/offers" class="nav-item-link">Offers</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/lists" class="nav-item-link">Lists</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/messages" class="nav-item-link">Messages</a>
+            </li>
+        }
     </ul>
-    }
+
 
     @if(accountService.currentUser()) {
-        <div dropdown class="dropdown">
-            <a dropdownToggle class="dropdown-toggle">Welcome user</a>
-            <div *dropdownMenu class="dropdown-menu">
-                <a class="dropdown-item">Edit profile</a>
-                <a class="dropdown-item">Settings</a>
-                <a class="dropdown-item" (click)="logout()" >Logout</a>
-            </div>
+    <div dropdown class="dropdown">
+        <a dropdownToggle class="dropdown-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</a>
+        <div *dropdownMenu class="dropdown-menu">
+            <a class="dropdown-item">Edit profile</a>
+            <a class="dropdown-item">Settings</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
+    </div>
     }
 
     @if(!accountService.currentUser()) {

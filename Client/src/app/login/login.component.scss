@@ -46,8 +46,8 @@
                 transition: background-color .3s ease;
 
                 &:hover {
-                    background-color: darkgreen;
-                    color: white;
+                        background-color: black;
+                        color: white;   
                 }
             }
         }
@@ -87,7 +87,7 @@
                 .login-btn {
                     height: 53px;
                     border-radius: 5px;
-                    background-color: rgb(88, 153, 210);
+                    background-color: rgb(34, 100, 159);
                     border: 1px white solid;
                     color: white;
                     padding: 0 1rem;
