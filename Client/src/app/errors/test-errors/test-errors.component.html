@@ -1,0 +1,17 @@
+<div>
+    <button  class="btn-test-error" (click)="get400Error()">Test 400 error</button>
+    <button  class="btn-test-error" (click)="get401Error()">Test 401 error</button>
+    <button  class="btn-test-error" (click)="get404Error()">Test 404 error</button>
+    <button  class="btn-test-error" (click)="get500Error()">Test 500 error</button>
+    <button  class="btn-test-error" (click)="get400ValidationError()">Test 400 validation error</button>
+
+    @if(validationErrors.length > 0){
+        <div class="errors-container">
+            <ul>
+                @for(error of validationErrors; track $index){
+                    <li>{{error}}</li>
+                }
+            </ul>
+        </div>
+    }
+</div>
