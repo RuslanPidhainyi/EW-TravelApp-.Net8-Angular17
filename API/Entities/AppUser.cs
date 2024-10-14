@@ -21,5 +21,5 @@ public class AppUser
     public List<Photo> GeneralPhotos { get; set; } = [];
     //public List<PhotoPosts> PhotosOfPosts {get; set;} = [];
 
-    public int GetAge() => DateOfBirth.CalculateAge();
+    // public int GetAge() => DateOfBirth.CalculateAge();
 }

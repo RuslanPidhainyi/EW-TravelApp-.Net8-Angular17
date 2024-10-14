@@ -12,25 +12,23 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers;
 
 [Authorize]
-public class UsersController(IUserRepository userRepo, IMapper mapper) : BaseApiController
+public class UsersController(IUserRepository userRepo) : BaseApiController
 {
     [HttpGet] // /api/users
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
     {
-        var users = await userRepo.GetUsersAsync();
+        var users = await userRepo.GetMembersAsync();
 
-        var usersToReturn = mapper.Map<IEnumerable<MemberDto>>(users);
-
-        return Ok(usersToReturn);
+        return Ok(users);
     }
 
     [HttpGet("{username}")] // /api/users/2
     public async Task<ActionResult<MemberDto>> GetUsers(string username)
     {
-        var user = await userRepo.GetUserByUsernameAsync(username);
+        var user = await userRepo.GetMemberAsync(username);
 
         if (user == null) return NotFound();
 
-        return mapper.Map<MemberDto>(user);
+        return user;
     }
 }
