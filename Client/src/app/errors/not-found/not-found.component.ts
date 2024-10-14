@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AccountService } from '../../_services/account.service';
 
 @Component({
   selector: 'app-not-found',
@@ -9,5 +10,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './not-found.component.scss'
 })
 export class NotFoundComponent {
+  accountService = inject(AccountService);
 
 }
