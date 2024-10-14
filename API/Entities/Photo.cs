@@ -8,6 +8,6 @@ public class Photo
     public string? PublicId { get; set; }
 
     //Navigation properties
-    public int ApppUserId { get; set; }
+    public int AppUserId { get; set; }
     public AppUser AppUser { get; set; } = null!;
 }

@@ -80,9 +80,6 @@ namespace API.Data.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ApppUserId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<bool>("IsMain")
                         .HasColumnType("INTEGER");
 

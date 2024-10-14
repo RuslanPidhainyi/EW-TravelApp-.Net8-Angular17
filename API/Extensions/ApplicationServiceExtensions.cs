@@ -1,5 +1,6 @@
 using System;
 using API.Data;
+using API.Data.Repositories;
 using API.Interface;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ public static class ApplicationServiceExtensions
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>(); //note: AddScoped - Okresla czas uzycza usługi. Usługe te są tworzone raz na ządanie klienta (ządanie HTTP), potem po wykorzystaniu bedzie te ządanie usuniete.
+        services.AddScoped<IUserRepository, UserRepository>();
 
         return services;
     }
