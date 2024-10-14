@@ -20,6 +20,10 @@ export class LoginComponent implements OnInit {
   private toastr = inject(ToastrService);
   registerMode = false;
   model: any = {};
+  // model: any = {
+  //   username: '',
+  //   password: '',
+  // };
   users: any;
 
   ngOnInit(): void {

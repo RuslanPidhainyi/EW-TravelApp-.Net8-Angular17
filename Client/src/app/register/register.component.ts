@@ -18,6 +18,7 @@ export class RegisterComponent {
   private toastr = inject(ToastrService);
   cancleRegister = output<boolean>();
   model: any = {}
+  // errorMessages: any = {};
 
   register() {
     this.accountService.register(this.model).subscribe({
@@ -29,6 +30,25 @@ export class RegisterComponent {
       error: error => this.toastr.error(error.error),
     })
   }
+
+  // register() {
+  //   this.accountService.register(this.model).subscribe({
+  //     next: (response) => {
+  //       console.log(response);
+  //       this.router.navigateByUrl('/offers'); 
+  //       this.cancel(); 
+  //     },
+  //     error: (error) => {
+  //       //console.log('Error:', error); 
+  
+  //       if (error.error && error.error.errors) {
+  //         this.errorMessages = error.error.errors; 
+  //       } else {
+  //         this.toastr.error('An unexpected error occurred'); 
+  //       }
+  //     }
+  //   });
+  // }
 
   cancel() {
     this.cancleRegister.emit(false);
