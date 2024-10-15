@@ -17,5 +17,5 @@ public class MemberDto
     public string? Country { get; set; }
     public string? City { get; set; }
     public List<PhotoDto>? GeneralPhotos { get; set; }
-    //public List<PhotoPostsDto>? PhotosOfPosts {get; set;}
+    public List<PostDto>? Posts {get; set;}
 }

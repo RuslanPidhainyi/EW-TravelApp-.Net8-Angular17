@@ -12,6 +12,11 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        builder.Entity<AppUser>()
+            .HasMany(u => u.Posts)
+            .WithOne(p => p.AppUser)
+            .HasForeignKey(p => p.AppUserId);
+
         base.OnModelCreating(builder);
     }
 }

@@ -1,4 +1,5 @@
 import { GeneralPhoto } from "./generalPhoto"
+import { Post } from "./post"
 
 export interface Member {
     id: number
@@ -14,4 +15,5 @@ export interface Member {
     country: string
     city: string
     generalPhotos: GeneralPhoto[]
+    posts: Post[]
 }

@@ -1,10 +1,10 @@
-<p>Example members-list works!</p>
+<p>Example posts-list works!</p>
 
 
 <div class="row">
     <div class="col-2">
-        @for (member of members; track member.id) {
-            <p>{{member.knownAs}}</p>
+        @for (post of posts; track post.id) {
+            <p>{{post.title}}</p>
         }
     </div>
 </div>

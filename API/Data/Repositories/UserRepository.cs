@@ -34,6 +34,7 @@ public class UserRepository(AppDbContext context, IMapper mapper) : IUserReposit
     {
         return await context.Users
             .Include(x => x.GeneralPhotos)
+            .Include(x => x.Posts)
             .SingleOrDefaultAsync(x => x.UserName == username);
     }
 
@@ -41,6 +42,7 @@ public class UserRepository(AppDbContext context, IMapper mapper) : IUserReposit
     {
         return await context.Users
             .Include(x => x.GeneralPhotos)
+            .Include(x => x.Posts)
             .ToListAsync();
     }
     
