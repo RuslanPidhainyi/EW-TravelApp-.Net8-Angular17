@@ -19,7 +19,7 @@ public class AppUser
     public required string Country { get; set; }
     public required string City { get; set; }
     public List<Photo> GeneralPhotos { get; set; } = [];
-    //public List<PhotoPosts> PhotosOfPosts {get; set;} = [];
+    public List<Post> Posts {get; set;} = [];
 
     // public int GetAge() => DateOfBirth.CalculateAge();
 }
