@@ -1,5 +1,6 @@
 using System;
 using API.DTOs;
+using API.Entities;
 using API.Interface;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -16,5 +17,17 @@ public class PostsController(IPostRepository postRepo, IMapper mapper) : BaseApi
         var posts = await postRepo.GetPostsAsync();
         var postsToReturn = mapper.Map<IEnumerable<PostDto>>(posts);
         return Ok(postsToReturn);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<PostDto>> GetPost(int id)
+    {
+        var post = await postRepo.GetPostByIdAsync(id);
+
+        if (post == null) return NotFound();
+
+        var postToReturn = mapper.Map<PostDto>(post);
+
+        return Ok(postToReturn);
     }
 }
