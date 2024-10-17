@@ -1,10 +1,15 @@
-<p>Example posts-list works!</p>
-
-
-<div class="row">
+<!-- <div class="row">
+    @for (post of posts; track post.id) {
     <div class="col-2">
-        @for (post of posts; track post.id) {
-            <p>{{post.title}}</p>
-        }
+        <app-offer-card [post]="post"> </app-offer-card>
     </div>
+    }
+</div> -->
+
+<div class="offers-container">
+    @for (post of posts; track post.id) {
+        <div  class="single-offer">
+            <app-offer-card [post]="post"> </app-offer-card>
+        </div>
+        }
 </div>

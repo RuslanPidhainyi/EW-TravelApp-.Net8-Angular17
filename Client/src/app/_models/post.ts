@@ -4,5 +4,5 @@ export interface Post {
     url: string
     title: string
     description: string
-    username: string
+    userName: string
 }

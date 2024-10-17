@@ -1,0 +1,47 @@
+// .container {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr); /* Дві колонки однакової ширини */
+//     gap: 20px; /* Відступ між елементами */
+//   }
+
+//   .grid-item {
+//     box-sizing: border-box;
+//     padding: 20px;
+//   }
+
+//   @media (max-width: 768px) {
+//     .container {
+//       grid-template-columns: 1fr; /* На мобільних екранах одна колонка */
+//     }
+//   }
+
+
+// .offers-container {
+//     max-width: 100vw;
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 1.5rem;
+//     // justify-content: center;
+//     padding: 0 2rem;
+//     align-self: center;
+// }
+
+.offers-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* відстань між картками */
+    justify-content: center;
+  }
+  
+  .single-offer {
+    flex: 1 1 calc(25% - 1.5rem); /* 25% від ширини контейнера мінус відступ */
+    margin-bottom: 1.5rem;
+    max-width: calc(25% - 1.5rem); /* для правильного обмеження ширини */
+  }
+
+  @media (max-width: 768px) {
+    .single-offer {
+      flex: 1 1 calc(50% - 1.5rem); /* по дві картки в рядку */
+      max-width: calc(50% - 1.5rem);
+    }
+  }
