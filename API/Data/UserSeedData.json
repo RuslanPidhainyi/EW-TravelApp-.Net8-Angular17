@@ -1,6 +1,6 @@
 [
     {
-        "UserName": "Betsy",
+        "UserName": "Lisa",
         "Gender": "female",
         "DateOfBirth": "2000-05-09",
         "KnownAs": "Betsy",
@@ -18,9 +18,28 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/97.jpg",
-                "Title": "Warsaw",
-                "Description": "Minim dolore sint reprehenderit nisi qui reprehenderit ullamco excepteur commodo est. Irure veniam nostrud mollit ipsum in elit id. Reprehenderit eiusmod in dolore non aliquip est sunt occaecat commodo quis consectetur minim duis. Duis dolore dolor exercitation aliqua tempor duis in sit mollit. Fugiat tempor incididunt amet laborum proident pariatur aliquip voluptate elit consequat et dolore amet. Esse ea minim Lorem sint tempor duis dolore. Excepteur pariatur exercitation irure nisi sunt mollit mollit enim aute dolore excepteur non.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/131723/pexels-photo-131723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "USA",
+                "City": "California",
+                "Title": "Yosemite National Park",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.\r\n"
+            },
+            {
+                "PhotoUrl": "https://images.pexels.com/photos/28901141/pexels-photo-28901141/free-photo-of-red-rock-arch-on-misty-beach-at-twilight.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Maroko",
+                "City": "Agadir",
+                "Title": "Legzira plaża, Sidi Ifni, Souss-Massa-Draa Maroko",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Legzira – marokańska dzika plaża, znajduje się w miasteczku Tioughza pomiędzy miastami Tiznit i Sidi Ifni, około 150 km na południe od Agadiru i 10 km na północ od Sidi Ifni. Jej krajobraz i fale stanowią atrakcję dla turystów oraz surferów..\r\n"
             }
         ]
     },
@@ -43,9 +62,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/13.jpg",
-                "Title": "Warsaw",
-                "Description": "Consectetur in reprehenderit eiusmod excepteur aliqua in deserunt anim incididunt. Et nostrud duis reprehenderit cillum voluptate eu voluptate aliqua culpa nisi anim veniam quis. Minim reprehenderit reprehenderit esse est aliquip occaecat culpa id sit dolore eu voluptate anim ullamco. Id consequat magna nulla proident.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/1311445/pexels-photo-1311445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Poland",
+                "City": "Zakopane",
+                "Title": "Tatry",
+                "PriceForRoad": 10,
+                "TouristPlaces": false,
+                "PriceForEnter": 10,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Tatry to najwyższe pasmo Karpat z najwyższym polskim szczytem - Rysami oraz najwyższym szytem ogólnie - Gerlachem, który leży po stronie słowackiej.\r\n"
             }
         ]
     },
@@ -68,9 +94,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/84.jpg",
-                "Title": "Warsaw",
-                "Description": "Proident ipsum excepteur magna amet laborum ex exercitation est ex. Adipisicing ipsum commodo elit laborum culpa ea officia eiusmod ipsum tempor quis sit dolore elit. Irure qui elit labore dolore officia deserunt duis. Et excepteur non deserunt consectetur ipsum adipisicing eiusmod esse cillum minim. Veniam anim velit ipsum enim pariatur sunt qui pariatur minim esse ex. Est elit cillum aliqua culpa duis. Est voluptate enim nulla amet sit deserunt velit duis.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/220770/pexels-photo-220770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "USA",
+                "City": "Arizona",
+                "Title": "Monument Valley",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Monument Valley is part of the Colorado Plateau. The elevation of the valley floor ranges from 5,000 to 6,000 feet (1,500 to 1,800 m) above sea level.\r\n"
             }
         ]
     },
@@ -93,9 +126,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/79.jpg",
-                "Title": "Warsaw",
-                "Description": "Laborum dolor et quis ut et exercitation est cillum quis ex. Cupidatat reprehenderit consequat fugiat ullamco tempor eu nulla dolore reprehenderit occaecat fugiat exercitation. Ut sit aliquip dolore esse amet qui esse commodo sunt amet labore veniam. Dolore Lorem voluptate aliquip adipisicing nostrud. Occaecat ea commodo id ex velit officia commodo amet nostrud excepteur esse sit non sunt. Mollit ex deserunt nostrud nisi nulla.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/7430485/pexels-photo-7430485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Georgia",
+                "City": "Mtskheta",
+                "Title": "Mtskheta-Mtianeti",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Mtskheta-Mtianeti is a region (Mkhare) in eastern Georgia comprising the town of Mtskheta, which serves as a regional capital, together with its district and the adjoining mountainous areas.\r\n"
             }
         ]
     },
@@ -118,14 +158,21 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/70.jpg",
-                "Title": "Warsaw",
-                "Description": "Magna mollit dolor quis nisi magna. Do ipsum amet ipsum culpa ad exercitation consectetur nulla est ullamco irure esse. Officia aliquip adipisicing id qui officia officia aute culpa. Velit dolore sit consectetur quis.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/2116483/pexels-photo-2116483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "USA",
+                "City": "California",
+                "Title": "Yosemite National Park",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "First protected in 1864, Yosemite National Park is best known for its waterfalls, but within its nearly 1,200 square miles, you can find deep valleys, grand meadows, ancient giant sequoias, a vast wilderness area, and much more.\r\n"
             }
         ]
     },
     {
-        "UserName": "Key",
+        "UserName": "Bob",
         "Gender": "male",
         "DateOfBirth": "1983-12-11",
         "KnownAs": "Key",
@@ -143,9 +190,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/74.jpg",
-                "Title": "New York",
-                "Description": "Fugiat commodo consequat id id occaecat dolore amet exercitation sit quis laborum eiusmod. Consequat quis eu mollit culpa. Aliquip nulla consectetur veniam sint ex pariatur incididunt reprehenderit enim exercitation aliqua labore.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/6348821/pexels-photo-6348821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Australia",
+                "City": "Port Macdonnell",
+                "Title": "Carpenter Rocks",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Carpenter Rocks is a town and locality located 35 kilometres (22 mi) south-west of Mount Gambier in the south-east of South Australia. The area faces the Southern Ocean and is renowned for its rugged coastline which provides exceptional fishing and diving locations.\r\n"
             }
         ]
     },
@@ -168,9 +222,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/65.jpg",
-                "Title": "New York",
-                "Description": "Duis eiusmod in sit dolore consequat nostrud cillum adipisicing nostrud excepteur do nostrud commodo. Consectetur sint quis non occaecat officia id sunt mollit sint cillum in do. Consectetur sunt ex laborum officia incididunt tempor non. Aute Lorem ipsum deserunt id ipsum proident aute nisi. Eiusmod elit amet sunt duis nulla ipsum est irure aliquip culpa ex minim. Ipsum consequat incididunt proident aliquip anim ea commodo. Aliquip voluptate eu fugiat esse dolor occaecat.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/5095807/pexels-photo-5095807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "USA",
+                "City": "California",
+                "Title": "Yosemite National Park",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.\r\n"
             }
         ]
     },
@@ -193,9 +254,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/10.jpg",
-                "Title": "New York",
-                "Description": "Veniam eu in reprehenderit nisi aliquip et voluptate enim labore velit reprehenderit. Deserunt minim qui qui minim non officia amet fugiat laborum excepteur enim occaecat mollit. Irure voluptate tempor ut Lorem.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/12182292/pexels-photo-12182292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "USA",
+                "City": "North Carolina",
+                "Title": "Buxton Beach",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.\r\n"
             }
         ]
     },
@@ -218,9 +286,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/42.jpg",
-                "Title": "New York",
-                "Description": "Minim cillum do adipisicing dolore commodo aliqua ex aliquip incididunt laborum ea. Officia velit est aute anim esse. Sint eiusmod non eiusmod sint aute elit aliqua qui eiusmod proident commodo dolor. Non reprehenderit sunt laborum in. Cupidatat consequat dolor consectetur deserunt cillum sunt cupidatat laboris enim nulla deserunt est eiusmod tempor. Laboris irure ullamco nisi adipisicing elit veniam.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/19118577/pexels-photo-19118577/free-photo-of-a-mountain-road-with-snow-covered-mountains-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Austria",
+                "City": "Tyrol",
+                "Title": "Tux, Tyrol",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "The parish of Tux covers the higher and largest part of the Tuxertal, a side valley of the Zillertal that branches off at Mayrhofen.\r\n"
             }
         ]
     },
@@ -243,9 +318,16 @@
         ],
         "Posts": [
             {
-                "Url": "https://randomuser.me/api/portraits/women/17.jpg",
-                "Title": "New York",
-                "Description": "Ea mollit commodo ea fugiat est labore cillum dolor eu. Deserunt cillum deserunt velit Lorem. Elit irure exercitation cillum occaecat exercitation reprehenderit deserunt sint sit.\r\n"
+                "PhotoUrl": "https://images.pexels.com/photos/19872371/pexels-photo-19872371/free-photo-of-the-lake-bled-is-surrounded-by-green-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "Country": "Slovenia",
+                "City": "Radovljica",
+                "Title": "Bled",
+                "PriceForRoad": 0,
+                "TouristPlaces": false,
+                "PriceForEnter": 0,
+                "ShopsNearby": false,
+                "Shops": "",
+                "Description": "The town is located on the southern slope of the Karawanks mountain range, about 6 km (3.7 mi) of Lake Bled at the confluence of the Sava Dolinka and the Sava Bohinjka, both headwaters of the Sava River. .\r\n"
             }
         ]
     }

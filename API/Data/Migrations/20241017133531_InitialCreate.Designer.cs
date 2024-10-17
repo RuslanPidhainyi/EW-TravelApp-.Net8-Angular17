@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241015152643_UpdatedEntities")]
-    partial class UpdatedEntities
+    [Migration("20241017133531_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,15 +109,38 @@ namespace API.Data.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
+
+                    b.Property<string>("PhotoUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PriceForEnter")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PriceForRoad")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Shops")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("ShopsNearby")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Url")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<bool>("TouristPlaces")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -140,7 +163,7 @@ namespace API.Data.Migrations
             modelBuilder.Entity("API.Entities.Post", b =>
                 {
                     b.HasOne("API.Entities.AppUser", "AppUser")
-                        .WithMany("Post")
+                        .WithMany("Posts")
                         .HasForeignKey("AppUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -152,7 +175,7 @@ namespace API.Data.Migrations
                 {
                     b.Navigation("GeneralPhotos");
 
-                    b.Navigation("Post");
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }
