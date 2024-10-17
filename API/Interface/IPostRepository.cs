@@ -10,7 +10,8 @@ public interface IPostRepository
     Task<bool> SaveAllAsync();
     Task<IEnumerable<Post>> GetPostsAsync();
     Task<Post?> GetPostByIdAsync(int id);
+
     // Task<Post?> GetPostByUsernameAsync(string username);
-    // Task<IEnumerable<PostDto>> GetPostsAsync();
-    // Task<PostDto?> GetPostAsync(string username);
+    Task<IEnumerable<PostDto>> GetOffersAsync();
+    Task<PostDto?> GetOfferAsync(int id);
 }

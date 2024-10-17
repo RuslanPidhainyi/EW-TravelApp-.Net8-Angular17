@@ -1,19 +1,30 @@
 using System;
+using API.DTOs;
 using API.Entities;
 using API.Interface;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories;
 
-public class PostRepository(AppDbContext context) : IPostRepository
+public class PostRepository(AppDbContext context, IMapper mapper) : IPostRepository
 {
-    public async Task<IEnumerable<Post>> GetPostsAsync()
+    public async Task<PostDto?> GetOfferAsync(int id)
     {
         return await context.Posts
-                .Include(p => p.AppUser)
-                .ToListAsync();
+            .Where(x => x.Id == id)
+            .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+            .SingleOrDefaultAsync();
     }
-    
+
+    public async Task<IEnumerable<PostDto>> GetOffersAsync()
+    {
+        return await context.Posts
+            .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+            .ToListAsync();
+    }
+
     public async Task<Post?> GetPostByIdAsync(int id)
     {
         return await context.Posts
@@ -21,13 +32,20 @@ public class PostRepository(AppDbContext context) : IPostRepository
                 .FirstOrDefaultAsync(p => p.Id == id);
     }
 
-    public void Update(Post post)
+    public async Task<IEnumerable<Post>> GetPostsAsync()
     {
-        context.Entry(post).State = EntityState.Modified;
+        return await context.Posts
+                .Include(p => p.AppUser)
+                .ToListAsync();
     }
 
     public async Task<bool> SaveAllAsync()
     {
         return await context.SaveChangesAsync() > 0;
+    }
+
+    public void Update(Post post)
+    {
+        context.Entry(post).State = EntityState.Modified;
     }
 }
