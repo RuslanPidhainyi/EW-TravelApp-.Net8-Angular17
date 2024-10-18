@@ -25,22 +25,25 @@
             padding: .5rem .5rem;
         }
 
+        
         .buttons-container {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            justify-content: center;
 
             button {
                 width: 136px;
                 transition: .2s;
+                border-radius: 5px;
             }
 
-            .like-button {
-                border: 1px rgb(240, 14, 119) solid;
-                background-color: rgb(240, 14, 119);
+            .message-button {
+                border: 1px rgb(16, 80, 154) solid;
+                background-color: rgb(16, 80, 154);
                 color: white;
-
+                
                 .icon {
                     position: relative;
                     top: 4px;
@@ -49,33 +52,8 @@
                 }
 
                 &:hover {
-                    background-color: transparent;
-                    color: rgb(240, 14, 119);
-
                     .icon {
-                        top: 2px;
-                        font-size: 25px;
-                    }
-                }
-            }
-
-            .message-button {
-                border: 1px rgb(23, 44, 103) solid;
-                background-color: rgb(23, 44, 103);
-                color: white;
-
-                .icon {
-                    position: relative;
-                    top: 4px;
-                    font-size: 20px;
-                }
-
-                &:hover {
-                    background-color: transparent;
-                    color: rgb(23, 44, 103);
-
-                    .icon {
-                        font-size: 22px;
+                        transform: scale(120%);
                     }
                 }
             }
@@ -83,12 +61,14 @@
     }
 
     .right-side {
-        width: fit-content;
+        width: 60vw;
 
         .about-container {
+            min-height: 560px;
             color: black;
             display: flex;
             flex-direction: column;
+            padding: 0 2rem;
 
             h4 {
                 margin-top: 10px
@@ -100,6 +80,23 @@
         }
 
         .photos-container {
+            min-height: 560px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+
+            h4 {
+                margin-top: 10px
+            }
+
+            p {
+                width: 500px;
+            }
+        }
+
+        .messages-container {
+            min-height: 560px;
             color: black;
             display: flex;
             flex-direction: column;
@@ -112,18 +109,34 @@
                 width: 500px;
             }
         }
+    }
 
-        .messages-container {
-            color: black;
-            display: flex;
-            flex-direction: column;
-
-            h4 {
-                margin-top: 10px
-            }
-
-            p {
-                width: 500px;
+    .posts-section {
+        width: 100%;
+        margin-top: 2rem;
+    
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // 3 стовпці
+            gap: 1rem;
+    
+            .post-card {
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
+    
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+    
+                .post-info {
+                    padding: 1rem;
+                    p {
+                        margin: 0;
+                    }
+                }
             }
         }
     }

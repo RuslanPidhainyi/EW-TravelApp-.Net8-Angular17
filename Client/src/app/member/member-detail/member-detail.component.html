@@ -1,53 +1,86 @@
+@if (member) {
 <div class="details-container">
     <div class="left-side">
-        <img src="{{member?.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
+        <img src="{{member.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
         <div class="info-container">
             <div class="info">
-                <strong>Location:</strong>
-                <p>{{member?.city}}, {{member?.country}}</p>
+                <strong>{{"Location"}}:</strong>
+                <p>{{member.city}}, {{member.country}}</p>
             </div>
             <div class="info">
-                <strong>Age:</strong>
-                <p>{{member?.age}}</p>
+                <strong>{{"Age"}}:</strong>
+                <p>{{member.age}}</p>
             </div>
             <div class="info">
-                <strong>Last active:</strong>
-                <p>{{member?.lastActive}}</p>
+                <strong>{{"LastActive"}}:</strong>
+                <p>{{member.lastActive}}</p>
             </div>
             <div class="info">
-                <strong>Member since:</strong>
-                <p>{{member?.created}}</p>
+                <strong>{{"MemberSince" }}:</strong>
+                <p>{{member.created}}</p>
             </div>
         </div>
         <div class="buttons-container">
             <button class="message-button">
-                <i class="fa fa-commenting"></i>
+                <i class="fa fa-comment"> Send a message</i>
             </button>
         </div>
     </div>
     <div class="right-side">
-        <tabset class="member-tabset">
-            <tab heading="About {{member?.knownAs}}">
+        <tabset class="member-tabset" #memberTabs>
+            <tab heading="About {{member.knownAs}}">
                 <div class="about-container">
-                    <h4>Description</h4>
-                    <p>{{member?.description}}</p>
-                    <h4>Interests</h4>
-                    <p>{{member?.interests}}</p>
+                    <h4>{{"Description" }}</h4>
+                    <p>{{member.description}}</p>
+                    <h4>{{"Interests"}}</h4>
+                    <p>{{member.interests}}</p>
                 </div>
             </tab>
             <tab heading="Photos" #photoTab="tab">
                 <div class="photos-container">
-                    @if(photoTab.active)
-                    {
-                    <gallery [items]="images" class="gallery"></gallery>
-                    }   
+                    @if (photoTab.active) {
+                        <gallery [items]="images" class="users-gallery"></gallery>
+                    }
                 </div>
             </tab>
             <tab heading="Messages">
                 <div class="messages-container">
-                    <h4>Message</h4>
+                    Message
                 </div>
             </tab>
         </tabset>
     </div>
+
+    <div class="posts-section">
+        <h3>User's Posts</h3>
+        <div class="posts-container">
+            <!-- Прикладовий пост 1 -->
+            <div class="post-card">
+                <img src="./assets/post1.jpg" alt="Post Image">
+                <div class="post-info">
+                    <p>Location: USA, California</p>
+                    <p>Description: A beautiful view of the mountains.</p>
+                </div>
+            </div>
+
+            <!-- Прикладовий пост 2 -->
+            <div class="post-card">
+                <img src="./assets/post2.jpg" alt="Post Image">
+                <div class="post-info">
+                    <p>Location: Maroko, Agadir</p>
+                    <p>Description: The red sands of the desert.</p>
+                </div>
+            </div>
+
+            <!-- Прикладовий пост 3 -->
+            <div class="post-card">
+                <img src="./assets/post3.jpg" alt="Post Image">
+                <div class="post-info">
+                    <p>Location: Poland, Zakopane</p>
+                    <p>Description: A scenic hiking trail.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+}
