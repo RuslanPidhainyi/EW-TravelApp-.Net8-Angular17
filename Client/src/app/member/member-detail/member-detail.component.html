@@ -1,6 +1,6 @@
 <div class="details-container">
     <div class="left-side">
-        <img src="{{member?.generalPhotoUrl}}" alt="User's photo">
+        <img src="{{member?.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
         <div class="info-container">
             <div class="info">
                 <strong>Location:</strong>
@@ -37,7 +37,10 @@
             </tab>
             <tab heading="Photos" #photoTab="tab">
                 <div class="photos-container">
-                    <h4>Photo</h4>
+                    @if(photoTab.active)
+                    {
+                    <gallery [items]="images" class="gallery"></gallery>
+                    }   
                 </div>
             </tab>
             <tab heading="Messages">
