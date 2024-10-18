@@ -4,13 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Post } from '../../_models/post';
 
 @Component({
-  selector: 'app-offers-detail',
+  selector: 'app-offer-detail',
   standalone: true,
   imports: [],
-  templateUrl: './offers-detail.component.html',
-  styleUrl: './offers-detail.component.scss'
+  templateUrl: './offer-detail.component.html',
+  styleUrl: './offer-detail.component.scss'
 })
-export class OffersDetailComponent implements OnInit {
+export class OfferDetailComponent implements OnInit {
   private postService = inject(PostsService);
   private route = inject(ActivatedRoute);
   post?: Post;
