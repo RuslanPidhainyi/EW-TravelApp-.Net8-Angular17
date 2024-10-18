@@ -1,2 +1,50 @@
-<h1>{{member?.username}}</h1>
-
+<div class="details-container">
+    <div class="left-side">
+        <img src="{{member?.generalPhotoUrl}}" alt="User's photo">
+        <div class="info-container">
+            <div class="info">
+                <strong>Location:</strong>
+                <p>{{member?.city}}, {{member?.country}}</p>
+            </div>
+            <div class="info">
+                <strong>Age:</strong>
+                <p>{{member?.age}}</p>
+            </div>
+            <div class="info">
+                <strong>Last active:</strong>
+                <p>{{member?.lastActive}}</p>
+            </div>
+            <div class="info">
+                <strong>Member since:</strong>
+                <p>{{member?.created}}</p>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <button class="message-button">
+                <i class="fa fa-commenting"></i>
+            </button>
+        </div>
+    </div>
+    <div class="right-side">
+        <tabset class="member-tabset">
+            <tab heading="About {{member?.knownAs}}">
+                <div class="about-container">
+                    <h4>Description</h4>
+                    <p>{{member?.description}}</p>
+                    <h4>Interests</h4>
+                    <p>{{member?.interests}}</p>
+                </div>
+            </tab>
+            <tab heading="Photos" #photoTab="tab">
+                <div class="photos-container">
+                    <h4>Photo</h4>
+                </div>
+            </tab>
+            <tab heading="Messages">
+                <div class="messages-container">
+                    <h4>Message</h4>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
