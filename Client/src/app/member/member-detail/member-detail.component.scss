@@ -116,25 +116,38 @@
         margin-top: .5rem;
 
         .posts-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
+            // display: flex;
+            // flex-wrap: wrap;
+            // gap: 1.5rem;
+            // justify-content: center;
 
-            .single-offer {
-                flex: 1 1 calc(35% - 1.5rem); //flex: 1 1 calc(25% - 1.5rem);
-                /* 25% від ширини контейнера мінус відступ */
-                margin-bottom: 1.5rem;
-                max-width: calc(35% - 1.5rem); //max-width: calc(25% - 1.5rem);
-                /* для правильного обмеження ширини */
+            // .single-offer {
+            //     flex: 1 1 calc(35% - 1.5rem); //flex: 1 1 calc(25% - 1.5rem);
+            //     /* 25% від ширини контейнера мінус відступ */
+            //     margin-bottom: 1.5rem;
+            //     max-width: calc(35% - 1.5rem); //max-width: calc(25% - 1.5rem);
+            //     /* для правильного обмеження ширини */
+            // }
+
+            // @media (max-width: 768px) {
+            //     .single-offer {
+            //         flex: 1 1 calc(50% - 1.5rem);
+            //         /* по дві картки в рядку */
+            //         max-width: calc(50% - 1.5rem);
+            //     }
+            // }
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); // 3 колонки
+            grid-gap: 20px; // Простір між картками
+            padding: 20px;
+
+            @media (max-width: 1200px) {
+                grid-template-columns: repeat(2, 1fr); // 2 колонки на середніх екранах
             }
 
             @media (max-width: 768px) {
-                .single-offer {
-                    flex: 1 1 calc(50% - 1.5rem);
-                    /* по дві картки в рядку */
-                    max-width: calc(50% - 1.5rem);
-                }
+                grid-template-columns: 1fr; // 1 колонка на маленьких екранах
             }
         }
     }

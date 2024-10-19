@@ -54,41 +54,11 @@
     <div class="posts-section">
         <h3>User's Posts</h3>
         <div class="posts-container">
-
-
             @for (post of posts; track post.id) {
                 <div  class="single-offer">
                     <app-member-offer-card [post]="post"> </app-member-offer-card>
                 </div>
                 }
-            
-            <!-- <div class="post-card">
-                <img src="./assets/post1.jpg" alt="Post Image">
-                <div class="post-info">
-                    <p>Location: USA, California</p>
-                    <p>Description: A beautiful view of the mountains.</p>
-                </div>
-            </div>
-
-            
-            <div class="post-card">
-                <img src="./assets/post2.jpg" alt="Post Image">
-                <div class="post-info">
-                    <p>Location: Maroko, Agadir</p>
-                    <p>Description: The red sands of the desert.</p>
-                </div>
-            </div>
-
-            
-            <div class="post-card">
-                <img src="./assets/post3.jpg" alt="Post Image">
-                <div class="post-info">
-                    <p>Location: Poland, Zakopane</p>
-                    <p>Description: A scenic hiking trail.</p>
-                </div>
-            </div> -->
-
-
         </div>
     </div>
 </div>
