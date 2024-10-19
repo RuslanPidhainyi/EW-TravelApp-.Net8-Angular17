@@ -1,0 +1,17 @@
+<div class="offer-container">
+    <div class="offer-info-top">
+    </div>
+    <div class="photo-container">
+      <img src="{{post().photoUrl}}" alt="{{post().title}}">
+      <div class="location-overlay">
+        <p><i class="fa fa-map-marker me-1"></i> {{post().country}}, {{post().city}}</p>
+      </div>
+    </div>
+    <div class="info">
+      <ul class="icons">
+        <li><button routerLink="/member/{{post().userName}}" class="icon-btn"><i class="fa fa-user"></i></button></li>
+        <li><button class="icon-btn"><i class="fa fa-heart"></i></button></li>
+        <li><button routerLink="/offers/{{post().id}}" class="icon-btn"><i class="fa fa-ellipsis-h"></i></button></li>
+      </ul>
+    </div>
+  </div>

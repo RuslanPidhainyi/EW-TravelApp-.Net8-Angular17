@@ -54,8 +54,15 @@
     <div class="posts-section">
         <h3>User's Posts</h3>
         <div class="posts-container">
-            <!-- Прикладовий пост 1 -->
-            <div class="post-card">
+
+
+            @for (post of posts; track post.id) {
+                <div  class="single-offer">
+                    <app-member-offer-card [post]="post"> </app-member-offer-card>
+                </div>
+                }
+            
+            <!-- <div class="post-card">
                 <img src="./assets/post1.jpg" alt="Post Image">
                 <div class="post-info">
                     <p>Location: USA, California</p>
@@ -63,7 +70,7 @@
                 </div>
             </div>
 
-            <!-- Прикладовий пост 2 -->
+            
             <div class="post-card">
                 <img src="./assets/post2.jpg" alt="Post Image">
                 <div class="post-info">
@@ -72,14 +79,16 @@
                 </div>
             </div>
 
-            <!-- Прикладовий пост 3 -->
+            
             <div class="post-card">
                 <img src="./assets/post3.jpg" alt="Post Image">
                 <div class="post-info">
                     <p>Location: Poland, Zakopane</p>
                     <p>Description: A scenic hiking trail.</p>
                 </div>
-            </div>
+            </div> -->
+
+
         </div>
     </div>
 </div>

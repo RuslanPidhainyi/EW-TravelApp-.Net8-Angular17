@@ -19,4 +19,8 @@ export class PostsService {
     return this.http.get<Post>(
       this.baseUrl + 'posts/' + username);
   }
+
+  getPostByUsername(username: string) {
+    return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
+  }
 }

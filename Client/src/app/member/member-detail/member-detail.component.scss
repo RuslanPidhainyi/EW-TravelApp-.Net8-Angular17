@@ -25,7 +25,7 @@
             padding: .5rem .5rem;
         }
 
-        
+
         .buttons-container {
             width: 100%;
             display: flex;
@@ -43,7 +43,7 @@
                 border: 1px rgb(16, 80, 154) solid;
                 background-color: rgb(16, 80, 154);
                 color: white;
-                
+
                 .icon {
                     position: relative;
                     top: 4px;
@@ -113,29 +113,27 @@
 
     .posts-section {
         width: 100%;
-        margin-top: 2rem;
-    
+        margin-top: .5rem;
+
         .posts-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); // 3 стовпці
-            gap: 1rem;
-    
-            .post-card {
-                border: 1px solid #ccc;
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
-    
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-    
-                .post-info {
-                    padding: 1rem;
-                    p {
-                        margin: 0;
-                    }
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+
+            .single-offer {
+                flex: 1 1 calc(35% - 1.5rem); //flex: 1 1 calc(25% - 1.5rem);
+                /* 25% від ширини контейнера мінус відступ */
+                margin-bottom: 1.5rem;
+                max-width: calc(35% - 1.5rem); //max-width: calc(25% - 1.5rem);
+                /* для правильного обмеження ширини */
+            }
+
+            @media (max-width: 768px) {
+                .single-offer {
+                    flex: 1 1 calc(50% - 1.5rem);
+                    /* по дві картки в рядку */
+                    max-width: calc(50% - 1.5rem);
                 }
             }
         }
