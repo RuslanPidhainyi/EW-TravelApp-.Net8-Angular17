@@ -12,6 +12,7 @@ public interface IPostRepository
     Task<Post?> GetPostByIdAsync(int id);
 
     // Task<Post?> GetPostByUsernameAsync(string username);
+    Task<IEnumerable<PostDto>> GetPostsByUsernameAsync(string username);
     Task<IEnumerable<PostDto>> GetOffersAsync();
     Task<PostDto?> GetOfferAsync(int id);
 }

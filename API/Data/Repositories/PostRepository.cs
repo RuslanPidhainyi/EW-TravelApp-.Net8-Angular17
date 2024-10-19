@@ -10,6 +10,14 @@ namespace API.Data.Repositories;
 
 public class PostRepository(AppDbContext context, IMapper mapper) : IPostRepository
 {
+    public async Task<IEnumerable<PostDto>> GetPostsByUsernameAsync(string username)
+    {
+        return await context.Posts
+            .Where(p => p.AppUser.UserName == username)
+            .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+            .ToListAsync();
+    }
+
     public async Task<PostDto?> GetOfferAsync(int id)
     {
         return await context.Posts

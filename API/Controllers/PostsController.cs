@@ -26,4 +26,12 @@ public class PostsController(IPostRepository postRepo) : BaseApiController
 
         return post;
     }
+
+    [HttpGet("user/{username}")]
+    public async Task<ActionResult<IEnumerable<PostDto>>> GetPostsByUsername(string username)
+    {
+        var posts = await postRepo.GetPostsByUsernameAsync(username);
+        return Ok(posts);
+    }
+
 }
