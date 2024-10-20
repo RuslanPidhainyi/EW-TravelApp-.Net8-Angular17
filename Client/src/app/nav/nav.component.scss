@@ -9,6 +9,7 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     padding: 0 4rem;
+    z-index: 1000; /* Додаємо z-index, щоб панель була зверху */
 
     .app-title {
         text-decoration: none;

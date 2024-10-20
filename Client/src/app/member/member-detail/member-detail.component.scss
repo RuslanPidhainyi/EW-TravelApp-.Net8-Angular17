@@ -1,0 +1,274 @@
+//Old Version!
+// .details-container {
+//     width: 100%;
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 2rem;
+
+//     .left-side {
+//         width: 300px;
+//         border: 1px rgb(181, 181, 181) solid;
+//         border-radius: 10px;
+//         box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         padding: .5rem;
+
+//         img {
+//             width: 100%;
+//         }
+
+//         .info-container {
+//             width: 100%;
+//             display: flex;
+//             flex-direction: column;
+//             padding: .5rem .5rem;
+//         }
+
+
+//         .buttons-container {
+//             width: 100%;
+//             display: flex;
+//             flex-wrap: wrap;
+//             gap: 10px;
+//             justify-content: center;
+
+//             button {
+//                 width: 136px;
+//                 transition: .2s;
+//                 border-radius: 5px;
+//             }
+
+//             .message-button {
+//                 border: 1px rgb(16, 80, 154) solid;
+//                 background-color: rgb(16, 80, 154);
+//                 color: white;
+
+//                 .icon {
+//                     position: relative;
+//                     top: 4px;
+//                     font-size: 20px;
+//                     transition: .2s;
+//                 }
+
+//                 &:hover {
+//                     .icon {
+//                         transform: scale(120%);
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     .right-side {
+//         width: 60vw;
+
+//         .about-container {
+//             min-height: 560px;
+//             color: black;
+//             display: flex;
+//             flex-direction: column;
+//             padding: 0 2rem;
+
+//             h4 {
+//                 margin-top: 10px
+//             }
+
+//             p {
+//                 width: 500px;
+//             }
+//         }
+
+//         .photos-container {
+//             min-height: 560px;
+//             color: black;
+//             display: flex;
+//             flex-direction: column;
+//             padding: 0 2rem;
+
+//             h4 {
+//                 margin-top: 10px
+//             }
+
+//             p {
+//                 width: 500px;
+//             }
+//         }
+
+//         .messages-container {
+//             min-height: 560px;
+//             color: black;
+//             display: flex;
+//             flex-direction: column;
+
+//             h4 {
+//                 margin-top: 10px
+//             }
+
+//             p {
+//                 width: 500px;
+//             }
+//         }
+//     }
+
+//     .posts-section {
+//         width: 100%;
+//         margin-top: .5rem;
+
+//         .posts-container {
+//             // display: flex;
+//             // flex-wrap: wrap;
+//             // gap: 1.5rem;
+//             // justify-content: center;
+
+//             // .single-offer {
+//             //     flex: 1 1 calc(35% - 1.5rem); //flex: 1 1 calc(25% - 1.5rem);
+//             //     /* 25% від ширини контейнера мінус відступ */
+//             //     margin-bottom: 1.5rem;
+//             //     max-width: calc(35% - 1.5rem); //max-width: calc(25% - 1.5rem);
+//             //     /* для правильного обмеження ширини */
+//             // }
+
+//             // @media (max-width: 768px) {
+//             //     .single-offer {
+//             //         flex: 1 1 calc(50% - 1.5rem);
+//             //         /* по дві картки в рядку */
+//             //         max-width: calc(50% - 1.5rem);
+//             //     }
+//             // }
+
+//             display: grid;
+//             grid-template-columns: repeat(3, 1fr); // 3 колонки
+//             grid-gap: 20px; // Простір між картками
+//             padding: 20px;
+
+//             @media (max-width: 1200px) {
+//                 grid-template-columns: repeat(2, 1fr); // 2 колонки на середніх екранах
+//             }
+
+//             @media (max-width: 768px) {
+//                 grid-template-columns: 1fr; // 1 колонка на маленьких екранах
+//             }
+//         }
+//     }
+// }
+
+
+.details-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .left-side {
+        width: 300px;
+        border: 1px rgb(181, 181, 181) solid;
+        border-radius: 10px;
+        box-shadow: 0px 0px 8px -4px rgb(16, 50, 145);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: .5rem;
+
+        img {
+            width: 100%;
+        }
+
+        .info-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: .5rem .5rem;
+        }
+
+
+        .buttons-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+
+            button {
+                width: 136px;
+                transition: .2s;
+                border-radius: 5px;
+            }
+
+            .message-button {
+                border: 1px rgb(16, 80, 154) solid;
+                background-color: rgb(16, 80, 154);
+                color: white;
+
+                .icon {
+                    position: relative;
+                    top: 4px;
+                    font-size: 20px;
+                    transition: .2s;
+                }
+
+                &:hover {
+                    .icon {
+                        transform: scale(120%);
+                    }
+                }
+            }
+        }
+    }
+
+    .right-side {
+        width: 60vw;
+
+        .posts-section {
+            width: 100%;
+            margin-top: .5rem;
+
+            .posts-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); // 3 колонки
+                grid-gap: 20px; // Простір між картками
+                padding: 20px;
+
+                @media (max-width: 1200px) {
+                    grid-template-columns: repeat(2, 1fr); // 2 колонки на середніх екранах
+                }
+
+                @media (max-width: 768px) {
+                    grid-template-columns: 1fr; // 1 колонка на маленьких екранах
+                }
+            }
+        }
+
+        .photos-container {
+            min-height: 560px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            padding: 0 2rem;
+
+            h4 {
+                margin-top: 10px
+            }
+
+            p {
+                width: 500px;
+            }
+        }
+
+        .messages-container {
+            min-height: 560px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+
+            h4 {
+                margin-top: 10px
+            }
+
+            p {
+                width: 500px;
+            }
+        }
+    }
+}

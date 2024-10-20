@@ -1,0 +1,46 @@
+
+<!-- Old Version! -->
+<!-- <div class="offer-container">
+  <div class="offer-info-top">
+    <h6 routerLink="/member/{{post().userName}}" class="card-title text-center mb-1">
+      <i class="fa fa-user me-2"></i> {{post().userName | titlecase}}
+    </h6>
+  </div>
+  <div class="photo-container">
+    <img src="{{post().photoUrl}}" alt="{{post().title}}">
+    <div class="location-overlay">
+      <p><i class="fa fa-map-marker me-1"></i> {{post().country}}, {{post().city}}</p>
+    </div>
+  </div>
+  <div class="info">
+    <ul class="icons">
+      <li><button routerLink="/member/{{post().userName}}" class="icon-btn"><i class="fa fa-user"></i></button></li>
+      <li><button class="icon-btn"><i class="fa fa-heart"></i></button></li>
+      <li><button routerLink="/offers/{{post().id}}" class="icon-btn"><i class="fa fa-ellipsis-h"></i></button></li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="offer-container">
+  <div class="photo-container">
+    <img src="{{post().photoUrl}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
+    <div class="location-overlay">
+      <p><i class="fa fa-map-marker me-1"></i> {{post().country}}, {{post().city}}</p>
+    </div>
+  </div>
+  <div class="info">
+    <div class="info-row-1-left">
+      <div class="user-info" routerLink="/member/{{post().userName}}">
+        <i class="fa fa-user"></i>
+        <h5><b>{{post().userName | titlecase}}</b></h5>
+      </div>
+      <div class="icon-buttons">
+        <i class="fa fa-heart"></i>
+        <i class="fa fa-ellipsis-h" routerLink="/offers/{{post().id}}"></i>
+      </div>
+    </div>
+    <div class="info-row-2-left">
+      <h6>{{post().title}}</h6>
+    </div>
+  </div>
+</div>

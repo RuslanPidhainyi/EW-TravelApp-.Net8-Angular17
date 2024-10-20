@@ -1,8 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
 import { RegisterComponent } from '../register/register.component';
-import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
@@ -13,8 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
-  http = inject(HttpClient);
+export class LoginComponent {
   accountService = inject(AccountService);
   private router = inject(Router);
   private toastr = inject(ToastrService);
@@ -24,11 +22,6 @@ export class LoginComponent implements OnInit {
   //   username: '',
   //   password: '',
   // };
-  users: any;
-
-  ngOnInit(): void {
-    this.getUsers();
-  }
 
   login() {
     this.accountService.login(this.model).subscribe({
@@ -47,13 +40,5 @@ export class LoginComponent implements OnInit {
 
   cancelRegisterMode(event: boolean) {
     this.registerMode = event;
-  }
-
-  getUsers() {
-    this.http.get('https://localhost:5001/api/users').subscribe({
-      next: (response) => (this.users = response),
-      error: (error) => console.error(error),
-      complete: () => console.log('Request has completed'),
-    });
   }
 }

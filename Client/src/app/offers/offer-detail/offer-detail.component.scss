@@ -1,0 +1,115 @@
+.offer-container {
+    width: 100%; // Ширина контейнера 100% від ширини вікна
+    max-width: 1800px; // Максимальна ширина збільшена на 20% (раніше було 1800px)
+    margin: 20px auto; // Центрування блоку
+    //border: 1px solid rgb(201, 201, 201);
+    border-radius: 8px 8px 0 0; // Збільшено радіус для більш м'яких країв
+    //box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); // Більш м'яка тінь
+    background-color: rgb(244, 244, 244); // Фон для кращого контрасту
+    overflow: hidden;
+
+    .photo-container {
+        position: relative;
+        width: 100%;
+        height: 500px; // Встановлюєш висоту контейнера зображення
+
+        img {
+            width: 100%;
+            height: 100%; // Зображення адаптується до висоти контейнера
+            object-fit: cover; // Забезпечує адаптивність зображення без спотворення
+        }
+
+        .location-overlay {
+            position: absolute;
+            bottom: 20px; // Відступ знизу
+            left: 20px; // Відступ зліва
+            background: rgba(0, 0, 0, 0.6); // Прозорий фон
+            padding: 10px 15px; // Внутрішній відступ
+            border-radius: 8px;
+
+            p {
+                color: white;
+                font-weight: bold;
+                font-size: 1.1rem;
+                margin: 0;
+                display: flex;
+                align-items: center;
+
+                i {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    .info {
+        width: 100%;
+        padding: 1rem;
+
+        .info-row-1-left {
+            display: flex;
+            justify-content: space-between;
+            /* Розділяємо ім'я користувача та іконки */
+            align-items: center;
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                cursor: pointer;
+                color: rgb(0, 0, 0);
+
+                i {
+                    font-size: 1.5rem;
+                }
+
+                h5 {
+                    margin: 0;
+                }
+            }
+
+            .icon-buttons {
+                display: flex;
+                gap: 0.5rem;
+
+                i {
+                    font-size: 1.5rem;
+                    color: rgb(0, 0, 0);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .info-row-2-left {
+            text-align: left;
+            padding-top: 0.5rem;
+
+            .place-info {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: rgb(0, 0, 0);
+
+                h5 {
+                    margin: 0;
+                }
+            }
+        }
+
+        .info-row-3-left {
+            text-align: left;
+            padding-top: 0.5rem;
+
+            .desc-info {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: rgb(0, 0, 0);
+
+                h6 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

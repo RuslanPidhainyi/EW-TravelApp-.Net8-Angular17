@@ -23,7 +23,7 @@ public class UsersController(IUserRepository userRepo) : BaseApiController
     }
 
     [HttpGet("{username}")] // /api/users/2
-    public async Task<ActionResult<MemberDto>> GetUsers(string username)
+    public async Task<ActionResult<MemberDto>> GetUser(string username)
     {
         var user = await userRepo.GetMemberAsync(username);
 
