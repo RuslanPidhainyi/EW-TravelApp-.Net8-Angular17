@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PostsService } from '../../_services/posts.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Post } from '../../_models/post';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-offer-detail',
   standalone: true,
-  imports: [],
+  imports: [TitleCasePipe, RouterLink],
   templateUrl: './offer-detail.component.html',
   styleUrl: './offer-detail.component.scss'
 })

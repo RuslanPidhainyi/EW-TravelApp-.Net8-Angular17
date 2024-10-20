@@ -1,6 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Member } from '../../_models/member';
-import { MembersService } from '../../_services/members.service';
 import { PostsService } from '../../_services/posts.service';
 import { Post } from '../../_models/post';
 import { OfferCardComponent } from "../offer-card/offer-card.component";
