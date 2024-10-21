@@ -9,6 +9,8 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { OfferDetailComponent } from './offers/offer-detail/offer-detail.component';
 import { MemberDetailComponent } from './member/member-detail/member-detail.component';
+import { MemberProfileComponent } from './member/member-profile/member-profile.component';
+import { MemberEditProfileComponent } from './member/member-edit-profile/member-edit-profile.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -20,7 +22,9 @@ export const routes: Routes = [
             { path: '', component: LoginComponent },
             { path: 'offers', component: OffersListComponent },
             { path: 'offers/:id', component: OfferDetailComponent },
-            { path: 'member/:username', component: MemberDetailComponent },
+            { path: 'members/:username', component: MemberDetailComponent },
+            { path: 'member/profile', component: MemberProfileComponent },
+            { path: 'member/edit-profile', component: MemberEditProfileComponent },
             { path: 'lists', component: ListsComponent },
             { path: 'messages', component: MessagesComponent },
         ],

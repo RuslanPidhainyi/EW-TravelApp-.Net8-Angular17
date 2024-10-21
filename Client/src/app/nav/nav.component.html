@@ -26,7 +26,7 @@
     <div dropdown class="dropdown">
         <a dropdownToggle class="dropdown-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</a>
         <div *dropdownMenu class="dropdown-menu">
-            <a class="dropdown-item">Edit profile</a>
+            <a routerLink="/member/profile" class="dropdown-item">Profile</a>
             <a class="dropdown-item">Settings</a>
             <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>

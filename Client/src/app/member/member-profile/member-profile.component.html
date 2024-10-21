@@ -1,0 +1,66 @@
+@if(member) {
+    <div class="details-container">
+        <div class="left-side">
+            <img src="{{member.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
+            <div class="info-container">
+                <div class="info">
+                    <strong>{{"Location"}}:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div class="info">
+                    <strong>{{"Age"}}:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div class="info">
+                    <strong>{{"LastActive"}}:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div class="info">
+                    <strong>{{"MemberSince"}}:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button routerLink="/member/edit-profile" class="edit-profile-button">
+                    edit profile
+                </button>
+                <button class="message-button">
+                    <i class="fa fa-comment"> message</i>
+                </button>
+            </div>
+        </div>
+        <div class="right-side">
+            <tabset class="member-tabset" #memberTabs>
+                <tab heading="User's Posts">
+                    <div class="posts-section">
+                        <div class="posts-container">
+                            @for (post of posts; track post.id) {
+                                <div  class="single-offer">
+                                    <app-member-offer-card [post]="post"> </app-member-offer-card>
+                                </div>
+                                }
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="About {{member.knownAs}}" #photoTab="tab">
+                    <div class="photos-container">
+                        @if (photoTab.active) {
+                            <gallery [items]="images" class="users-gallery"></gallery>
+                        }
+                    </div>
+                    <div class="about-container">
+                        <h4>{{"Description" }}</h4>
+                        <p>{{member.description}}</p>
+                        <h4>{{"Interests"}}</h4>
+                        <p>{{member.interests}}</p>
+                    </div>
+                </tab>
+                <tab heading="Messages">
+                    <div class="messages-container">
+                        Message
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+}
