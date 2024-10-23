@@ -2,6 +2,7 @@
     display: flex;
     align-items: center; //verticaly
     justify-content: center; //horizontal
+    margin-top: 8rem;//Odstep od navBar
 
     .common-card {
         display: flex;
@@ -17,23 +18,27 @@
 
             h1 {
                 font-size: 60px;
+                color: black;
             }
 
             .list {
                 h4 {
                     margin-bottom: 12px;
+                    color: black;
                 }
 
                 ul {
                     li {
                         margin-top: 5px;
                         margin-left: 13px;
+                        color: black;
                     }
                 }
             }
 
             span {
                 font-size: 14px;
+                color: black;
             }
 
             .register-btn {
@@ -46,8 +51,8 @@
                 transition: background-color .3s ease;
 
                 &:hover {
-                        background-color: black;
-                        color: white;   
+                    background-color: black;
+                    color: white;   
                 }
             }
         }
@@ -62,6 +67,7 @@
             h1 {
                 font-size: 40px;
                 font-weight: 750;
+                color: black;
             }
 
             .login-form {
@@ -80,7 +86,7 @@
 
                     &:focus {
                         outline: none;
-                        border-color: rgb(16, 80, 154);
+                        border-color:black;
                     }
                 }
 

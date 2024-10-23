@@ -3,7 +3,8 @@
     max-width: 1800px; // Максимальна ширина збільшена на 20% (раніше було 1800px)
     margin: 20px auto; // Центрування блоку
     //border: 1px solid rgb(201, 201, 201);
-    border-radius: 8px 8px 0 0; // Збільшено радіус для більш м'яких країв
+    border-radius: 10px 10px 0 0; // Збільшено радіус для більш м'яких країв
+    border: none;
     //box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); // Більш м'яка тінь
     background-color: rgb(244, 244, 244); // Фон для кращого контрасту
     overflow: hidden;
@@ -11,12 +12,13 @@
     .photo-container {
         position: relative;
         width: 100%;
-        height: 500px; // Встановлюєш висоту контейнера зображення
+        height: 70vh; // Встановлюєш висоту контейнера зображення
 
         img {
             width: 100%;
             height: 100%; // Зображення адаптується до висоти контейнера
             object-fit: cover; // Забезпечує адаптивність зображення без спотворення
+            border-radius: 10px 10px 0px 0px;
         }
 
         .location-overlay {
@@ -63,8 +65,9 @@
                     font-size: 1.5rem;
                 }
 
-                h5 {
+                h4 {
                     margin: 0;
+                    font-weight: bolder;
                 }
             }
 
@@ -91,6 +94,7 @@
                 color: rgb(0, 0, 0);
 
                 h5 {
+                    font-weight: bold;
                     margin: 0;
                 }
             }
