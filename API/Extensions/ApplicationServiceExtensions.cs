@@ -21,6 +21,7 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //note: AutoMapper
+        services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));//note: Cloudinary
 
         return services;
     }
