@@ -23,7 +23,8 @@ export class OfferDetailComponent implements OnInit {
   loadPost() {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) return;
-    this.postService.getPost(id).subscribe({
+    const numericId = Number(id);
+    this.postService.getPostById(numericId).subscribe({
       next: post => this.post = post,
     });
   } 

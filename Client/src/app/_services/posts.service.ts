@@ -13,21 +13,22 @@ export class PostsService {
   posts = signal<Post[]>([]);
 
   getPosts() {
-    return this.http.get<Post[]>(
-      this.baseUrl + 'posts').subscribe({
-        next: posts => this.posts.set(posts),
-      });
+    return this.http.get<Post[]>(this.baseUrl + 'posts').subscribe({
+      next: (posts) => this.posts.set(posts),
+    });
   }
 
-  getPost(username: string) {
-    const post = this.posts().find(x => x.userName === username);
-    if(post !== undefined) return of(post);
+  getPostById(id: number) {
+    const post = this.posts().find((x) => x.id === id);
+    if (post !== undefined) return of(post);
 
-    return this.http.get<Post>(
-      this.baseUrl + 'posts/' + username);
+    return this.http.get<Post>(this.baseUrl + 'posts/' + id);
   }
 
   getPostByUsername(username: string) {
+    const post = this.posts().find((x) => x.userName === username);
+    if (post !== undefined) return of(post);
+
     return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
   }
 }
