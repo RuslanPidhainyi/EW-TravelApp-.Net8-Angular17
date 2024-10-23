@@ -1,0 +1,15 @@
+<div class="photo-editor-container">
+    @for (photo of member().generalPhotos; track photo.id) {
+            <div class="single-photo-editor">
+            <img src="{{photo.url}}" alt="user's photo">
+            <div class="buttons-section">
+                <button class="main-button">
+                    Main
+                </button>
+                <button  class="delete-button">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    }
+</div>

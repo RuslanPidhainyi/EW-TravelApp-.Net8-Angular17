@@ -36,46 +36,51 @@
                 </div>
             </div>
             <div class="buttons-container">
-                <button 
-                    [disabled]="!editForm.dirty"
-                    type="submit" 
-                    form="editForm" 
-                    class="save-button">
+                <button [disabled]="!editForm.dirty" type="submit" form="editForm" class="save-button">
                     Save changes
                 </button>
             </div>
         </div>
         <div class="right-side">
             <tabset class="member-tabset" #memberTabs>
-                <tab heading="About {{member.knownAs}} and Edit photos" #photoTab="tab">
-                    <div class="about-container">
-                        <form id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
-                            <h4>Description</h4>
-                            <textarea [(ngModel)]="member.description" name="description" rows="6"></textarea>
-                            <h4>Interests</h4>
-                            <textarea [(ngModel)]="member.interests" name="interests" rows="6"></textarea>
-                            <h4>Location Details</h4>
-                            <div class="location-details-section">
-                                <div class="location-details-input">
-                                    <label for="city">City: </label>
-                                    <input type="text" name="city" [(ngModel)]="member.city">
-                                </div>
-                                <div class="location-details-input">
-                                    <label for="country">Country: </label>
-                                    <input type="text" name="country" [(ngModel)]="member.country">
-                                </div>
+                <tab heading="Edit profile" #photoTab="tab">
+                    <div class="tab">
+                        <div class="photo-section">
+                            <div class="photo-container">
+                                <app-photo-editor [member]="member"></app-photo-editor>
                             </div>
-                        </form>
+                        </div>
+                        <div class="about-container">
+                            <form id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
+                                <h4>Description</h4>
+                                <textarea [(ngModel)]="member.description" name="description" rows="6"></textarea>
+                                <h4>Interests</h4>
+                                <textarea [(ngModel)]="member.interests" name="interests" rows="6"></textarea>
+                                <h4>Location Details</h4>
+                                <div class="location-details-section">
+                                    <div class="location-details-input">
+                                        <label for="city">City: </label>
+                                        <input type="text" name="city" [(ngModel)]="member.city">
+                                    </div>
+                                    <div class="location-details-input">
+                                        <label for="country">Country: </label>
+                                        <input type="text" name="country" [(ngModel)]="member.country">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </tab>
                 <tab heading="User's Posts">
-                    <div class="posts-section">
-                        <div class="posts-container">
-                            @for (post of posts; track post.id) {
-                            <div class="single-offer">
-                                <app-member-offer-card [post]="post"> </app-member-offer-card>
+                    <div class="tab">
+                        <div class="posts-section">
+                            <div class="posts-container">
+                                @for (post of posts; track post.id) {
+                                <div class="single-offer">
+                                    <app-member-offer-card [post]="post"> </app-member-offer-card>
+                                </div>
+                                }
                             </div>
-                            }
                         </div>
                     </div>
                 </tab>
