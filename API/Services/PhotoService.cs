@@ -12,13 +12,11 @@ public class PhotoService : IPhotoService
     public PhotoService(IOptions<CloudinarySettings> config)
     {
         var acc = new Account(config.Value.CloudName, config.Value.ApiKey, config.Value.ApiSecret);
-
         _cloudinary = new Cloudinary(acc);
     }
     public async Task<ImageUploadResult> AddPhotoAsync(IFormFile file)
     {
         var uploadResult = new ImageUploadResult();
-
         if (file.Length > 0)
         {
             using var stream = file.OpenReadStream();
@@ -27,19 +25,15 @@ public class PhotoService : IPhotoService
                 File = new FileDescription(file.FileName, stream),
                 Transformation = new Transformation()
                     .Height(500).Width(500).Crop("fill").Gravity("face"),
-                Folder = "EngineerWork-2024-TravelApp-net8"
+                Folder = "da-net8"
             };
-
             uploadResult = await _cloudinary.UploadAsync(uploadParams);
         }
-
         return uploadResult;
     }
-
     public async Task<DeletionResult> DeletePhotoAsync(string publicId)
     {
         var deleteParams = new DeletionParams(publicId);
-
         return await _cloudinary.DestroyAsync(deleteParams);
     }
 }

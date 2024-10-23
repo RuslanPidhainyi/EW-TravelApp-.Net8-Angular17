@@ -48,26 +48,16 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
     public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
     {
         var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
-
         if (user == null) return BadRequest("Cannot update user");
-
         var result = await photoService.AddPhotoAsync(file);
-
         if (result.Error != null) return BadRequest(result.Error.Message);
-
         var photo = new Photo
         {
             Url = result.SecureUrl.AbsoluteUri,
             PublicId = result.PublicId
         };
-
-        if (user.GeneralPhotos.Count == 0) photo.IsMain = true;
-
         user.GeneralPhotos.Add(photo);
-
-        if (await userRepo.SaveAllAsync())
-            return mapper.Map<PhotoDto>(photo);
-
+        if (await userRepo.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
         return BadRequest("Problem adding photo");
     }
 }
