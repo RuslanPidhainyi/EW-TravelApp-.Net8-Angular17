@@ -3,6 +3,7 @@
 .offer-container {
     border: 1px rgb(201, 201, 201) solid;
     border-radius: 5px;
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,7 +98,8 @@
 
 .offer-container {
     border: 1px rgb(201, 201, 201) solid;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
