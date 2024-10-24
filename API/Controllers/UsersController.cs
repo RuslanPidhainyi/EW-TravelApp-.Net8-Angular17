@@ -20,7 +20,7 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         return Ok(users);
     }
 
-    [HttpGet("{username}")] // /api/users/2
+    [HttpGet("{username}")] // /api/users/lisa
     public async Task<ActionResult<MemberDto>> GetUser(string username)
     {
         var user = await userRepo.GetMemberAsync(username);
