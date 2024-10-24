@@ -19,8 +19,10 @@ public static class ApplicationServiceExtensions
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>(); //note: AddScoped - Okresla czas uzycza usługi. Usługe te są tworzone raz na ządanie klienta (ządanie HTTP), potem po wykorzystaniu bedzie te ządanie usuniete.
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IPhotoService, PhotoService>();
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //note: AutoMapper
+        services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));//note: Cloudinary
 
         return services;
     }

@@ -1,9 +1,7 @@
-using System;
 using System.Security.Cryptography;
 using System.Text;
 using API.Data;
 using API.DTOs;
-using API.Entities;
 using API.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +38,9 @@ public class AccountController(AppDbContext context, ITokenService tokenService)
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await context.Users.FirstOrDefaultAsync(x =>
+        var user = await context.Users
+            .Include(p => p.GeneralPhotos)
+            .FirstOrDefaultAsync(x =>
             x.UserName == loginDto.Username.ToLower());
 
         if (user == null) return Unauthorized("Invalid username");
@@ -58,6 +58,7 @@ public class AccountController(AppDbContext context, ITokenService tokenService)
         {
             Username = user.UserName,
             Token = tokenService.CreateToken(user),
+            GeneralPhotoUrl = user.GeneralPhotos.FirstOrDefault(x => x.IsMain)?.Url
         };
     }
 
