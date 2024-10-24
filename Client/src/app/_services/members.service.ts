@@ -53,7 +53,16 @@ export class MembersService {
       );
   }
 
-  deletePhoto(photoId: number) {
-    return this.http.delete(this.baseUrl + 'users/set-main-photo/' + photoId);
+  deletePhoto(photo: GeneralPhoto) {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photo.id).pipe(
+      tap(() => {
+        this.members.update(members => members.map(m => {
+          if (m.generalPhotos.includes(photo)) {
+            m.generalPhotos = m.generalPhotos.filter(x => x.id !== photo.id)
+          }
+          return m
+        }))
+      })
+    );
   }
 }
