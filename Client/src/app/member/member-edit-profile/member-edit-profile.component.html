@@ -47,7 +47,7 @@
                     <div class="tab">
                         <div class="photo-section">
                             <div class="photo-container">
-                                <app-photo-editor [member]="member"></app-photo-editor>
+                                <app-photo-editor [member]="member" (memberChange)="onMemberChange($event)"></app-photo-editor>
                             </div>
                         </div>
                         <div class="about-container">
