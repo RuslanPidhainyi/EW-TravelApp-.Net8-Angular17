@@ -3,7 +3,10 @@
     <div class="single-photo-editor">
         <img src="{{photo.url}}" alt="user's photo">
         <div class="buttons-section">
-            <button class="main-button">
+            <button 
+            [disabled]="photo.isMain"
+            (click)="setMainPhoto(photo)"
+            [ngClass]="photo.isMain ? 'btn-active' : 'btn-unactive'">
                 Main
             </button>
             <button class="delete-button">
@@ -26,7 +29,7 @@
             (fileOver)="fileOverBase($event)"
             [uploader]="uploader" 
             class="card bg-faded p-5 text-center my-drop-zone">
-            <i class="fa fa-dropbox"></i>
+            <i class="fa fa-dropbox fa-3x"></i>
             Base drop zone
         </div>
     </div>

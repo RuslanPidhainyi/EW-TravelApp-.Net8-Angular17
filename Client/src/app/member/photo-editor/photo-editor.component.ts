@@ -4,6 +4,8 @@ import { DecimalPipe, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
 import { AccountService } from '../../_services/account.service';
 import { environment } from '../../../environments/environment';
+import { GeneralPhoto } from '../../_models/generalPhoto';
+import { MembersService } from '../../_services/members.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -14,6 +16,7 @@ import { environment } from '../../../environments/environment';
 })
 export class PhotoEditorComponent implements OnInit {
   private accountService = inject(AccountService);
+  private memberService = inject(MembersService)
   member = input.required<Member>();
   uploader?: FileUploader;
   hasBaseDropZoneOver = false;
@@ -26,6 +29,25 @@ export class PhotoEditorComponent implements OnInit {
 
   fileOverBase(e: any) {
     this.hasBaseDropZoneOver = e;
+  }
+
+  setMainPhoto(photo: GeneralPhoto) {
+    this.memberService.setMainPhoto(photo).subscribe({
+      next: _ => {
+        const user = this.accountService.currentUser();
+        if(user){
+          user.generalPhotoUrl = photo.url;
+          this.accountService.setCurrentUser(user);
+        }
+        const updatedMember = {...this.member()}
+        updatedMember.generalPhotoUrl = photo.url;
+        updatedMember.generalPhotos.forEach(p => {  
+          if(p.isMain) p.isMain = false;
+          if(p.id === photo.id) p.isMain = true;
+        });
+        this.memberChange.emit(updatedMember);
+      }
+    })
   }
 
   initializeUploader() {

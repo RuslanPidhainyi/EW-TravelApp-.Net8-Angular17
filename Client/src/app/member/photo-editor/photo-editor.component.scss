@@ -31,17 +31,33 @@
                 border-radius: 5px;
             }
 
-            .main-button {
+            // .main-button {
+            //     border: 1px rgb(0, 0, 0) solid;
+            //     background-color: rgb(255, 255, 255);
+            //     color: black;
+
+            //     &:hover {
+            //         background-color: black;
+            //         color: white;
+            //         cursor: pointer;
+            //     }
+            // }
+
+            .btn-active{
+                border: 1px rgb(0, 0, 0) solid;
+                background-color: black;
+                color: white;
+                cursor: pointer;
+            }
+
+            .btn-unactive {
                 border: 1px rgb(0, 0, 0) solid;
                 background-color: rgb(255, 255, 255);
                 color: black;
-
-                &:hover {
-                    background-color: black;
-                    color: white;
-                    cursor: pointer;
-                }
+                cursor: pointer;
             }
+
+
 
             .delete-button {
                 background-color: rgb(186, 0, 0);

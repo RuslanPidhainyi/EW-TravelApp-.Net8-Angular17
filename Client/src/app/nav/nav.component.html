@@ -25,6 +25,7 @@
     @if(accountService.currentUser()) {
     <div dropdown class="dropdown">
         <img 
+        routerLink="/member/profile"
         class="users-profile-image"
         src="{{accountService.currentUser()?.generalPhotoUrl || './assets/user.png'}}" 
         alt="user main image">
