@@ -60,4 +60,24 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         if (await userRepo.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
         return BadRequest("Problem adding photo");
     }
+
+    [HttpPut("set-main-photo/{photoId:int}")]
+    public async Task<ActionResult> SetMainPhoto(int photoId)
+    {
+        var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
+
+        if (user == null) return BadRequest("Could not found user");
+
+        var photo = user.GeneralPhotos.FirstOrDefault(x => x.Id == photoId);
+
+        if (photo == null || photo.IsMain) return BadRequest("Could not use this as main photo");
+
+        var currentMain = user.GeneralPhotos.FirstOrDefault(x => x.IsMain);
+        if (currentMain != null) currentMain.IsMain = false;
+        photo.IsMain = true;
+
+        if (await userRepo.SaveAllAsync()) return NoContent();
+
+        return BadRequest("Problem setting main photo");
+    }
 }
