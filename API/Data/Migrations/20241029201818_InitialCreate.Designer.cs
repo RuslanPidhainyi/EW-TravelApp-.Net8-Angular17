@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241017133531_InitialCreate")]
+    [Migration("20241029201818_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -109,38 +109,87 @@ namespace API.Data.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Country")
+                    b.Property<string>("Currency")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PhotoUrl")
+                    b.Property<bool>("EntranceFee")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("GroceryStore")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Guide")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LastCity")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PriceForEnter")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("PriceForRoad")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Shops")
+                    b.Property<string>("LastCountry")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("ShopsNearby")
+                    b.Property<bool>("LocalTransport")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LocationCity")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LocationCountry")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MaxPriceEntrFee")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxPriceGroceryStore")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxPriceGuide")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxPriceLocalTrans")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MaxPricePlaceStay")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinPriceEntrFee")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinPriceGroceryStore")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinPriceGuide")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinPriceLocalTrans")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("MinPricePlaceStay")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("PlaceStay")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("TouristPlaces")
+                    b.Property<int>("TravelTime")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("TypePlaceStay")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

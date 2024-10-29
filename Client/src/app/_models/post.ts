@@ -1,14 +1,29 @@
 export interface Post {
     id: number;
-    photoUrl: string;
-    country: string;
-    city: string;
+    url: string;
     title: string;
-    priceForRoad: number;
-    touristPlaces: boolean;
-    priceForEnter: number;
-    shopsNearby: boolean;
-    shops: string;
+    locationCountry: string;
+    locationCity: string;
+    lastCountry: string;
+    lastCity: string;
+    localTransport: boolean;
+    minPriceLocalTrans: number;
+    maxPriceLocalTrans: number;
+    travelTime: number;
+    entranceFee: boolean;
+    minPriceEntrFee: number;
+    maxPriceEntrFee: number;
+    placeStay: boolean;
+    typePlaceStay: string;
+    minPricePlaceStay: number;
+    maxPricePlaceStay: number;
+    groceryStore: boolean;
+    minPriceGroceryStore: number;
+    maxPriceGroceryStore: number;
+    guide: boolean;
+    minPriceGuide: number;
+    maxPriceGuide: number;
+    currency: string
     description: string;
     //appUserId: number;
     userName: string;
