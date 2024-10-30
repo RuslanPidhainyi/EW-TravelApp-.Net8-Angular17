@@ -149,54 +149,38 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         return BadRequest("Failed to update post");
     }
 
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeletePost(int id)
+    {
+        // Отримуємо пост з бази даних
+        var post = await postRepo.GetPostByIdAsync(id);
+        if (post == null) return NotFound("Post not found.");
 
-    // [HttpPut("{id:int}")]
-    // public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto, [FromForm] IFormFile? file = null)
-    // {
-    //     var post = await postRepo.GetPostByIdAsync(id);
-    //     if (post == null) return NotFound("Post not found.");
+        // Видаляємо фото з Cloudinary, якщо є URL
+        if (!string.IsNullOrEmpty(post.Url))
+        {
+            // Отримуємо PublicId з URL
+            var publicId = ExtractPublicIdFromUrl(post.Url);
+            if (!string.IsNullOrEmpty(publicId))
+            {
+                var result = await photoService.DeletePhotoAsync(publicId);
+                if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
+            }
+        }
 
-    //     // Використовуємо AutoMapper для маппінгу з PostDto до Post
-    //     mapper.Map(postDto, post);
+        // Видаляємо пост з бази даних
+        postRepo.Delete(post);
 
-    //     // Завантаження нового фото, якщо воно надано
-    //     if (file != null)
-    //     {
-    //         var uploadResult = await photoService.AddPostPhotoAsync(file);
-    //         if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+        if (await postRepo.SaveAllAsync()) return NoContent(); // Успішне видалення
 
-    //         post.Url = uploadResult.SecureUrl.AbsoluteUri; // Оновлюємо URL фото
-    //     }
+        return BadRequest("Failed to delete post");
+    }
 
-    //     postRepo.Update(post);
-
-    //     if (await postRepo.SaveAllAsync())
-    //     {
-    //         return NoContent(); // Повертаємо 204 No Content у разі успішного оновлення
-    //     }
-
-    //     return BadRequest("Failed to update post");
-    // }
-
-    // [HttpPut("{id:int}")]
-    // public async Task<ActionResult<PostDto>> UpdatePost(int id, [FromForm] PostDto postDto, [FromForm] IFormFile? file)
-    // {
-    //     var post = await postRepo.GetPostByIdAsync(id);
-    //     if (post == null) return NotFound();
-
-    //     mapper.Map(postDto, post); // Використання AutoMapper для оновлення властивостей
-
-    //     if (file != null)
-    //     {
-    //         // Логіка для завантаження нового фото, якщо воно надане
-    //         var result = await photoService.AddPostPhotoAsync(file);
-    //         if (result.Error != null) return BadRequest(result.Error.Message);
-    //         post.Url = result.SecureUrl.AbsoluteUri; // Оновлення URL фото
-    //     }
-
-    //     if (await postRepo.SaveAllAsync()) return NoContent(); // Повертаємо 204 No Content у разі успішного оновлення
-
-    //     return BadRequest("Failed to update post");
-    // }
-
+    private string ExtractPublicIdFromUrl(string url)
+    {
+        var uri = new Uri(url);
+        var segments = uri.Segments;
+        var fileName = segments.Last();
+        return Path.GetFileNameWithoutExtension(fileName);
+    }
 }

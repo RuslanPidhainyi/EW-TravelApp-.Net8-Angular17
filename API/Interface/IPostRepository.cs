@@ -16,4 +16,5 @@ public interface IPostRepository
     Task<IEnumerable<PostDto>> GetOffersAsync();
     Task<PostDto?> GetOfferAsync(int id);
     Task Add(Post post);
+    void Delete(Post post);
 }

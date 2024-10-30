@@ -61,4 +61,9 @@ public class PostRepository(AppDbContext context, IMapper mapper) : IPostReposit
     {
         await context.Posts.AddAsync(post);
     }
+
+    public void Delete(Post post)
+    {
+        context.Posts.Remove(post);
+    }
 }
