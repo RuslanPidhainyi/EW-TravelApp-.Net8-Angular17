@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 
 [Authorize]
-public class PostsController(IPostRepository postRepo, IUserRepository userRepo, IMapper mapper) : BaseApiController
+public class PostsController(IPostRepository postRepo, IUserRepository userRepo, IPhotoService photoService, IMapper mapper) : BaseApiController
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<PostDto>>> GetPosts()
@@ -38,15 +38,19 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
     }
 
     [HttpPost("add-post")]
-    public async Task<ActionResult<PostDto>> CreatePost(PostDto postDto)
+    public async Task<ActionResult<PostDto>> CreatePost([FromForm] PostDto postDto, [FromForm] IFormFile file)
     {
         var username = User.GetUsername();
         var user = await userRepo.GetUserByUsernameAsync(username);
 
         if (user == null) return BadRequest("Could not find user");
 
+        var uploadResult = await photoService.AddPostPhotoAsync(file);
+        if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+
         var post = mapper.Map<Post>(postDto);
         post.AppUserId = user.Id;
+        post.Url = uploadResult.SecureUrl.AbsoluteUri;
 
         await postRepo.Add(post);
 
