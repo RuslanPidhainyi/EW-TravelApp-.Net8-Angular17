@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241029201818_InitialCreate")]
+    [Migration("20241030192341_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

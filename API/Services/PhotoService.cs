@@ -14,8 +14,6 @@ public class PhotoService : IPhotoService
         var acc = new Account(config.Value.CloudName, config.Value.ApiKey, config.Value.ApiSecret);
         _cloudinary = new Cloudinary(acc);
     }
-
-    // Загальний метод для завантаження фото
     private async Task<ImageUploadResult> UploadPhotoAsync(IFormFile file, Transformation transformation)
     {
         var uploadResult = new ImageUploadResult();

@@ -45,6 +45,38 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         if (user == null) return BadRequest("Could not find user");
 
+        if (!postDto.LocalTransport)
+        {
+            postDto.MinPriceLocalTrans = 0;
+            postDto.MaxPriceLocalTrans = 0;
+            postDto.TravelTime = 0;
+        }
+
+        if (!postDto.EntranceFee)
+        {
+            postDto.MinPriceEntrFee = 0;
+            postDto.MaxPriceEntrFee = 0;
+        }
+
+        if (!postDto.PlaceStay)
+        {
+            postDto.TypePlaceStay = "None";
+            postDto.MinPricePlaceStay = 0;
+            postDto.MaxPricePlaceStay = 0;
+        }
+
+        if (!postDto.GroceryStore)
+        {
+            postDto.MinPriceGroceryStore = 0;
+            postDto.MaxPriceGroceryStore = 0;
+        }
+
+        if (!postDto.Guide)
+        {
+            postDto.MinPriceGuide = 0;
+            postDto.MaxPriceGuide = 0;
+        }
+
         var uploadResult = await photoService.AddPostPhotoAsync(file);
         if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
@@ -65,5 +97,4 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         return BadRequest("Failed to create post");
     }
-
 }
