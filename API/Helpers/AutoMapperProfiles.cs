@@ -20,6 +20,7 @@ public class AutoMapperProfiles : Profile
                     o => o.MapFrom(s => s.AppUser.UserName))
             .ForMember(d => d.AppUserId, 
                     o => o.MapFrom(s => s.AppUserId));
+        CreateMap<PostDto, Post>();
         CreateMap<MemberUpdatedDto, AppUser>();
     }
 }

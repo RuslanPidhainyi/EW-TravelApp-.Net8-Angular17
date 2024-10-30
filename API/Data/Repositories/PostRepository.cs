@@ -56,4 +56,9 @@ public class PostRepository(AppDbContext context, IMapper mapper) : IPostReposit
     {
         context.Entry(post).State = EntityState.Modified;
     }
+
+    public async Task Add(Post post)
+    {
+        await context.Posts.AddAsync(post);
+    }
 }
