@@ -17,7 +17,6 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
     public async Task<ActionResult<IEnumerable<PostDto>>> GetPosts()
     {
         var posts = await postRepo.GetOffersAsync();
-
         return Ok(posts);
     }
 
@@ -25,9 +24,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
     public async Task<ActionResult<PostDto>> GetPost(int id)
     {
         var post = await postRepo.GetOfferAsync(id);
-
         if (post == null) return NotFound();
-
         return post;
     }
 
@@ -49,12 +46,13 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         PostExtensions.SetConditionalFieldsForAddPost(postDto);
 
         var uploadResult = await photoService.AddPhotoAsync(file);
-        
+
         if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
         var post = mapper.Map<Post>(postDto);
         post.AppUserId = user.Id;
         post.Url = uploadResult.SecureUrl.AbsoluteUri;
+        post.PublicId = uploadResult.PublicId;
 
         await postRepo.Add(post);
 
@@ -69,6 +67,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         return BadRequest("Failed to create post");
     }
+
 
     [HttpPut("edit-post/{id:int}")]
     public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto, [FromForm] IFormFile? file = null)
@@ -91,13 +90,14 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         post.SetConditionalFieldsForEditPost(postDto);
 
-        if (file != null)
-        {
-            var uploadResult = await photoService.AddPostPhotoAsync(file);
-            if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
-
-            post.Url = uploadResult.SecureUrl.AbsoluteUri;
-        }
+        /*note: Mozliwosc edytowac photo
+            if (file != null)
+            {
+                var uploadResult = await photoService.AddPostPhotoAsync(file);
+                if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
+                post.Url = uploadResult.SecureUrl.AbsoluteUri;
+            }
+        */
 
         postRepo.Update(post);
 
@@ -115,14 +115,10 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         var post = await postRepo.GetPostByIdAsync(id);
         if (post == null) return NotFound("Post not found.");
 
-        if (!string.IsNullOrEmpty(post.Url))
+        if (!string.IsNullOrEmpty(post.PublicId))
         {
-            var publicId = PostExtensions.ExtractPublicIdFromUrl(post.Url);
-            if (!string.IsNullOrEmpty(publicId))
-            {
-                var result = await photoService.DeletePhotoAsync(publicId);
-                if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
-            }
+            var result = await photoService.DeletePhotoAsync(post.PublicId);
+            if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
         }
 
         postRepo.Delete(post);
@@ -131,29 +127,4 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         return BadRequest("Failed to delete post");
     }
-
-
-    // [HttpDelete("delete-photo/{photoId:int}")]
-    // public async Task<ActionResult> DeletePhoto(int photoId)
-    // {
-    //     var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
-
-    //     if (user == null) return BadRequest("User not found");
-
-    //     var photo = user.Posts.FirstOrDefault(x => x.Id == photoId);
-
-    //     if (photo == null ) return BadRequest("This photo cannot be deleted");
-
-    //     if (photo.PublicId != null)
-    //     {
-    //         var result = await photoService.DeletePhotoAsync(photo.PublicId);
-    //         if (result.Error != null) return BadRequest(result.Error.Message);
-    //     }
-
-    //     user.GeneralPhotos.Remove(photo);
-
-    //     if (await userRepo.SaveAllAsync()) return Ok();
-
-    //     return BadRequest("Problem deleting photo");
-    // }
 }

@@ -174,6 +174,9 @@ namespace API.Data.Migrations
                     b.Property<bool>("PlaceStay")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PublicId")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("TEXT");

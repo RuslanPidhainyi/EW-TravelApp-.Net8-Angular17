@@ -41,7 +41,6 @@ public static class PostExtensions
         }
     }
 
-
     public static void SetConditionalFieldsForEditPost(this Post post, PostDto postDto)
     {
         if (!postDto.LocalTransport)

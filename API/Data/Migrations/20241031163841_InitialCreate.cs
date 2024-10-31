@@ -88,6 +88,7 @@ namespace API.Data.Migrations
                     MaxPriceGuide = table.Column<int>(type: "INTEGER", nullable: false),
                     Currency = table.Column<string>(type: "TEXT", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
+                    PublicId = table.Column<string>(type: "TEXT", nullable: true),
                     AppUserId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>

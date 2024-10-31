@@ -28,6 +28,7 @@ public class Post
     public required int MaxPriceGuide { get; set; }
     public required string Currency { get; set; }
     public string? Description { get; set; }
+    public string? PublicId { get; set; }
 
     //Navigation properties
     public int AppUserId { get; set; }

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241030192341_InitialCreate")]
+    [Migration("20241031163841_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -176,6 +176,9 @@ namespace API.Data.Migrations
 
                     b.Property<bool>("PlaceStay")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("PublicId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
                         .IsRequired()
