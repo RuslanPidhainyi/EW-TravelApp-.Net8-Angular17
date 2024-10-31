@@ -1,6 +1,7 @@
 using System;
 using API.DTOs;
 using API.Entities;
+using API.Extensions;
 using API.Helpers;
 using API.Interface;
 using AutoMapper;
@@ -45,39 +46,10 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         if (user == null) return BadRequest("Could not find user");
 
-        if (!postDto.LocalTransport)
-        {
-            postDto.MinPriceLocalTrans = 0;
-            postDto.MaxPriceLocalTrans = 0;
-            postDto.TravelTime = 0;
-        }
+        PostExtensions.SetConditionalFieldsForAddPost(postDto);
 
-        if (!postDto.EntranceFee)
-        {
-            postDto.MinPriceEntrFee = 0;
-            postDto.MaxPriceEntrFee = 0;
-        }
-
-        if (!postDto.PlaceStay)
-        {
-            postDto.TypePlaceStay = "None";
-            postDto.MinPricePlaceStay = 0;
-            postDto.MaxPricePlaceStay = 0;
-        }
-
-        if (!postDto.GroceryStore)
-        {
-            postDto.MinPriceGroceryStore = 0;
-            postDto.MaxPriceGroceryStore = 0;
-        }
-
-        if (!postDto.Guide)
-        {
-            postDto.MinPriceGuide = 0;
-            postDto.MaxPriceGuide = 0;
-        }
-
-        var uploadResult = await photoService.AddPostPhotoAsync(file);
+        var uploadResult = await photoService.AddPhotoAsync(file);
+        
         if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
         var post = mapper.Map<Post>(postDto);
@@ -98,69 +70,54 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         return BadRequest("Failed to create post");
     }
 
-    [HttpPut("{id:int}")]
+    [HttpPut("edit-post/{id:int}")]
     public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto, [FromForm] IFormFile? file = null)
     {
         var post = await postRepo.GetPostByIdAsync(id);
-        if (post == null) return NotFound("Post not found.");
+        if (post == null) return BadRequest("Post not found.");
 
-        // Оновлення властивостей посту
         post.Title = postDto.Title;
         post.LocationCountry = postDto.LocationCountry;
         post.LocationCity = postDto.LocationCity;
         post.LastCountry = postDto.LastCountry;
         post.LastCity = postDto.LastCity;
         post.LocalTransport = postDto.LocalTransport;
-        post.MinPriceLocalTrans = postDto.LocalTransport ? postDto.MinPriceLocalTrans : 0;
-        post.MaxPriceLocalTrans = postDto.LocalTransport ? postDto.MaxPriceLocalTrans : 0;
-        post.TravelTime = postDto.LocalTransport ? postDto.TravelTime : 0;
         post.EntranceFee = postDto.EntranceFee;
-        post.MinPriceEntrFee = postDto.EntranceFee ? postDto.MinPriceEntrFee : 0;
-        post.MaxPriceEntrFee = postDto.EntranceFee ? postDto.MaxPriceEntrFee : 0;
         post.PlaceStay = postDto.PlaceStay;
-        post.TypePlaceStay = postDto.PlaceStay ? postDto.TypePlaceStay : "None";
-        post.MinPricePlaceStay = postDto.PlaceStay ? postDto.MinPricePlaceStay : 0;
-        post.MaxPricePlaceStay = postDto.PlaceStay ? postDto.MaxPricePlaceStay : 0;
         post.GroceryStore = postDto.GroceryStore;
-        post.MinPriceGroceryStore = postDto.GroceryStore ? postDto.MinPriceGroceryStore : 0;
-        post.MaxPriceGroceryStore = postDto.GroceryStore ? postDto.MaxPriceGroceryStore : 0;
         post.Guide = postDto.Guide;
-        post.MinPriceGuide = postDto.Guide ? postDto.MinPriceGuide : 0;
-        post.MaxPriceGuide = postDto.Guide ? postDto.MaxPriceGuide : 0;
         post.Currency = postDto.Currency;
         post.Description = postDto.Description;
 
-        // Завантаження нового фото, якщо воно надано
+        post.SetConditionalFieldsForEditPost(postDto);
+
         if (file != null)
         {
             var uploadResult = await photoService.AddPostPhotoAsync(file);
             if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
-            post.Url = uploadResult.SecureUrl.AbsoluteUri; // Оновлюємо URL фото
+            post.Url = uploadResult.SecureUrl.AbsoluteUri;
         }
 
         postRepo.Update(post);
 
         if (await postRepo.SaveAllAsync())
         {
-            return NoContent(); // Повертаємо 204 No Content у разі успішного оновлення
+            return NoContent();
         }
 
         return BadRequest("Failed to update post");
     }
 
-    [HttpDelete("{id:int}")]
+    [HttpDelete("delete-post/{id:int}")]
     public async Task<ActionResult> DeletePost(int id)
     {
-        // Отримуємо пост з бази даних
         var post = await postRepo.GetPostByIdAsync(id);
         if (post == null) return NotFound("Post not found.");
 
-        // Видаляємо фото з Cloudinary, якщо є URL
         if (!string.IsNullOrEmpty(post.Url))
         {
-            // Отримуємо PublicId з URL
-            var publicId = ExtractPublicIdFromUrl(post.Url);
+            var publicId = PostExtensions.ExtractPublicIdFromUrl(post.Url);
             if (!string.IsNullOrEmpty(publicId))
             {
                 var result = await photoService.DeletePhotoAsync(publicId);
@@ -168,19 +125,35 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
             }
         }
 
-        // Видаляємо пост з бази даних
         postRepo.Delete(post);
 
-        if (await postRepo.SaveAllAsync()) return NoContent(); // Успішне видалення
+        if (await postRepo.SaveAllAsync()) return NoContent();
 
         return BadRequest("Failed to delete post");
     }
 
-    private string ExtractPublicIdFromUrl(string url)
-    {
-        var uri = new Uri(url);
-        var segments = uri.Segments;
-        var fileName = segments.Last();
-        return Path.GetFileNameWithoutExtension(fileName);
-    }
+
+    // [HttpDelete("delete-photo/{photoId:int}")]
+    // public async Task<ActionResult> DeletePhoto(int photoId)
+    // {
+    //     var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
+
+    //     if (user == null) return BadRequest("User not found");
+
+    //     var photo = user.Posts.FirstOrDefault(x => x.Id == photoId);
+
+    //     if (photo == null ) return BadRequest("This photo cannot be deleted");
+
+    //     if (photo.PublicId != null)
+    //     {
+    //         var result = await photoService.DeletePhotoAsync(photo.PublicId);
+    //         if (result.Error != null) return BadRequest(result.Error.Message);
+    //     }
+
+    //     user.GeneralPhotos.Remove(photo);
+
+    //     if (await userRepo.SaveAllAsync()) return Ok();
+
+    //     return BadRequest("Problem deleting photo");
+    // }
 }

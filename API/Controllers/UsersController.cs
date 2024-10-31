@@ -49,7 +49,9 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
     {
         var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
         if (user == null) return BadRequest("Cannot update user");
+
         var result = await photoService.AddPhotoAsync(file);
+        
         if (result.Error != null) return BadRequest(result.Error.Message);
         var photo = new Photo
         {
