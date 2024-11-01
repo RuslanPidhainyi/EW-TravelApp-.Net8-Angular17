@@ -13,18 +13,121 @@
             </div>
             <div class="icon-buttons">
                 <i class="fa fa-heart"></i>
-                <i class="fa fa-ellipsis-h" routerLink="/offers/{{post?.id}}"></i>
+                <!-- <i class="fa fa-ellipsis-h" routerLink="/offers/{{post?.id}}"></i> -->
             </div>
         </div>
-        <div class="info-row-2-left">
-            <div class="place-info">
-                <h5>{{post?.locationCountry}}, {{post?.locationCity}}</h5> – <h5>{{post?.title}}</h5>
+
+        <div class="info-row-left">
+
+            <div class="info-row-2-left">
+                <div class="place-info">
+                    <h5>{{post?.locationCountry}}, {{post?.locationCity}}</h5> – <h5>{{post?.title}}</h5>
+                </div>
             </div>
-        </div>
-        <div class="info-row-3-left">
+
+            <div class="info-row-3-left">
+                <div class="last-location-info">
+                    <i class="fa fa-map-marker"></i>
+                    <h6>Last visited place before the journey - {{post?.lastCountry}}, {{post?.lastCity}}</h6>
+                </div>
+            </div>
+
+
+            @if(post?.localTransport)
+            {
+            <div class="info-row-4-left">
+                <div class="local-transport-info">
+                    <i class="fa fa-car"></i>
+                    <h6>Used local transport</h6>
+                </div>
+                <div class="local-transport-extra-info1">
+                    <h6>Low price: {{post?.minPriceLocalTrans}}{{post?.currency}}</h6>
+                </div>
+                <div class="local-transport-extra-info2">
+                    <h6>High price: {{post?.maxPriceLocalTrans}}{{post?.currency}}</h6>
+                </div>
+                <div class="local-transport-extra-info3">
+                    <h6>Approximately, the journey took - {{post?.travelTime}} h</h6>
+                </div>
+            </div>
+            }
+
+
+            @if(post?.entranceFee)
+            {
+            <div class="info-row-5-left">
+                <div class="entrance-fee-info">
+                    <i class="fa fa-sign-in"></i>
+                    <h6>Entrance was paid</h6>
+                </div>
+                <div class="entrance-fee-extra-info1">
+                    <h6>Low price: {{post?.minPriceEntrFee}}{{post?.currency}}</h6>
+                </div>
+                <div class="entrance-fee-extra-info2">
+                    <h6>High price: {{post?.maxPriceEntrFee}}{{post?.currency}}</h6>
+                </div>
+            </div>
+            }
+
+
+            @if(post?.placeStay)
+            {
+            <div class="info-row-6-left">
+                <div class="place-for-rest-info">
+                    <i class="fa fa-bed"></i>
+                    <h6>Accommodation</h6>
+                </div>
+                <div class="place-for-rest-extra-info1">
+                    <h6>Low price: {{post?.minPricePlaceStay}}{{post?.currency}}</h6>
+                </div>
+                <div class="place-for-rest-extra-info2">
+                    <h6>High price: {{post?.maxPricePlaceStay}}{{post?.currency}}</h6>
+                </div>
+                <div class="place-for-rest-extra-info3">
+                    <h6>{{post?.typePlaceStay}}</h6>
+                </div>
+            </div>
+            }
+
+
+            @if(post?.groceryStore)
+            {
+            <div class="info-row-7-left">
+                <div class="store-info">
+                    <i class="fa fa-shopping-cart"></i>
+                    <h6>Grocery store</h6>
+                </div>
+                <div class="store-extra-info1">
+                    <h6>Low price: {{post?.minPriceGroceryStore}}{{post?.currency}}</h6>
+                </div>
+                <div class="store-extra-info2">
+                    <h6>High price: {{post?.maxPriceGroceryStore}}{{post?.currency}}</h6>
+                </div>
+            </div>
+            }
+
+
+            @if(post?.guide)
+            {
+            <div class="info-row-8-left">
+                <div class="guide-info">
+                    <i class="fa fa-blind"></i>
+                    <h6>Guide services</h6>
+                </div>
+                <div class="guide-extra-info1">
+                    <h6>Low price: {{post?.minPriceGuide}}{{post?.currency}}</h6>
+                </div>
+                <div class="guide-extra-info2">
+                    <h6>High price: {{post?.maxPriceGuide}}{{post?.currency}}</h6>
+                </div>
+            </div>
+            }
+
+        <div class="info-row-n-left">
             <div class="desc-info">
                 <h6>{{post?.description}}</h6>
             </div>
         </div>
     </div>
+</div>
 </div>
