@@ -13,26 +13,20 @@
             </div>
             <div class="icon-buttons">
                 <i class="fa fa-heart"></i>
-                <!-- <i class="fa fa-ellipsis-h" routerLink="/offers/{{post?.id}}"></i> -->
             </div>
         </div>
-
         <div class="info-row-left">
-
             <div class="info-row-2-left">
                 <div class="place-info">
                     <h5>{{post?.locationCountry}}, {{post?.locationCity}}</h5> – <h5>{{post?.title}}</h5>
                 </div>
             </div>
-
             <div class="info-row-3-left">
                 <div class="last-location-info">
                     <i class="fa fa-map-marker"></i>
                     <h6>Last visited place before the journey - {{post?.lastCountry}}, {{post?.lastCity}}</h6>
                 </div>
             </div>
-
-
             @if(post?.localTransport)
             {
             <div class="info-row-4-left">
@@ -51,8 +45,6 @@
                 </div>
             </div>
             }
-
-
             @if(post?.entranceFee)
             {
             <div class="info-row-5-left">
@@ -68,8 +60,6 @@
                 </div>
             </div>
             }
-
-
             @if(post?.placeStay)
             {
             <div class="info-row-6-left">
@@ -88,8 +78,6 @@
                 </div>
             </div>
             }
-
-
             @if(post?.groceryStore)
             {
             <div class="info-row-7-left">
@@ -105,8 +93,6 @@
                 </div>
             </div>
             }
-
-
             @if(post?.guide)
             {
             <div class="info-row-8-left">
@@ -122,7 +108,6 @@
                 </div>
             </div>
             }
-
         <div class="info-row-n-left">
             <div class="desc-info">
                 <h6>{{post?.description}}</h6>
