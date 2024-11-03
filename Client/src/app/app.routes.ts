@@ -12,6 +12,7 @@ import { MemberDetailComponent } from './member/member-detail/member-detail.comp
 import { MemberProfileComponent } from './member/member-profile/member-profile.component';
 import { MemberEditProfileComponent } from './member/member-edit-profile/member-edit-profile.component';
 import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
             { path: 'member/edit-profile', component: MemberEditProfileComponent, canDeactivate: [preventUnsavedChangesGuard] },
             { path: 'lists', component: ListsComponent },
             { path: 'messages', component: MessagesComponent },
+            {path: 'add-offer', component: AddOfferComponent}
         ],
     },
     { path: 'errors', component: TestErrorsComponent },

@@ -40,4 +40,8 @@ export class PostsService {
   
     return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
   }
+
+  addPost(postData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}posts/add-post`, postData);
+  }
 }
