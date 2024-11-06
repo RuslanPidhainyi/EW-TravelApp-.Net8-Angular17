@@ -1,8 +1,8 @@
 <div class="offer-container">
     <div class="photo-container">
-      <img src="{{post().photoUrl}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
+      <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
       <div class="location-overlay">
-        <p><i class="fa fa-map-marker me-1"></i> {{post().country}}, {{post().city}}</p>
+        <p><i class="fa fa-map-marker me-1"></i> {{post().locationCountry}}, {{post().locationCity}}</p>
       </div>
     </div>
     <div class="info">

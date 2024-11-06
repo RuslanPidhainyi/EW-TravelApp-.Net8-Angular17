@@ -1,0 +1,476 @@
+<div class="container">
+    <form class="container-photo" (ngSubmit)="onSubmit()">
+        <div class="row mt-5 mb-5">
+            <div class="col-md-3">
+                <h3 class="fw-bold">Add Post</h3>
+                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+                    [uploader]="uploader" class="card bg-faded p-5 text-center my-drop-zone">
+                    <i class="fa fa-dropbox fa-3x"></i>
+                    Base drop zone
+                </div>
+            </div>
+
+            <div class="col-md-9" style="margin-bottom: 40px">
+                <h3 class="fw-bold">Upload queue</h3>
+                <p>Queue length: {{ uploader?.queue?.length }}</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Name</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of uploader?.queue">
+                            <td><strong>{{ item?.file?.name }}</strong></td>
+                            <td *ngIf="uploader?.options?.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }}
+                                MB
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <div>
+                        Queue progress:
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                [ngStyle]="{ 'width': uploader?.progress + '%' }">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- <button type="button" class="m-2 btn btn-success btn-s" (click)="uploader?.uploadAll()"
+                            [disabled]="!uploader?.getNotUploadedItems()?.length">
+                            <span class="fa fa-upload"></span> Upload all
+                        </button>
+                        <button type="button" class="m-2 btn btn-warning btn-s" (click)="uploader?.cancelAll()"
+                            [disabled]="!uploader?.isUploading">
+                            <span class="fa fa-ban"></span> Cancel all
+                        </button> -->
+                        <button type="button" class="m-2 btn btn-danger btn-s" (click)="uploader?.clearQueue()"
+                            [disabled]="!uploader?.queue?.length">
+                            <span class="fa fa-trash"></span> Remove all
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" id="title" formControlName="title" class="add-post-input" placeholder="Place name" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="locationCountry" formControlName="locationCountry" class="add-post-input"
+                placeholder="The country of this place" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="locationCity" formControlName="locationCity" class="add-post-input"
+                placeholder="The region of this place" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="lastCountry" formControlName="lastCountry" class="add-post-input"
+                placeholder="Last visited country before the journey" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="lastCity" formControlName="lastCity" class="add-post-input"
+                placeholder="Last visited city before the journey" />
+        </div>
+
+        <!-- <div class="form-check">
+            <label for="localTransport" class="add-post-checkbox-label">Did you use local transport to get to your
+                trip?</label>
+            <input type="checkbox" id="localTransport" formControlName="localTransport" class="add-post-checkbox" />
+        </div> -->
+
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" formControlName="localTransport">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="localTransport">Did you use local transport to get to your
+                trip?</label>
+        </div>
+
+
+        <div *ngIf="postForm.get('localTransport')?.value">
+            <div class="form-group">
+                <label for="minPriceLocalTrans" class="add-post-input-label">Low price service</label>
+                <input type="number" id="minPriceLocalTrans" formControlName="minPriceLocalTrans"
+                    class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxPriceLocalTrans" class="add-post-input-label">High price service</label>
+                <input type="number" id="maxPriceLocalTrans" formControlName="maxPriceLocalTrans"
+                    class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="travelTime" class="add-post-input-label">Approximately, the journey took</label>
+                <input type="number" id="travelTime" formControlName="travelTime" class="add-post-input" />
+            </div>
+        </div>
+
+        <!-- <div class="form-check">
+            <label for="entranceFee" class="add-post-checkbox-label">Entrance was paid</label>
+            <input type="checkbox" id="entranceFee" formControlName="entranceFee" class="add-post-checkbox" />
+        </div> -->
+
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" formControlName="entranceFee">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="entranceFee">Entrance was paid?</label>
+        </div>
+
+        <div *ngIf="postForm.get('entranceFee')?.value">
+            <div class="form-group">
+                <label for="minPriceEntrFee" class="add-post-input-label">Low price for entrance</label>
+                <input type="number" id="minPriceEntrFee" formControlName="minPriceEntrFee" class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxPriceEntrFee" class="add-post-input-label">High price for entrance</label>
+                <input type="number" id="maxPriceEntrFee" formControlName="maxPriceEntrFee" class="add-post-input" />
+            </div>
+        </div>
+
+        <!-- <div class="form-check">
+            <label for="placeStay" class="add-post-checkbox-label">Accommodation</label>
+            <input type="checkbox" id="placeStay" formControlName="placeStay" class="add-post-checkbox" />
+        </div> -->
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" formControlName="placeStay">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="placeStay">Accommodation?</label>
+        </div>
+
+        <div *ngIf="postForm.get('placeStay')?.value">
+            <div class="form-group">
+                <label for="minPricePlaceStay" class="add-post-input-label">Low price for accommodation</label>
+                <input type="number" id="minPricePlaceStay" formControlName="minPricePlaceStay"
+                    class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxPricePlaceStay" class="add-post-input-label">High price for accommodation</label>
+                <input type="number" id="maxPricePlaceStay" formControlName="maxPricePlaceStay"
+                    class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <select id="typePlaceStay" formControlName="typePlaceStay" class="add-post-select">
+                    <option class="add-post-option" value="" disabled selected>Choose type of accommodation...</option>
+                    <option class="add-post-option" value="Camping">Camping</option>
+                    <option class="add-post-option" value="Hotel">Hotel</option>
+                    <option class="add-post-option" value="Hostel">Hostel</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <div>
+            <label for="groceryStore" class="add-post-checkbox-label">Grocery stores nearby</label>
+            <input type="checkbox" id="groceryStore" formControlName="groceryStore" class="add-post-checkbox" />
+        </div> -->
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" formControlName="groceryStore">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="groceryStore">Grocery stores nearby?</label>
+        </div>
+        <div *ngIf="postForm.get('groceryStore')?.value">
+            <div class="form-group">
+                <label for="minPriceGroceryStore" class="add-post-input-label">Low price for grocery</label>
+                <input type="number" id="minPriceGroceryStore" formControlName="minPriceGroceryStore"
+                    class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxPriceGroceryStore" class="add-post-input-label">High price for grocery</label>
+                <input type="number" id="maxPriceGroceryStore" formControlName="maxPriceGroceryStore"
+                    class="add-post-input" />
+            </div>
+        </div>
+
+        <!-- <div>
+            <label for="guide" class="add-post-checkbox-label">Guide services</label>
+            <input type="checkbox" id="guide" formControlName="guide" cclass="add-post-checkbox" />
+        </div> -->
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" formControlName="guide">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="guide">Guide services?</label>
+        </div>
+        <div *ngIf="postForm.get('guide')?.value">
+            <div class="form-group">
+                <label for="minPriceGuide">Low price for services</label>
+                <input type="number" id="minPriceGuide" formControlName="minPriceGuide" class="add-post-input" />
+            </div>
+
+            <div class="form-group">
+                <label for="maxPriceGuide">High price for services</label>
+                <input type="number" id="maxPriceGuide" formControlName="maxPriceGuide" class="add-post-input" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="currency" formControlName="currency" class="add-post-input" placeholder="Currency" />
+        </div>
+
+        <div class="form-group">
+            <textarea id="description" formControlName="description" class="add-post-textarea" rows="4"
+                placeholder="Add description..."></textarea>
+        </div>
+
+        <button type="submit" class="add-post-btn" [disabled]="!postForm.valid">
+            Share post
+        </button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <form #postForm="ngForm" class="container-photo" (ngSubmit)="onSubmit()">
+        <div class="row mt-5 mb-5">
+            <div class="col-md-3">
+                <h3 class="fw-bold">Add Post</h3>
+                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
+                    [uploader]="uploader" class="card bg-faded p-5 text-center my-drop-zone">
+                    <i class="fa fa-dropbox fa-3x"></i>
+                    Base drop zone
+                </div>
+            </div>
+
+            <div class="col-md-9" style="margin-bottom: 40px">
+                <h3 class="fw-bold">Upload queue</h3>
+                <p>Queue length: {{ uploader?.queue?.length }}</p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Name</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of uploader?.queue">
+                            <td><strong>{{ item?.file?.name }}</strong></td>
+                            <td *ngIf="uploader?.options?.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }}
+                                MB
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <div>
+                        Queue progress:
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar"
+                                [ngStyle]="{ 'width': uploader?.progress + '%' }">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+
+                        <button type="button" class="m-2 btn btn-danger btn-s" (click)="uploader?.clearQueue()"
+                            [disabled]="!uploader?.queue?.length">
+                            <span class="fa fa-trash"></span> Remove all
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="text" id="title" name="title" [(ngModel)]="post.title" class="add-post-input"
+                placeholder="Place name" required />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="locationCountry" name="locationCountry" [(ngModel)]="post.locationCountry"
+                class="add-post-input" placeholder="The country of this place" required />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="locationCity" name="locationCity" [(ngModel)]="post.locationCity"
+                class="add-post-input" placeholder="The region of this place" required />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="lastCountry" name="lastCountry" [(ngModel)]="post.lastCountry" class="add-post-input"
+                placeholder="Last visited country before the journey" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="lastCity" name="lastCity" [(ngModel)]="post.lastCity" class="add-post-input"
+                placeholder="Last visited city before the journey" />
+        </div>
+
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" name="localTransport" [(ngModel)]="post.localTransport">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="localTransport">Did you use local transport to get to your
+                trip?</label>
+        </div>
+
+        @if(post.localTransport){
+        <div class="form-group">
+            <label for="minPriceLocalTrans" class="add-post-input-label">Low price service</label>
+            <input type="number" id="minPriceLocalTrans" name="minPriceLocalTrans" [(ngModel)]="post.minPriceLocalTrans"
+                class="add-post-input" />
+        </div>
+
+        <div class="form-group">
+            <label for="maxPriceLocalTrans" class="add-post-input-label">High price service</label>
+            <input type="number" id="maxPriceLocalTrans" name="maxPriceLocalTrans" [(ngModel)]="post.maxPriceLocalTrans"
+                class="add-post-input" />
+        </div>
+
+        <div class="form-group">
+            <label for="travelTime" class="add-post-input-label">Approximately, the journey took</label>
+            <input type="number" id="travelTime" name="travelTime" [(ngModel)]="post.travelTime"
+                class="add-post-input" />
+        </div>
+        }
+
+
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" name="entranceFee" [(ngModel)]="post.entranceFee">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="entranceFee">Entrance was paid?</label>
+        </div>
+
+        @if(post.entranceFee){
+        <div class="form-group">
+            <label for="minPriceEntrFee" class="add-post-input-label">Low price for entrance</label>
+            <input type="number" id="minPriceEntrFee" name="minPriceEntrFee" [(ngModel)]="post.minPriceEntrFee"
+                class="add-post-input" />
+        </div>
+
+        <div class="form-group">
+            <label for="maxPriceEntrFee" class="add-post-input-label">High price for entrance</label>
+            <input type="number" id="maxPriceEntrFee" name="maxPriceEntrFee" [(ngModel)]="post.maxPriceEntrFee"
+                class="add-post-input" />
+        </div>
+        }
+
+
+        <div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" name="placeStay" [(ngModel)]="post.placeStay">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="placeStay">Accommodation?</label>
+        </div>
+
+        @if(post.placeStay){
+        <div class="form-group">
+            <label for="minPricePlaceStay" class="add-post-input-label">Low price for accommodation</label>
+            <input type="number" id="minPricePlaceStay" name="minPricePlaceStay" [(ngModel)]="post.minPricePlaceStay"
+                class="add-post-input" />
+        </div>
+
+        <div class="form-group">
+            <label for="maxPricePlaceStay" class="add-post-input-label">High price for accommodation</label>
+            <input type="number" id="maxPricePlaceStay" name="maxPricePlaceStay" [(ngModel)]="post.maxPricePlaceStay"
+                class="add-post-input" />
+        </div>
+
+        <div class="form-group">
+            <select id="typePlaceStay" name="typePlaceStay" [(ngModel)]="post.typePlaceStay" class="add-post-select">
+                <option class="add-post-option" value="" disabled selected>Choose type of accommodation...</option>
+                <option class="add-post-option" value="Camping">Camping</option>
+                <option class="add-post-option" value="Hotel">Hotel</option>
+                <option class="add-post-option" value="Hostel">Hostel</option>
+            </select>
+        </div>
+        }
+
+
+        <<div class="add-post-checkbox-wrapper form-check-inline">
+            <label class="add-post-checkbox-container">
+                <input type="checkbox" name="groceryStore" [(ngModel)]="post.groceryStore">
+                <span class="checkmark"></span>
+            </label>
+            <label class="add-post-checkbox-label" for="groceryStore">Grocery stores nearby?</label>
+</div>
+
+@if(post.groceryStore){
+<div class="form-group">
+    <label for="minPriceGroceryStore" class="add-post-input-label">Low price for grocery</label>
+    <input type="number" id="minPriceGroceryStore" name="minPriceGroceryStore" [(ngModel)]="post.minPriceGroceryStore"
+        class="add-post-input" />
+</div>
+
+<div class="form-group">
+    <label for="maxPriceGroceryStore" class="add-post-input-label">High price for grocery</label>
+    <input type="number" id="maxPriceGroceryStore" name="maxPriceGroceryStore" [(ngModel)]="post.maxPriceGroceryStore"
+        class="add-post-input" />
+</div>
+}
+
+
+<div class="add-post-checkbox-wrapper form-check-inline">
+    <label class="add-post-checkbox-container">
+        <input type="checkbox" name="guide" [(ngModel)]="post.guide">
+        <span class="checkmark"></span>
+    </label>
+    <label class="add-post-checkbox-label" for="guide">Guide services?</label>
+</div>
+
+@if(post.guide) {
+<div class="form-group">
+    <label for="minPriceGuide" class="add-post-input-label">Low price for services</label>
+    <input type="number" id="minPriceGuide" name="minPriceGuide" [(ngModel)]="post.minPriceGuide"
+        class="add-post-input" />
+</div>
+
+<div class="form-group">
+    <label for="maxPriceGuide" class="add-post-input-label">High price for services</label>
+    <input type="number" id="maxPriceGuide" name="maxPriceGuide" [(ngModel)]="post.maxPriceGuide"
+        class="add-post-input" />
+</div>
+}
+
+<div class="form-group">
+    <input type="text" id="currency" name="currency" [(ngModel)]="post.currency" class="add-post-input"
+        placeholder="Currency" required />
+</div>
+
+<div class="form-group">
+    <textarea id="description" name="description" [(ngModel)]="post.description" class="add-post-textarea" rows="4"
+        placeholder="Add description..."></textarea>
+</div>
+
+<button type="submit" class="add-post-btn" [disabled]="postForm.invalid">
+    Share post
+</button>
+</form>
+
+
+</div> -->

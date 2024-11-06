@@ -1,32 +1,41 @@
 .offer-container {
-    width: 100%; // Ширина контейнера 100% від ширини вікна
-    max-width: 1800px; // Максимальна ширина збільшена на 20% (раніше було 1800px)
-    margin: 20px auto; // Центрування блоку
-    //border: 1px solid rgb(201, 201, 201);
-    border-radius: 10px 10px 0 0; // Збільшено радіус для більш м'яких країв
+    width: 60%;
+    max-width: 1800px;
+    margin: 20px auto;
+
+    border-radius: 10px 10px 0 0;
     border: none;
-    //box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); // Більш м'яка тінь
-    background-color: rgb(244, 244, 244); // Фон для кращого контрасту
+
+    background: rgb(210,234,255);
+    background: linear-gradient(180deg, rgba(210,234,255,1) 54%, rgba(255,255,255,0.5215336134453781) 87%);
     overflow: hidden;
 
     .photo-container {
+        // position: relative;
+        // width: 100%;
+        // height: 70vh;
+        overflow: hidden;
         position: relative;
+        display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        justify-content: center;
         width: 100%;
-        height: 70vh; // Встановлюєш висоту контейнера зображення
+        height: 100%;
 
         img {
             width: 100%;
-            height: 100%; // Зображення адаптується до висоти контейнера
-            object-fit: cover; // Забезпечує адаптивність зображення без спотворення
+            height: 100%;
+            object-fit: cover;
             border-radius: 10px 10px 0px 0px;
         }
 
         .location-overlay {
             position: absolute;
-            bottom: 20px; // Відступ знизу
-            left: 20px; // Відступ зліва
-            background: rgba(0, 0, 0, 0.6); // Прозорий фон
-            padding: 10px 15px; // Внутрішній відступ
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 15px;
             border-radius: 8px;
 
             p {
@@ -51,7 +60,6 @@
         .info-row-1-left {
             display: flex;
             justify-content: space-between;
-            /* Розділяємо ім'я користувача та іконки */
             align-items: center;
 
             .user-info {
@@ -83,35 +91,290 @@
             }
         }
 
-        .info-row-2-left {
+        .info-row-left {
             text-align: left;
             padding-top: 0.5rem;
 
-            .place-info {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: rgb(0, 0, 0);
+            .info-row-2-left {
+                .place-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: rgb(0, 0, 0);
 
-                h5 {
-                    font-weight: bold;
-                    margin: 0;
+                    h5 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
                 }
             }
-        }
 
-        .info-row-3-left {
-            text-align: left;
-            padding-top: 0.5rem;
+            .info-row-3-left {
+                padding-top: 1rem;
 
-            .desc-info {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: rgb(0, 0, 0);
+                .last-location-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: rgb(0, 0, 0);
 
-                h6 {
-                    margin: 0;
+                    i {
+                        margin-left: .3rem;
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0 0 0 .3rem;
+                    }
+                }
+            }
+
+            .info-row-4-left {
+                padding-top: 1rem;
+
+                .local-transport-info {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    color: rgb(0, 0, 0);
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+
+                .local-transport-extra-info1 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .local-transport-extra-info2 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .local-transport-extra-info3 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .info-row-5-left {
+                padding-top: 1rem;
+
+                .entrance-fee-info {
+                    display: flex;
+                    align-items: center;
+                    gap: .6rem;
+                    color: rgb(0, 0, 0);
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+
+                .entrance-fee-extra-info1 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .entrance-fee-extra-info2 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+            }
+
+            .info-row-6-left {
+                padding-top: 1rem;
+
+                .place-for-rest-info {
+                    display: flex;
+                    align-items: center;
+                    gap: .6rem;
+                    color: rgb(0, 0, 0);
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+
+                .place-for-rest-extra-info1 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .place-for-rest-extra-info2 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .place-for-rest-extra-info3 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+            }
+
+            .info-row-7-left {
+                padding-top: 1rem;
+
+                .store-info {
+                    display: flex;
+                    align-items: center;
+                    gap: .6rem;
+                    color: rgb(0, 0, 0);
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+
+                .store-extra-info1 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .store-extra-info2 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+            }
+
+            .info-row-8-left {
+                padding-top: 1rem;
+
+                .guide-info {
+                    display: flex;
+                    align-items: center;
+                    gap: .6rem;
+                    color: rgb(0, 0, 0);
+
+                    i {
+                        font-size: 1rem;
+                    }
+
+                    h6 {
+                        font-weight: bold;
+                        margin: 0;
+                    }
+                }
+
+                .guide-extra-info1 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+
+                .guide-extra-info2 {
+                    display: flex;
+                    align-items: center;
+                    margin: .3rem 0 0 0;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0 0 0 2rem;
+                    }
+                }
+            }
+
+            .info-row-n-left {
+                padding-top: 1.5rem;
+
+                .desc-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    color: rgb(0, 0, 0);
+
+                    h6 {
+                        margin: 0;
+                        font-style: italic;
+                    }
                 }
             }
         }
