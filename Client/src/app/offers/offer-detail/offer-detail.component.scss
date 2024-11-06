@@ -1,12 +1,13 @@
 .offer-container {
-    width: 50%;
+    width: 60%;
     max-width: 1800px;
     margin: 20px auto;
 
     border-radius: 10px 10px 0 0;
     border: none;
 
-    background-color: rgb(244, 244, 244);
+    background: rgb(210,234,255);
+    background: linear-gradient(180deg, rgba(210,234,255,1) 54%, rgba(255,255,255,0.5215336134453781) 87%);
     overflow: hidden;
 
     .photo-container {

@@ -11,6 +11,7 @@ import {
 } from '@angular/forms';
 import { PostsService } from '../../_services/posts.service';
 import { Router, RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-offer',
@@ -32,6 +33,7 @@ export class AddOfferComponent implements OnInit {
   private accountService = inject(AccountService);
   private postService = inject(PostsService);
   private router = inject(Router);
+  private toastr = inject(ToastrService);
   postForm: FormGroup = new FormGroup({});
   uploader?: FileUploader;
   hasBaseDropZoneOver = false;
@@ -147,11 +149,13 @@ export class AddOfferComponent implements OnInit {
 
       this.postService.addPost(formData).subscribe(
         (response) => {
+          this.toastr.success('Post added successfully');
           console.log('Post added successfully', response);
           this.router.navigate(['/member/profile']);
         },
         (error) => {
           console.error('Error adding post', error);
+          this.toastr.error('Failed to added post');
         }
       );
     }
