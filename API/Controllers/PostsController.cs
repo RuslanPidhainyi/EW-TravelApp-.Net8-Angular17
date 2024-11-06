@@ -70,7 +70,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
 
     [HttpPut("edit-post/{id:int}")]
-    public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto, [FromForm] IFormFile? file = null)
+    public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto) //note: dodatkowy argumant dla edytowania photo [FromForm] IFormFile? file = null
     {
         var post = await postRepo.GetPostByIdAsync(id);
         if (post == null) return BadRequest("Post not found.");
@@ -81,10 +81,22 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         post.LastCountry = postDto.LastCountry;
         post.LastCity = postDto.LastCity;
         post.LocalTransport = postDto.LocalTransport;
+        post.MinPriceLocalTrans = postDto.MinPriceLocalTrans;
+        post.MaxPriceLocalTrans = postDto.MaxPriceLocalTrans;
+        post.TravelTime = postDto.TravelTime;
         post.EntranceFee = postDto.EntranceFee;
+        post.MinPriceEntrFee = postDto.MinPriceEntrFee;
+        post.MaxPriceEntrFee = postDto.MaxPriceEntrFee;
         post.PlaceStay = postDto.PlaceStay;
+        post.TypePlaceStay = postDto.TypePlaceStay;
+        post.MinPricePlaceStay = postDto.MinPricePlaceStay;
+        post.MaxPricePlaceStay = postDto.MaxPricePlaceStay;
         post.GroceryStore = postDto.GroceryStore;
+        post.MinPriceGroceryStore = postDto.MinPriceGroceryStore;
+        post.MaxPriceGroceryStore = postDto.MaxPriceGroceryStore;
         post.Guide = postDto.Guide;
+        post.MinPriceGuide = postDto.MinPriceGuide;
+        post.MaxPriceGuide = postDto.MaxPriceGuide;
         post.Currency = postDto.Currency;
         post.Description = postDto.Description;
 

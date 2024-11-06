@@ -116,7 +116,7 @@
                             <div class="posts-container">
                                 @for (post of posts; track post.id) {
                                 <div class="single-offer">
-                                    <app-member-offer-card [post]="post"> </app-member-offer-card>
+                                    <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
                                 </div>
                                 }
                             </div>
