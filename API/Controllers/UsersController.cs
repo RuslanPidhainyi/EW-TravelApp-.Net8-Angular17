@@ -58,7 +58,11 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
             Url = result.SecureUrl.AbsoluteUri,
             PublicId = result.PublicId
         };
+
+        if(user.GeneralPhotos.Count == 0) photo.IsMain = true;
+
         user.GeneralPhotos.Add(photo);
+        
         if (await userRepo.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
         return BadRequest("Problem adding photo");
     }
