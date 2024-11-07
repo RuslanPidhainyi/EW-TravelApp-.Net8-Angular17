@@ -22,7 +22,7 @@ import { MemberProfileOfferCardComponent } from '../member-profile-offer-card/me
   styleUrl: './member-profile.component.scss',
 })
 export class MemberProfileComponent implements OnInit {
-  private accountService = inject(AccountService);
+  accountService = inject(AccountService);
   private memberService = inject(MembersService);
   private postService = inject(PostsService);
   member?: Member;
