@@ -1,18 +1,31 @@
 <div class="single-input">
-    <input [class.is-invalid]="control.touched && control.invalid" [type]="type()" [formControl]="control"
+    <input 
+        [class.is-invalid]="control.touched && control.invalid" [type]="type()"
+        [formControl]="control"
         placeholder={{label()}}>
     <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
     </i>
 
-    <div *ngIf="control.hasError('required')" class="invalid-feedback">Please enter a {{label()}}
+    <div 
+        *ngIf="control.hasError('required')" 
+        class="invalid-feedback">Please enter a {{label()}}
     </div>
-    <div *ngIf="control.hasError('minlength')" class="invalid-feedback error-validation">
+    
+    <div 
+        *ngIf="control.hasError('minlength')" 
+        class="invalid-feedback error-validation">
         {{label()}} must be at least {{control.errors?.['minlength'].requiredLength}} characters
     </div>
-    <div *ngIf="control.hasError('maxlength')" class="invalid-feedback">
+
+    <div 
+        *ngIf="control.hasError('maxlength')" 
+        class="invalid-feedback">
         {{label()}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters
     </div>
-    <div *ngIf="control.hasError('isMatching')" class="invalid-feedback">
+    
+    <div 
+        *ngIf="control.hasError('isMatching')"
+        class="invalid-feedback">
         Password do not match
     </div>
 </div>

@@ -1,0 +1,18 @@
+<div class="single-input">
+    <input 
+        [class.is-invalid]="control.touched && control.invalid"
+        [formControl]="control"
+        placeholder={{label()}}
+        bsDatepicker
+        [bsConfig]="bsConfig"
+        [maxDate]="maxDate()"
+    >
+    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
+    </i>
+    <!-- <label>{{label()}}</label> -->
+    
+    <div 
+        *ngIf="control.hasError('required')" 
+        class="invalid-feedback ">Please enter a {{label()}}
+    </div>
+</div>

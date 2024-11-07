@@ -92,11 +92,12 @@ import { setFullYear } from 'ngx-bootstrap/chronos/utils/date-setters';
 import { Router } from '@angular/router';
 import { JsonPipe, NgFor, NgIf } from '@angular/common';
 import { TextInputComponent } from '../_forms/text-input/text-input.component';
+import { DatePickerComponent } from "../_forms/date-picker/date-picker.component";
 
 @Component({
   selector: 'app-register',
     standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe, NgIf, NgFor, TextInputComponent],
+  imports: [ReactiveFormsModule, JsonPipe, NgIf, NgFor, TextInputComponent, DatePickerComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -109,13 +110,13 @@ export class RegisterComponent implements OnInit {
   
   @Output() cancelRegister = new EventEmitter();
   registerForm: FormGroup = new FormGroup({});
-  //maxDate: Date = new Date();
   validationErrors: string[] | undefined;
   cancleRegister = output<boolean>();
+  maxDate: Date = new Date();
 
   ngOnInit(): void {
     this.initializeForm();
-    //this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
 
   initializeForm() {
