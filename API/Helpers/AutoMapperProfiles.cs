@@ -22,5 +22,7 @@ public class AutoMapperProfiles : Profile
                     o => o.MapFrom(s => s.AppUserId));
         CreateMap<PostDto, Post>();
         CreateMap<MemberUpdatedDto, AppUser>();
+        CreateMap<RegisterDto, AppUser>();
+        CreateMap<string, DateOnly>().ConstructUsing(s => DateOnly.Parse(s));
     }
 }
