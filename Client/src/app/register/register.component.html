@@ -34,14 +34,101 @@
     </div>
 </form>  -->
 
-<form class="register-form" #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+
+
+<!-- 
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
     <h2>Sign up</h2>
     <div class="input-container">
-        <input type="text" name="username" [(ngModel)]="model.username" placeholder="Username">
-        <input type="password" name="password" [(ngModel)]="model.password" placeholder="Password">
+
+        <div class="gender-field">
+            <label>Gender:</label>
+            <label>
+                <input type="radio" value="male" formControlName="gender"> Male
+            </label>
+            <label>
+                <input type="radio" value="female" formControlName="gender"> Female
+            </label>
+        </div>
+
+        <app-text-input 
+            [formControl]="$any(registerForm.controls['username'])" 
+            [label]="'Username'">
+        </app-text-input>
+
+        <app-text-input 
+            [formControl]="$any(registerForm.controls['knownAs'])" 
+            [label]="'Known As'">
+        </app-text-input>
+
+        <app-text-input 
+            [formControl]="$any(registerForm.controls['dateOfBirth'])" 
+            [label]="'Date of birth'">
+        </app-text-input>
+
+        <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Password'"
+            [type]="'password'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Confirm Password'"
+            [type]="'password'">
+        </app-text-input>
     </div>
+
     <div class="button-container">
         <button class="register-button" type="submit">Register</button>
         <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
     </div>
+</form> -->
+
+
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+    <h2>Sign up</h2>
+    <div class="input-container">
+        <div class="gender-field">
+            <label>Gender:</label>
+            <label>
+                <input type="radio" value="male" formControlName="gender"> Male
+            </label>
+            <label>
+                <input type="radio" value="female" formControlName="gender"> Female
+            </label>
+        </div>
+        <app-text-input [formControl]="$any(registerForm.controls['username'])" [label]="'Username'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'Known As'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Date of birth'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['city'])" [label]="'City'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['country'])" [label]="'Country'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Password'"
+            [type]="'password'">
+        </app-text-input>
+        <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Confirm Password'"
+            [type]="'password'">
+        </app-text-input>
+    </div>
+    <!-- <div class="register-errors-container" *ngIf="validationErrors">
+        <ul>
+            <li *ngFor="let error of validationErrors">
+                {{error}}
+            </li>
+        </ul>
+    </div> -->
+
+    <div class="button-container">
+        <button class="register-button" type="submit">Register</button>
+        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+    </div>
+    <!-- <div class="button-container">
+        <button 
+            class="register-button" 
+            type="submit"
+            [disabled]="!registerForm.valid">
+                Create Account
+        </button>
+        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+    </div> -->
 </form>
