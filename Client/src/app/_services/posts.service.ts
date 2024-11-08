@@ -11,6 +11,7 @@ export class PostsService {
   private http = inject(HttpClient);
   baseUrl = environment.apiUrl;
   posts = signal<Post[]>([]);
+  postCashe = new Map();
 
   getPosts() {
     return this.http.get<Post[]>(this.baseUrl + 'posts').subscribe({
@@ -19,6 +20,12 @@ export class PostsService {
   }
 
   getPostById(id: number): Observable<Post> {
+    const post: Post = [...this.postCashe.values()]
+    .reduce((arr, elem) => arr.concat(elem.body), [])
+    .find((p: Post) => p.id  === id);
+
+    if(post) return of(post);
+
     return this.http.get<Post>(`${this.baseUrl}posts/${id}`).pipe(
       tap((post) => {
         this.posts.update((posts) =>
