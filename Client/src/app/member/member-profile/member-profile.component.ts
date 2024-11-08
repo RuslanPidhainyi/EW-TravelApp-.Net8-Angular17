@@ -8,6 +8,8 @@ import { PostsService } from '../../_services/posts.service';
 import { Post } from '../../_models/post';
 import { RouterLink } from '@angular/router';
 import { MemberProfileOfferCardComponent } from '../member-profile-offer-card/member-profile-offer-card.component';
+import { TimeagoModule } from 'ngx-timeago';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-member-profile',
@@ -17,6 +19,8 @@ import { MemberProfileOfferCardComponent } from '../member-profile-offer-card/me
     GalleryModule,
     RouterLink,
     MemberProfileOfferCardComponent,
+    TimeagoModule,
+    DatePipe
   ],
   templateUrl: './member-profile.component.html',
   styleUrl: './member-profile.component.scss',

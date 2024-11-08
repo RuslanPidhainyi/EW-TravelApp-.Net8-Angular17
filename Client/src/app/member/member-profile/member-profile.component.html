@@ -84,11 +84,11 @@
                     </div>
                     <div class="info">
                         <strong>Last Active:</strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                     </div>
                     <div class="info">
                         <strong>Member Since:</strong>
-                        <p>{{member.created}}</p>
+                        <p>{{member.created | date: 'dd MMM yyyy'}}</p>
                     </div>
                 </div>
                 <div class="buttons-container-left-side">
