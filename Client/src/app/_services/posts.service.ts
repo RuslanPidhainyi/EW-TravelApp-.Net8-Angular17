@@ -42,8 +42,8 @@ export class PostsService {
     return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
   }
 
-  addPost(postData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}posts/add-post`, postData).pipe();
+  addPost(postData: FormData): Observable<Post> {
+    return this.http.post<Post>(`${this.baseUrl}posts/add-post`, postData);
   }
 
   updatePost(id: number, postData: FormData) {
@@ -51,7 +51,7 @@ export class PostsService {
     );
   }
 
-  deletePost(id: number) {
-    return this.http.delete(`${this.baseUrl}posts/delete-post/${id}`).pipe();
+  deletePost(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}posts/delete-post/${id}`);
   }
 }

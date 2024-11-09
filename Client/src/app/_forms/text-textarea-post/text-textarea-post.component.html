@@ -1,0 +1,26 @@
+<div class="single-input">
+    <textarea 
+        [class.is-invalid]="control.touched && control.invalid" 
+        [formControl]="control"
+        placeholder={{placeholder()}}
+        rows={{rows()}}></textarea>
+    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
+    </i>
+
+    <div 
+        *ngIf="control.hasError('required')" 
+        class="invalid-feedback">Please enter a {{label()}}
+    </div>
+    
+    <div 
+        *ngIf="control.hasError('minlength')" 
+        class="invalid-feedback error-validation">
+        {{label()}} must be at least {{control.errors?.['minlength'].requiredLength}} characters
+    </div>
+
+    <div 
+        *ngIf="control.hasError('maxlength')" 
+        class="invalid-feedback">
+        {{label()}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters
+    </div>
+</div>

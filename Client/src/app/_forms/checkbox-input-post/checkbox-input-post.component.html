@@ -1,0 +1,23 @@
+<div class="single-input">
+    <label class="add-post-checkbox-container">
+        <input 
+        [class.is-invalid]="control.touched && control.invalid" 
+        [type]="type()"
+        [formControl]="control">
+        <span class="checkmark"></span>
+        <label class="add-post-checkbox-label" for="localTransport" {{placeholder()}}></label>
+    </label>
+    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
+    </i>
+
+    <div *ngIf="control.hasError('required')" class="invalid-feedback">Please enter a {{label()}}
+    </div>
+
+    <div *ngIf="control.hasError('minlength')" class="invalid-feedback error-validation">
+        {{label()}} must be at least {{control.errors?.['minlength'].requiredLength}} characters
+    </div>
+
+    <div *ngIf="control.hasError('maxlength')" class="invalid-feedback">
+        {{label()}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters
+    </div>
+</div>

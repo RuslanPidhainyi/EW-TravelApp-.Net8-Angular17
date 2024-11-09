@@ -1,26 +1,5 @@
-.form-group {
-    margin-bottom: 1.5rem;
-
-    input {
-        border: 1px solid #ccc;
-        height: 3rem;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        width: 100%;
-
-        &:focus {
-            outline: none;
-            border-color: black;
-            box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
-        }
-    }
-}
-
-.add-post-checkbox-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
+.single-input {
+    position: relative;
 
     .add-post-checkbox-container {
         position: relative;
@@ -73,50 +52,22 @@
         border: solid white;
         border-width: 0 0.2rem 0.2rem 0;
         transform: rotate(45deg);
-    }   
-}
-
-.add-post-select {
-    border: 1px solid #ccc;
-    height: 3rem;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    padding: 12px 20px;
-    width: 100%;
-
-    &:focus {
-        outline: none;
-        border-color: black;
-        box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
     }
-}
 
-textarea {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    padding: 12px 20px;
-    width: 100%;
-    resize: vertical;
-
-    &:focus {
-        outline: none;
-        border-color: black;
-        box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
+    .is-invalid {
+        border-color: rgb(171, 0, 0);
+        color: rgb(171, 0, 0);
     }
-}
 
-.add-post-btn {
-    border-radius: 5px;
-    background-color: rgb(34, 100, 159);
-    border: 1px solid white;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    transition: background-color 0.3s ease;
-    margin: .5rem 0 3rem 0;
+    .is-error-icon {
+        visibility: visible !important;
+    }
 
-    &:hover {
-        background-color: black;
-        color: white;
+    .error-icon {
+        position: absolute;
+        top: 19px;
+        left: calc(83vw - 35px);
+        color: rgb(171, 0, 0);
+        visibility: hidden;
     }
 }
