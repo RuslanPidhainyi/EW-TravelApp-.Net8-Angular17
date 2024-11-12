@@ -1,6 +1,6 @@
 namespace API.Entities;
 
-public class User_Post
+public class Like
 {
     public int AppUserId { get; set; }
     public AppUser AppUser { get; set; } = null!;

@@ -23,5 +23,5 @@ public class AppUser
     public List<Photo> GeneralPhotos { get; set; } = [];
     public List<Post> Posts {get; set;} = [];
 
-    public List<User_Post> Users_Posts { get; set; } = [];
+    public List<Like> Likes { get; set; } = [];
 }

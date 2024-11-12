@@ -9,7 +9,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<AppUser> Users { get; set; }
     public DbSet<Photo> GeneralPhotos { get; set; }
     public DbSet<Post> Posts { get; set; }
-    public DbSet<User_Post> Users_Posts {get; set;}
+    public DbSet<Like> Likes {get; set;}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -20,21 +20,21 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 
         base.OnModelCreating(builder);
 
-        builder.Entity<User_Post>()
+        builder.Entity<Like>()
             .HasKey(up => new {
                 up.AppUserId,
                 up.PostId
             });
         
-        builder.Entity<User_Post>()
+        builder.Entity<Like>()
             .HasOne(up => up.AppUser)
-            .WithMany(up => up.Users_Posts)
+            .WithMany(up => up.Likes)
             .HasForeignKey(up => up.AppUserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.Entity<User_Post>()
+        builder.Entity<Like>()
             .HasOne(up => up.Post)
-            .WithMany(up => up.Users_Posts)
+            .WithMany(up => up.Likes)
             .HasForeignKey(up => up.PostId)
             .OnDelete(DeleteBehavior.Cascade);
     }
