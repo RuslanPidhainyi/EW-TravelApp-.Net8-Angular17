@@ -33,4 +33,6 @@ public class Post
     //Navigation properties
     public int AppUserId { get; set; }
     public AppUser AppUser { get; set; } = null!;
+
+    public List<User_Post> Users_Posts { get; set; } = [];
 }
