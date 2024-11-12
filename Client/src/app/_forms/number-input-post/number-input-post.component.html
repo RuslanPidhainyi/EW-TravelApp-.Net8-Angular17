@@ -1,0 +1,25 @@
+<div class="single-input">
+    <input 
+        [class.is-invalid]="control.touched && control.invalid" 
+        [type]="type()"
+        [formControl]="control">
+    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
+    </i>
+
+    <div 
+        *ngIf="control.hasError('required')" 
+        class="invalid-feedback">Please enter a {{label()}}
+    </div>
+    
+    <div 
+        *ngIf="control.hasError('min')" 
+        class="invalid-feedback error-validation">
+        {{label()}} must be at least {{control.errors?.['min'].min}}
+    </div>
+
+    <div 
+        *ngIf="control.hasError('max')" 
+        class="invalid-feedback">
+        {{label()}} must be at most {{control.errors?.['max'].max}}
+    </div>
+</div>

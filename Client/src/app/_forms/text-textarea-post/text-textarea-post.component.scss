@@ -1,0 +1,35 @@
+.single-input {
+    position: relative;
+
+    textarea {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        width: 100%;
+        resize: vertical;
+
+        &:focus {
+            outline: none;
+            border-color: black;
+            box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
+        }
+    }
+
+    .is-invalid {
+        border-color: rgb(171, 0, 0);
+        color: rgb(171, 0, 0);
+    }
+
+    .is-error-icon {
+        visibility: visible !important;
+    }
+
+    .error-icon {
+        position: absolute;
+        top: 19px;
+        left: calc(83vw - 35px);
+        color: rgb(171, 0, 0);
+        visibility: hidden;
+    }
+}

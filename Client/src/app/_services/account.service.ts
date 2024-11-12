@@ -12,6 +12,14 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   currentUser = signal<User | null>(null);
 
+  //Methods inside Service
+  /*
+    NazwaMetody( pzrejmuje argument "model" z danymi dla autorization - czyli "model" to jest Object z wlasciwosciami Username && Password ) {
+      
+      return this.http.post<User>(this.baseUrl + 'account/login', model); – Ten wiersz wysyła żądanie POST na serwer z danymi model, i oczekuje, że serwer zwróci obiekt typu User. Dzięki generykowi <User> otrzymujesz prawidłową typizację odpowiedzi na Kliencie
+    }
+  */
+
   login(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
       map((user) => {

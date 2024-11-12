@@ -4,6 +4,7 @@ import { AccountService } from '../_services/account.service';
 import { RegisterComponent } from '../register/register.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { TextUtils } from '../Helpers/TextUtils';
 
 @Component({
   selector: 'app-login',
@@ -18,18 +19,44 @@ export class LoginComponent {
   private toastr = inject(ToastrService);
   registerMode = false;
   model: any = {};
-  // model: any = {
-  //   username: '',
-  //   password: '',
-  // };
+
+  //Methods inside component.ts
+  /*
+    model: any = {} //Za pomocy tego "model" otrzymujemo wartosc z inputów z componenta.html i wykorzystamy w naszych metodach  
+
+    NazwaMetody() {
+      
+      this.accountService.login(this.model).subscribe - Z Servica wywołujemy .metode (przekazujemy argument "model").subscrabe - bez subscribu nasza metoda bedzie leniwa
+      ({
+        next: (response) => {
+
+          //w block "Next" wrzycamy co musi zrobic nasza metoda
+
+          console.log(respoonse);
+          loggedIn = true;
+        }
+        error: () => {
+          
+          //w block "error" wrzycamy co musi zrobic nasza metoda, jesli nie wyrobi block "Next", czyli kiedy mamy błąd
+
+          error: error => console.log(error)
+        }
+      }) 
+    }
+  */
 
   login() {
     this.accountService.login(this.model).subscribe({
       next: () => {
         this.router.navigateByUrl('/offers');
+        const username = TextUtils.titleCase(
+          this.accountService.currentUser()?.username || ''
+        );
+        this.toastr.success(`User ${username} logged in successfully`);
       },
       error: (error) => {
-        this.toastr.error(error.error);
+        // this.toastr.error(error.error);
+        this.toastr.error('Failed to login');
       },
     });
   }

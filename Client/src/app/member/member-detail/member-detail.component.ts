@@ -4,15 +4,16 @@ import { ActivatedRoute } from '@angular/router';
 import { Member } from '../../_models/member';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Post } from '../../_models/post';
 import { PostsService } from '../../_services/posts.service';
 import { MemberOfferCardComponent } from "../member-offer-card/member-offer-card.component";
+import { TimeagoModule, TimeagoPipe } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [CommonModule, TabsModule, GalleryModule, MemberOfferCardComponent],
+  imports: [CommonModule, TabsModule, GalleryModule, MemberOfferCardComponent, TimeagoModule, DatePipe],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.scss',
 })

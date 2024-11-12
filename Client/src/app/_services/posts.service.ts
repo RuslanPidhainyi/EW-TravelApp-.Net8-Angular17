@@ -11,6 +11,7 @@ export class PostsService {
   private http = inject(HttpClient);
   baseUrl = environment.apiUrl;
   posts = signal<Post[]>([]);
+  postCashe = new Map();
 
   getPosts() {
     return this.http.get<Post[]>(this.baseUrl + 'posts').subscribe({
@@ -19,6 +20,12 @@ export class PostsService {
   }
 
   getPostById(id: number): Observable<Post> {
+    const post: Post = [...this.postCashe.values()]
+    .reduce((arr, elem) => arr.concat(elem.body), [])
+    .find((p: Post) => p.id  === id);
+
+    if(post) return of(post);
+
     return this.http.get<Post>(`${this.baseUrl}posts/${id}`).pipe(
       tap((post) => {
         this.posts.update((posts) =>
@@ -35,8 +42,8 @@ export class PostsService {
     return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
   }
 
-  addPost(postData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}posts/add-post`, postData).pipe();
+  addPost(postData: FormData): Observable<Post> {
+    return this.http.post<Post>(`${this.baseUrl}posts/add-post`, postData);
   }
 
   updatePost(id: number, postData: FormData) {
@@ -44,7 +51,7 @@ export class PostsService {
     );
   }
 
-  deletePost(id: number) {
-    return this.http.delete(`${this.baseUrl}posts/delete-post/${id}`).pipe();
+  deletePost(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}posts/delete-post/${id}`);
   }
 }

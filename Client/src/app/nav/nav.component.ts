@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TitleCasePipe } from '@angular/common';
+import { TextUtils } from '../Helpers/TextUtils';
 
 @Component({
   selector: 'app-nav',
@@ -28,9 +29,12 @@ export class NavComponent {
     this.accountService.login(this.model).subscribe({
       next: () => {
         this.router.navigateByUrl('/offers');
+        const username = TextUtils.titleCase(this.accountService.currentUser()?.username || '');
+        this.toastr.success(`User ${username} logged in successfully`);
       },
       error: error => {
-        this.toastr.error(error.error);
+        // this.toastr.error(error.error);
+        this.toastr.error('Failed to login');
       },
     });
   }
@@ -38,5 +42,6 @@ export class NavComponent {
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
+    this.toastr.success(`User is logged out!`);
   }
 }

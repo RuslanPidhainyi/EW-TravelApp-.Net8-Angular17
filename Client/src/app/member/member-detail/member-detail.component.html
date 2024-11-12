@@ -82,11 +82,11 @@
                     </div>
                     <div class="info">
                         <strong>Last Active:</strong>
-                        <p>{{member.lastActive}}</p>
+                        <p>{{member.lastActive | timeago}}</p>
                     </div>
                     <div class="info">
                         <strong>Member Since:</strong>
-                        <p>{{member.created}}</p>
+                        <p>{{member.created | date: 'dd MMM yyyy'}}</p>
                     </div>
                 </div>
                 <div class="buttons-container">
@@ -101,11 +101,11 @@
                     <tab heading="{{member.knownAs}}'s Posts">
                         <div class="posts-section">
                             <div class="posts-container">
-                                @for (post of posts; track post.id) {
-                                <div class="single-offer">
-                                    <app-member-offer-card [post]="post"> </app-member-offer-card>
-                                </div>
-                                }
+                                @for (post of posts.slice().reverse(); track post.id) {
+                                        <div class="single-offer">
+                                            <app-member-offer-card [post]="post"> </app-member-offer-card>
+                                        </div>
+                                }                       
                             </div>
                         </div>
                     </tab>
