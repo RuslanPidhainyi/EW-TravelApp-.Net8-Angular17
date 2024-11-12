@@ -28,37 +28,36 @@ public class LikesRepository(AppDbContext context, IMapper mapper) : ILikesRepos
             .ToListAsync();
     }
 
-   public async Task<IEnumerable<PostDto>> GetLikedPosts(int userId, string predicate)
-{
-    var likes = context.Likes.AsQueryable();
-
-    switch (predicate)
+    public async Task<IEnumerable<PostDto>> GetLikedPosts(string predicate, int userId)
     {
-        case "liked":
-            return await likes
-                .Where(x => x.AppUserId == userId)
-                .Select(x => x.Post)
-                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
-                .ToListAsync();
+        var likes = context.Likes.AsQueryable();
 
-        case "likedBy":
-            return await likes
-                .Where(x => x.PostId == userId)
-                .Select(x => x.AppUser)
-                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
-                .ToListAsync();
+        switch (predicate)
+        {
+            case "liked":
+                return await likes
+                    .Where(x => x.AppUserId == userId)
+                    .Select(x => x.Post)
+                    .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                    .ToListAsync();
 
-        default:
-            var likeIds = await GetCurrentUserLikeIds(userId);
+            case "likedBy":
+                return await likes
+                    .Where(x => x.PostId == userId)
+                    .Select(x => x.AppUser)
+                    .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                    .ToListAsync();
 
-            return await likes
-                .Where(x => x.PostId == userId && likeIds.Contains(x.AppUserId))
-                .Select(x => x.Post)
-                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
-                .ToListAsync();
+            default:
+                var likeIds = await GetCurrentUserLikeIds(userId);
+
+                return await likes
+                    .Where(x => x.PostId == userId && likeIds.Contains(x.AppUserId))
+                    .Select(x => x.Post)
+                    .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                    .ToListAsync();
+        }
     }
-}
-
 
     public async Task<Like?> GetPostLike(int appUserId, int postUserid)
     {
