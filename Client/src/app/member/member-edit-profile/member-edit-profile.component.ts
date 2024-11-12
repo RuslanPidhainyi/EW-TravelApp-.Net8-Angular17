@@ -1,10 +1,4 @@
-import {
-  Component,
-  HostListener,
-  inject,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { AccountService } from '../../_services/account.service';
 import { MembersService } from '../../_services/members.service';
 import { PostsService } from '../../_services/posts.service';
@@ -21,14 +15,7 @@ import { PhotoEditorComponent } from '../photo-editor/photo-editor.component';
 @Component({
   selector: 'app-member-edit-profile',
   standalone: true,
-  imports: [
-    TabsModule,
-    FormsModule,
-    MemberOfferCardComponent,
-    GalleryModule,
-    RouterLink,
-    PhotoEditorComponent,
-  ],
+  imports: [ TabsModule, FormsModule, MemberOfferCardComponent, GalleryModule, RouterLink, PhotoEditorComponent ],
   templateUrl: './member-edit-profile.component.html',
   styleUrl: './member-edit-profile.component.scss',
 })

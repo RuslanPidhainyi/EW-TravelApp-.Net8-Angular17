@@ -104,24 +104,28 @@
         </div> -->
 
 
-        <div *ngIf="postForm.get('localTransport')?.value">
-
+        @if(postForm.get('localTransport')?.value)
+        {
+        <div>
             <div class="form-group">
                 <label for="minPriceLocalTrans" class="add-post-input-label">Low price service</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['minPriceLocalTrans'])" [label]="'Low price service'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['minPriceLocalTrans'])"
+                    [label]="'Low price service'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="maxPriceLocalTrans" class="add-post-input-label">High price service</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceLocalTrans'])" [label]="'High price service'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceLocalTrans'])"
+                    [label]="'High price service'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="travelTime" class="add-post-input-label">Approximately, the journey took</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['travelTime'])" [label]="'Approximately, the journey took'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['travelTime'])"
+                    [label]="'Approximately, the journey took'"></app-number-input-post>
             </div>
         </div>
-
+        }
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container">
@@ -134,20 +138,22 @@
             <label for="entranceFee" class="add-post-checkbox-label">Entrance was paid</label>
             <input type="checkbox" id="entranceFee" formControlName="entranceFee" class="add-post-checkbox" />
         </div> -->
-
-        <div *ngIf="postForm.get('entranceFee')?.value">
-
+        @if(postForm.get('entranceFee')?.value)
+        {
+        <div>
             <div class="form-group">
                 <label for="minPriceEntrFee" class="add-post-input-label">Low price for entrance</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['minPriceEntrFee'])" [label]="'Low price for entrance'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['minPriceEntrFee'])"
+                    [label]="'Low price for entrance'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="maxPriceEntrFee" class="add-post-input-label">High price for entrance</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceEntrFee'])" [label]="'High price for entrance'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceEntrFee'])"
+                    [label]="'High price for entrance'"></app-number-input-post>
             </div>
         </div>
-
+        }
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container">
@@ -160,17 +166,19 @@
             <label for="placeStay" class="add-post-checkbox-label">Accommodation</label>
             <input type="checkbox" id="placeStay" formControlName="placeStay" class="add-post-checkbox" />
         </div> -->
-
-        <div *ngIf="postForm.get('placeStay')?.value">
-
+        @if(postForm.get('placeStay')?.value)
+        {
+        <div>
             <div class="form-group">
                 <label for="minPricePlaceStay" class="add-post-input-label">Low price for accommodation</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['minPricePlaceStay'])" [label]="'Low price for accommodation'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls    ['minPricePlaceStay'])"
+                    [label]="'Low price for accommodation'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="maxPricePlaceStay" class="add-post-input-label">High price for accommodation</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['maxPricePlaceStay'])" [label]="'High price for accommodation'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls    ['maxPricePlaceStay'])"
+                    [label]="'High price for accommodation'"></app-number-input-post>
             </div>
 
             <div class="form-group">
@@ -182,6 +190,7 @@
                 </select>
             </div>
         </div>
+        }
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container">
@@ -194,19 +203,22 @@
             <label for="groceryStore" class="add-post-checkbox-label">Grocery stores nearby</label>
             <input type="checkbox" id="groceryStore" formControlName="groceryStore" class="add-post-checkbox" />
         </div> -->
-
-        <div *ngIf="postForm.get('groceryStore')?.value">
-
+        @if(postForm.get('groceryStore')?.value)
+        {
+        <div>
             <div class="form-group">
                 <label for="minPriceGroceryStore" class="add-post-input-label">Low price for grocery</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['minPriceGroceryStore'])" [label]="'Low price for grocery'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls    ['minPriceGroceryStore'])"
+                    [label]="'Low price for grocery'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="maxPriceGroceryStore" class="add-post-input-label">High price for grocery</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceGroceryStore'])" [label]="'High price for grocery'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls    ['maxPriceGroceryStore'])"
+                    [label]="'High price for grocery'"></app-number-input-post>
             </div>
         </div>
+        }
 
 
         <div class="add-post-checkbox-wrapper form-check-inline">
@@ -220,20 +232,24 @@
             <label for="guide" class="add-post-checkbox-label">Guide services</label>
             <input type="checkbox" id="guide" formControlName="guide" cclass="add-post-checkbox" />
         </div> -->
-
-        <div *ngIf="postForm.get('guide')?.value">
-
+        @if(postForm.get('guide')?.value)
+        {
+        <div>
             <div class="form-group">
                 <label for="minPriceGuide">Low price for services</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['minPriceGuide'])" [label]="'Low price for services'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['minPriceGuide'])"
+                    [label]="'Low price for services'"></app-number-input-post>
             </div>
 
             <div class="form-group">
                 <label for="maxPriceGuide">High price for services</label>
-                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceGuide'])" [label]="'High price for services'"></app-number-input-post>
+                <app-number-input-post [formControl]="$any(postForm.controls['maxPriceGuide'])"
+                    [label]="'High price for services'"></app-number-input-post>
             </div>
         </div>
+        }
 
+        <!-- !!! TODO: Nie wymagane pole "currence" przy tworzeniu, JEZELI niezaznaczyłem choziac jeden z pól ktory wymaga pole "currence". taki Jak (localTransport, entranceFee, placeStay, groceryStore, guide),  to potzebno  zmienic na backen'dzie i front'edzie. -->
         <div class="form-group">
             <app-text-input-post [formControl]="$any(postForm.controls['currency'])" [label]="'currency'"
                 [placeholder]="'Currency'">

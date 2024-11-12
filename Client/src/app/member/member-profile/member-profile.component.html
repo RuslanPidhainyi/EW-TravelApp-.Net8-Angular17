@@ -114,11 +114,11 @@
                                 </div>
                             </div>
                             <div class="posts-container">
-                                @for (post of posts.slice().reverse(); track post.id) {
-                                <div class="single-offer">
-                                    <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
-                                </div>
-                                }
+                                    @for (post of posts.slice().reverse(); track post.id) {
+                                        <div class="single-offer">
+                                            <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
+                                        </div>
+                                    }
                             </div>
                         </div>
                     </tab>

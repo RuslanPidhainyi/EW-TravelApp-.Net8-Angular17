@@ -12,7 +12,7 @@ import { TextTextareaPostComponent } from "../../_forms/text-textarea-post/text-
 import { CheckboxInputPostComponent } from "../../_forms/checkbox-input-post/checkbox-input-post.component";
 import { NumberInputPostComponent } from "../../_forms/number-input-post/number-input-post.component";
 
-@Component({
+@Component({  
   selector: 'app-add-offer',
   standalone: true,
   imports: [ ReactiveFormsModule, NgIf, NgFor, NgStyle, NgClass, FileUploadModule, DecimalPipe,  RouterLink, TextInputPostComponent, TextTextareaPostComponent, CheckboxInputPostComponent,NumberInputPostComponent ],
@@ -27,14 +27,14 @@ export class AddOfferComponent implements OnInit {
   private fb = inject(FormBuilder);
 
   postForm: FormGroup = new FormGroup({});
-  uploader?: FileUploader;
   validationErrors: string[] | undefined;
+  uploader?: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
 
   ngOnInit(): void {
-    this.initializeForm();
     this.initializeUploader();
+    this.initializeForm();
   }
 
   initializeForm() {
@@ -61,6 +61,8 @@ export class AddOfferComponent implements OnInit {
           guide: [false],
           minPriceGuide: [0], //TODO: [Validators.min(1),Validators.max(999999)],
           maxPriceGuide: [0], //TODO: [Validators.min(1),Validators.max(999999)],
+          
+          // !!! TODO: Nie wymagane pole "currence" przy tworzeniu, JEZELI niezaznaczyłem choziac jeden z pól ktory wymaga pole "currence". taki Jak (localTransport, entranceFee, placeStay, groceryStore, guide),  to potzebno  zmienic na backen'dzie i front'edzie.
           currency: ['', Validators.required], //TODO: Validators.minLength(1), Validators.maxLength(30)
           description: [''],
     });

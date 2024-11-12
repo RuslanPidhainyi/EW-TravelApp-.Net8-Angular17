@@ -102,10 +102,10 @@
                         <div class="posts-section">
                             <div class="posts-container">
                                 @for (post of posts.slice().reverse(); track post.id) {
-                                <div class="single-offer">
-                                    <app-member-offer-card [post]="post"> </app-member-offer-card>
-                                </div>
-                                }
+                                        <div class="single-offer">
+                                            <app-member-offer-card [post]="post"> </app-member-offer-card>
+                                        </div>
+                                }                       
                             </div>
                         </div>
                     </tab>
