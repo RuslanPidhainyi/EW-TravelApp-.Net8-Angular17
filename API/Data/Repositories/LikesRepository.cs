@@ -2,38 +2,71 @@ using System;
 using API.DTOs;
 using API.Entities;
 using API.Interface;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories;
 
-public class LikesRepository : ILikesRepository
+public class LikesRepository(AppDbContext context, IMapper mapper) : ILikesRepository
 {
     public void AddLike(Like like)
     {
-        throw new NotImplementedException();
+        context.Likes.Add(like);
     }
 
     public void DeleteLike(Like like)
     {
-        throw new NotImplementedException();
+        context.Likes.Remove(like);
     }
 
-    public Task<IEnumerable<int>> GetCurrentUserLikeIds(int currentuserId)
+    public async Task<IEnumerable<int>> GetCurrentUserLikeIds(int currentUserId)
     {
-        throw new NotImplementedException();
+        return await context.Likes
+            .Where(x => x.AppUserId == currentUserId)
+            .Select(x => x.PostId)
+            .ToListAsync();
     }
 
-    public Task<IEnumerable<PostDto>> GetLikedPosts(int userId, int postId)
+   public async Task<IEnumerable<PostDto>> GetLikedPosts(int userId, string predicate)
+{
+    var likes = context.Likes.AsQueryable();
+
+    switch (predicate)
     {
-        throw new NotImplementedException();
+        case "liked":
+            return await likes
+                .Where(x => x.AppUserId == userId)
+                .Select(x => x.Post)
+                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                .ToListAsync();
+
+        case "likedBy":
+            return await likes
+                .Where(x => x.PostId == userId)
+                .Select(x => x.AppUser)
+                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                .ToListAsync();
+
+        default:
+            var likeIds = await GetCurrentUserLikeIds(userId);
+
+            return await likes
+                .Where(x => x.PostId == userId && likeIds.Contains(x.AppUserId))
+                .Select(x => x.Post)
+                .ProjectTo<PostDto>(mapper.ConfigurationProvider)
+                .ToListAsync();
+    }
+}
+
+
+    public async Task<Like?> GetPostLike(int appUserId, int postUserid)
+    {
+        return await context.Likes.FindAsync(appUserId, postUserid);
     }
 
-    public Task<Like?> GetPostLike(int appUserId, int postUserid)
+    public async Task<bool> SaveChanges()
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<bool> SaveChanges()
-    {
-        throw new NotImplementedException();
+        return await context.SaveChangesAsync() > 0;
     }
 }
