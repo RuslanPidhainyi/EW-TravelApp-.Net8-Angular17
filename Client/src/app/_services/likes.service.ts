@@ -1,6 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Post } from '../_models/post';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class LikesService {
   }
 
   getLikes(predicate: string) {
-    return this.http.get(`${this.baseUrl}likes?predicat=${predicate}`);
+    return this.http.get<Post[]>(`${this.baseUrl}likes?predicate=${predicate}`);
   }
 
   getLikeIds() {

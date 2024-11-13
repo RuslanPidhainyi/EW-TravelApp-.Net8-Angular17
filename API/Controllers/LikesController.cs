@@ -7,18 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-public class LikesController(ILikesRepository likesRepo) : BaseApiController
+public class LikesController(ILikesRepository likesRepo, IPostRepository postRepo) : BaseApiController
 {
     [HttpPost("{postUserId:int}")]
     public async Task<ActionResult> ToggleLike(int postUserId)
     {
         var appUserId = User.GetUserId();
 
-        if(appUserId == postUserId) return BadRequest("You cannot like your own post");
+        var post = await postRepo.GetPostByIdAsync(postUserId);
+
+        if (post == null) return NotFound("Post not found");
+
+        if (post.AppUserId == appUserId) return BadRequest("You cannot like your own post");  
 
         var existingLike = await likesRepo.GetPostLike(appUserId, postUserId);
 
-        if(existingLike == null)
+        if (existingLike == null)
         {
             var like = new Like
             {
@@ -33,7 +37,7 @@ public class LikesController(ILikesRepository likesRepo) : BaseApiController
             likesRepo.DeleteLike(existingLike);
         }
 
-        if(await likesRepo.SaveChanges()) return Ok();
+        if (await likesRepo.SaveChanges()) return Ok();
 
         return BadRequest("Failed to update like");
     }

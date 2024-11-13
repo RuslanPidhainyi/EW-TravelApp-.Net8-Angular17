@@ -11,8 +11,9 @@
           <h6>{{post().title}}</h6>
         </div>
         <div class="icon-buttons">
-          <i class="fa fa-heart"></i>
-          <i class="fa fa-ellipsis-h" routerLink="/offers/{{post().id}}"></i>
+          <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+          <!-- <i class="fa fa-heart"></i>
+          <i class="fa fa-ellipsis-h" routerLink="/offers/{{post().id}}"></i> -->
         </div>
       </div>
     </div>
