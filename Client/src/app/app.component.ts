@@ -2,19 +2,19 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { AccountService } from './_services/account.service';
-import { LoginComponent } from "./login/login.component";
+import { LoginComponent } from './login/login.component';
 import { NgxSpinnerComponent } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, LoginComponent, NgxSpinnerComponent],
+  imports: [RouterOutlet, NavComponent, NgxSpinnerComponent], //LoginComponent,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   private accountService = inject(AccountService);
-  
+
   ngOnInit(): void {
     this.setCurrentUser();
   }
@@ -25,6 +25,6 @@ export class AppComponent implements OnInit {
     if (!userString) return;
 
     const user = JSON.parse(userString);
-    this.accountService.currentUser.set(user);
+    this.accountService.setCurrentUser(user);
   }
 }

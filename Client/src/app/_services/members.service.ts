@@ -14,6 +14,15 @@ export class MembersService {
   members = signal<Member[]>([]);
   memberCashe = new Map();
 
+  /*
+    return this.http.get<Member[]>(this.baseUrl + 'users') 
+      - wykorzystam .get<Member[]> zebys otrzymać z api liste User`ów
+
+    .subscribe({
+      next: (members) => this.members.set(members),
+    });
+      - subscribuje zebyś moglismy pobrać dane z API
+  */
   getMembers() {
     return this.http.get<Member[]>(this.baseUrl + 'users').subscribe({
       next: (members) => this.members.set(members),
