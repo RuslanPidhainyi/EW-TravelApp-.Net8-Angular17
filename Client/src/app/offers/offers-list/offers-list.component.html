@@ -1,11 +1,15 @@
-<div class="recommendations-section">
-    <h1>Recommends</h1>
+<div class="title-section">
+    <h1>Posts</h1>
 </div>
-
-<div class="offers-container">
-    @for (post of postService.posts().slice().reverse(); track post.id) {
-    <div class="single-offer">
-        <app-offer-card [post]="post"> </app-offer-card>
+<div *ngIf="postService.posts().length > 0; else noPosts">
+    <div class="offers-container">
+        @for (post of postService.posts().slice().reverse(); track post.id) {
+        <div class="single-offer">
+            <app-offer-card [post]="post"> </app-offer-card>
+        </div>
+        }
     </div>
-    }
 </div>
+<ng-template #noPosts>
+    <p>You have not new posts yet.</p>
+</ng-template>

@@ -1,0 +1,26 @@
+.title-section {
+    text-align: left;
+    margin-bottom: .5rem;
+
+    h1 {
+        //font-size: 1.5rem; 
+        font-weight: 700;
+        color: black;
+        margin: 0;
+    }
+}
+
+.offers-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 колонки
+    grid-gap: 20px; // Простір між картками
+    padding: 20px;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(2, 1fr); // 2 колонки на середніх екранах
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr; // 1 колонка на маленьких екранах
+    }
+}
