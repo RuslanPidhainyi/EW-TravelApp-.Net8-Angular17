@@ -22,6 +22,7 @@ public class AppUser
     //Navigation properties
     public List<Photo> GeneralPhotos { get; set; } = [];
     public List<Post> Posts {get; set;} = [];
-
     public List<Like> Likes { get; set; } = [];
+    public List<Message> MessagesSent {get; set;} = [];
+    public List<Message> MessagesReceived {get; set;} = [];
 }
