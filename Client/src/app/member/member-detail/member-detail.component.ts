@@ -44,6 +44,18 @@ export class MemberDetailComponent implements OnInit {
     this.loadMember();
   }
 
+  selectTab(heading: string)
+  {
+    if(this.memberTabs) {
+      const messageTab = this.memberTabs.tabs.find(x => x.heading === heading);
+      if(messageTab) messageTab.active = true;
+    }
+  }
+
+  onUpdateMessage(event: Message) {
+    this.messages.push(event);
+  }
+
   OnTabActived(data: TabDirective) {
     this.activeTab = data;
     if (

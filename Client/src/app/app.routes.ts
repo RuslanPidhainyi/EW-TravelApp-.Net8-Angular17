@@ -25,7 +25,7 @@ export const routes: Routes = [
             { path: '', component: LoginComponent },
             { path: 'offers', component: OffersListComponent },
             { path: 'offers/:id', component: OfferDetailComponent },
-            { path: 'members/:username', component: MemberDetailComponent },
+            { path: 'members/:username', component: MemberDetailComponent},
             { path: 'member/profile', component: MemberProfileComponent },
             { path: 'member/edit-profile', component: MemberEditProfileComponent, canDeactivate: [preventUnsavedChangesGuard] },
             { path: 'lists', component: ListsComponent },

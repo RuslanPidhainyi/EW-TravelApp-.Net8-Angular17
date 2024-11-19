@@ -74,9 +74,16 @@
         }
     </div>
     <div class="send-message-container">
-        <form autocomplete="off">
-            <input name="messageContent" type="text" placeholder="Send message">
-            <button type="submit">
+        <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+            <input 
+                name="messageContent"
+                required
+                [(ngModel)]="messageContent"
+                type="text" 
+                placeholder="Send message">
+            <button 
+            [disabled]="!messageForm.valid"
+            type="submit">
                 Send
             </button>
         </form>

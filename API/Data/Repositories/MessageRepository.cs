@@ -63,8 +63,8 @@ public class MessageRepository(AppDbContext context, IMapper mapper) : IMessageR
             .Include(x => x.Sender).ThenInclude(x => x.GeneralPhotos)
             .Include(x => x.Recipient).ThenInclude(x => x.GeneralPhotos)
             .Where(x =>
-                x.RecipientUsername == currentUsername && x.SenderUsername == recipientUsername
-                || x.SenderUsername == currentUsername && x.RecipientUsername == recipientUsername)
+                x.RecipientUsername == currentUsername && x.RecipientDeleted == false && x.SenderUsername == recipientUsername
+                || x.SenderUsername == currentUsername && x.SenderDeleted == false && x.RecipientUsername == recipientUsername)
             .OrderBy(x => x.MessageSent)
             .ToListAsync();
         

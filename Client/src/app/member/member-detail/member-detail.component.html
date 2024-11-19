@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button class="message-button">
+                    <button class="message-button" (click)="selectTab('Messages')">
                         <i class="fa fa-comment"> Send a message</i>
                     </button>
                 </div>
@@ -136,7 +136,11 @@
                     <tab heading="Messages" (selectTab)="OnTabActived($event)">
                         <div class="message-section">
                             <div class="message-container">
-                                <app-member-messages [username]="member.username" [messages]="messages"></app-member-messages>
+                                <app-member-messages 
+                                [username]="member.username" 
+                                [messages]="messages"
+                                (updateMessages)="onUpdateMessage($event)"
+                                ></app-member-messages>
                             </div>
                         </div>
                     </tab>

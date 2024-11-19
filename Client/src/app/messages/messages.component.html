@@ -13,7 +13,7 @@
 
     @if(!messageService.paginatedResult()?.items || messageService.paginatedResult()?.items?.length === 0) {
     <div class="no-messages-container">
-        <h3>No messages</h3>
+        <h3>No messages yet</h3>
     </div>
     }
     @else {
@@ -29,15 +29,13 @@
             </thead>
             <tbody>
                 @for (message of messageService.paginatedResult()?.items; track message.id) {
-                <tr class="message-row" routerLink="{{getRoute(message)}}"[queryParams]="{tab: 'Messages'}">
+                <tr class="message-row" routerLink="{{getRoute(message)}}" [queryParams]="{tab: 'Messages'}">
                     <td class="table-messages">{{message.content}}</td>
                     <td class="table-from-to">
                         <div class="user">
-                            <img
-                             [src]="isOutbox
+                            <img [src]="isOutbox
                                     ? (message.recipientPhotoUrl || './assets/user.png') 
-                                    : (message.senderPhotoUrl || './assets/user.png')"
-                            alt="image of user">
+                                    : (message.senderPhotoUrl || './assets/user.png')" alt="image of user">
                             <strong>
                                 {{isOutbox
                                 ? message.recipientUsername : message.senderUsername}}
@@ -45,8 +43,8 @@
                         </div>
                     </td>
                     <td class="table-sent">{{message.messageSent | timeago}}</td>
-                    <td class="table-actions">
-                        <button class="btn-delete">Delete</button>
+                    <td (click)="$event.stopPropagation()" class="table-actions">
+                        <button (click)="deleteMessage(message.id)" class="btn-delete">Delete</button>
                     </td>
                 </tr>
                 }
@@ -57,17 +55,10 @@
 
     @if (messageService.paginatedResult()?.pagination) {
     <div class="pagination-container">
-        <pagination 
-            [boundaryLinks]="true" 
-            [totalItems]="messageService.paginatedResult()?.pagination!.totalItems"
+        <pagination [boundaryLinks]="true" [totalItems]="messageService.paginatedResult()?.pagination!.totalItems"
             [itemsPerPage]="messageService.paginatedResult()?.pagination!.itemsPerPage"
-            (pageChanged)="pageChanged($event)"
-            [(ngModel)]="messageService.paginatedResult()?.pagination!.currentPage"
-            [maxSize]="10"
-            previousText="&lsaquo;" 
-            nextText="&rsaquo;" 
-            firstText="&laquo;" 
-            lastText="&raquo;">
+            (pageChanged)="pageChanged($event)" [(ngModel)]="messageService.paginatedResult()?.pagination!.currentPage"
+            [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
         </pagination>
     </div>
     }

@@ -6,6 +6,7 @@ import { TimeagoModule } from 'ngx-timeago';
 import { Message } from '../_models/message';
 import { RouterLink } from '@angular/router';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { previousDate } from 'ngx-bootstrap/datepicker/bs-datepicker.component';
 
 @Component({
   selector: 'app-messages',
@@ -27,6 +28,20 @@ export class MessagesComponent implements OnInit {
 
   loadMessages() {
     this.messageService.getMessages(this.pageNumber, this.pageSize, this.container);
+  }
+
+  deleteMessage(id: number) {
+    this.messageService.deleteMessage(id).subscribe({
+      next: _ => {
+        this.messageService.paginatedResult.update(prev  => {
+          if(prev && prev.items) {
+            prev.items.splice(prev.items.findIndex(m => m.id === id), 1)
+            return prev;
+          }
+          return prev;
+        })
+      }
+    })
   }
 
   getRoute(message: Message) {
