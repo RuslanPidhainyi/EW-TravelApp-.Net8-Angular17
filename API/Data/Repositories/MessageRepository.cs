@@ -31,18 +31,26 @@ public class MessageRepository(AppDbContext context, IMapper mapper) : IMessageR
     //     throw new NotImplementedException();
     // }
     public async Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams)
-    {
+    {   
+        //note: wyswietlamy wysłane messages
         var query = context.Messages
             .OrderByDescending(x => x.MessageSent)
             .AsQueryable();
 
+        //note: wykorzystuje dla container "switch case"
         query = messageParams.Container switch
-        {
+        {   
+            //note: Jezeli "switch case" = Inbox / Skrzynka odbiorcy - to nazwaUser'a odbiorcy pasuje do biezacej nazwyUser'a
             "Inbox" => query.Where(x => x.Recipient.UserName == messageParams.Username && x.RecipientDeleted == false),
+            
+            //Jezeli "switch case" = Outbox / Skrzynka nadawcy - to ...
             "Outbox" => query.Where(x => x.Sender.UserName == messageParams.Username && x.SenderDeleted == false),
+
+            //note: Jezeli "switch case" = unread(jest domyslnym parametrem) / Nie przeczytane - to ...
             _ => query.Where(x => x.Recipient.UserName == messageParams.Username && x.DateRead == null && x.RecipientDeleted == false)
         };
 
+        //note: .ProjectTo<...Dto>(mapper. ...) - Project przekazuje dostawce konfiguracji mapper
         var messages = query.ProjectTo<MessageDto>(mapper.ConfigurationProvider);
 
         return await PagedList<MessageDto>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
