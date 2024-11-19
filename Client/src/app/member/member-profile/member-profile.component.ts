@@ -10,6 +10,8 @@ import { RouterLink } from '@angular/router';
 import { MemberProfileOfferCardComponent } from '../member-profile-offer-card/member-profile-offer-card.component';
 import { TimeagoModule } from 'ngx-timeago';
 import { DatePipe } from '@angular/common';
+import { switchMap, tap } from 'rxjs';
+import { MemberMessagesComponent } from "../member-messages/member-messages.component";
 
 @Component({
   selector: 'app-member-profile',
@@ -20,8 +22,9 @@ import { DatePipe } from '@angular/common';
     RouterLink,
     MemberProfileOfferCardComponent,
     TimeagoModule,
-    DatePipe
-  ],
+    DatePipe,
+    MemberMessagesComponent
+],
   templateUrl: './member-profile.component.html',
   styleUrl: './member-profile.component.scss',
 })
@@ -41,20 +44,27 @@ export class MemberProfileComponent implements OnInit {
     const user = this.accountService.currentUser();
     if (!user) return;
 
-    this.memberService.getMember(user.username).subscribe({
-      next: (member) => {
+    // this.memberService.getMember(user.username).subscribe({
+    //   next: (member) => {
+    //     this.member = member;
+    //     member.generalPhotos.map((p) => {
+    //       this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
+    //     });
+
+    //     this.postService.getPostByUsername(member.username).subscribe((posts)=>
+    //         this.posts = posts
+    //     );
+    //   },
+    // });
+    this.memberService.getMember(user.username).pipe(
+      tap(((member) => {
         this.member = member;
         member.generalPhotos.map((p) => {
           this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
         });
-
-        this.postService.getPostByUsername(member.username).subscribe({
-          next: (posts) => {
-            this.posts = posts;
-          },
-        });
-      },
-    });
+  })),
+      switchMap(member=> this.postService.getPostByUsername(member.username))
+    ).subscribe((posts)=>this.posts = posts)
   }
 
   onPostDeleted(postId: number) {

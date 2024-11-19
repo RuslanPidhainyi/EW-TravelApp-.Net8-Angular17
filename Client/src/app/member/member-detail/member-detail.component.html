@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="buttons-container">
-                    <button class="message-button">
+                    <button class="message-button" (click)="selectTab('Messages')">
                         <i class="fa fa-comment"> Send a message</i>
                     </button>
                 </div>
@@ -98,7 +98,7 @@
             <div class="right-side">
                 <tabset class="member-tabset" #memberTabs>
 
-                    <tab heading="{{member.knownAs}}'s Posts">
+                    <tab heading="{{member.knownAs}}'s Posts" (selectTab)="OnTabActived($event)">
                         <div class="posts-section">
                             <div *ngIf="posts.length > 0; else noPosts">
                                 <div class="posts-container">
@@ -115,7 +115,7 @@
                         </div>
                     </tab>
 
-                    <tab heading="About {{member.knownAs}}" #photoTab="tab">
+                    <tab heading="About {{member.knownAs}}" #photoTab="tab" (selectTab)="OnTabActived($event)">
                         <div class="about-section">
                             <div class="about-container">
                                 <div class="photos-container-row1">
@@ -133,10 +133,14 @@
                         </div>
                     </tab>
 
-                    <tab heading="Messages">
+                    <tab heading="Messages" (selectTab)="OnTabActived($event)">
                         <div class="message-section">
                             <div class="message-container">
-                                Message
+                                <app-member-messages 
+                                [username]="member.username" 
+                                [messages]="messages"
+                                (updateMessages)="onUpdateMessage($event)"
+                                ></app-member-messages>
                             </div>
                         </div>
                     </tab>

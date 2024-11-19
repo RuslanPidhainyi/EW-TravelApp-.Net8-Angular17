@@ -10,6 +10,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     public DbSet<Photo> GeneralPhotos { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Like> Likes {get; set;}
+    public DbSet<Message> Messages {get; set;}
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -37,5 +38,15 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             .WithMany(up => up.Likes)
             .HasForeignKey(up => up.PostId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<Message>()
+            .HasOne(x => x.Recipient)
+            .WithMany(x => x.MessagesReceived)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<Message>()
+            .HasOne(x => x.Sender)
+            .WithMany(x => x.MessagesSent)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
