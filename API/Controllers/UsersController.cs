@@ -12,6 +12,7 @@ namespace API.Controllers;
 [Authorize]
 public class UsersController(IUserRepository userRepo, IPhotoService photoService, IMapper mapper) : BaseApiController
 {
+    //[Authorize(Roles = "Admin")] //note: Attribute authorization for test
     [HttpGet] // /api/users
     public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
     {
@@ -20,6 +21,7 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         return Ok(users);
     }
 
+    //[Authorize(Roles = "Member")] //note: Attribute authorization for test
     [HttpGet("{username}")] // /api/users/lisa
     public async Task<ActionResult<MemberDto>> GetUser(string username)
     {
@@ -51,7 +53,7 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         if (user == null) return BadRequest("Cannot update user");
 
         var result = await photoService.AddPhotoAsync(file);
-        
+
         if (result.Error != null) return BadRequest(result.Error.Message);
         var photo = new Photo
         {
@@ -59,10 +61,10 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
             PublicId = result.PublicId
         };
 
-        if(user.GeneralPhotos.Count == 0) photo.IsMain = true;
+        if (user.GeneralPhotos.Count == 0) photo.IsMain = true;
 
         user.GeneralPhotos.Add(photo);
-        
+
         if (await userRepo.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
         return BadRequest("Problem adding photo");
     }
@@ -97,7 +99,7 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         var photo = user.GeneralPhotos.FirstOrDefault(x => x.Id == photoId);
 
         if (photo == null || photo.IsMain) return BadRequest("This photo cannot be deleted");
-        
+
         if (photo.PublicId != null)
         {
             var result = await photoService.DeletePhotoAsync(photo.PublicId);
@@ -107,7 +109,7 @@ public class UsersController(IUserRepository userRepo, IPhotoService photoServic
         user.GeneralPhotos.Remove(photo);
 
         if (await userRepo.SaveAllAsync()) return Ok();
-        
+
         return BadRequest("Problem deleting photo");
     }
 }
