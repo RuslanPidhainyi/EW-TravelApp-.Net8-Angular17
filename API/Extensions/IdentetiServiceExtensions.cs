@@ -36,6 +36,10 @@ public static class IdentetiServiceExtensions
                     ValidateAudience = false
                 };
             });
+
+        services.AddAuthorizationBuilder()
+            .AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"))
+            .AddPolicy("ModerateContentRole", policy => policy.RequireRole("Admin", "Moderator"));
             
         return services;
     }
