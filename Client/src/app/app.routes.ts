@@ -14,6 +14,7 @@ import { MemberEditProfileComponent } from './member/member-edit-profile/member-
 import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { EditOfferComponent } from './offers/edit-offer/edit-offer.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
@@ -31,7 +32,8 @@ export const routes: Routes = [
             { path: 'lists', component: ListsComponent },
             { path: 'messages', component: MessagesComponent },
             {path: 'add-offer', component: AddOfferComponent},
-            {path: 'edit-offer/:id', component: EditOfferComponent}
+            {path: 'edit-offer/:id', component: EditOfferComponent},
+            {path: 'admin', component: AdminPanelComponent}
         ],
     },
     { path: 'errors', component: TestErrorsComponent },
