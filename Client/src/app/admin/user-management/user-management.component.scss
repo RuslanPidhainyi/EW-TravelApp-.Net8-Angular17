@@ -1,0 +1,73 @@
+.user-management-container {
+    width: 100%;
+    display: flex;
+    //justify-content: center;
+
+    table {
+        width: 95%;
+        margin: .5rem 2rem;
+
+        tr {
+            border-bottom: rgba(71, 71, 71, 0.436) 1px solid;
+        }
+
+        th {
+            padding-bottom: .5rem;
+        }
+
+        .table-username {
+            width: 40%;
+        }
+
+        .table-roles {
+            width: 40%;
+        }
+
+        .table-actions {
+            width: 20%;
+        }
+
+        .single-row {
+            transition: .2s;
+            border-bottom: rgba(114, 114, 114, 0.274) 1px solid;
+
+            // button {
+            //     background-color: transparent;
+            //     border-radius: .4rem;
+            //     border: none;
+            //     color: rgb(62, 18, 91);
+            //     transition: .2s;
+
+
+            //     &:hover {
+            //         color: white;
+
+            //         div {
+            //             .icon {
+            //                 scale: 110%;
+            //             }
+            //         }
+            //     }
+            // }
+            .btn-edit-role {
+                background-color: rgb(47, 143, 226);
+                border: 1px white solid;
+                color: white;
+                border-radius: 5px;
+                padding: .5rem 1rem;
+                margin: .7rem 0 1rem 0; //note: odstep medzy btn i linijej
+                transition: background-color .3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: black;
+                    color: white;
+                }
+            }
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
