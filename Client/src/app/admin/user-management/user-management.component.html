@@ -13,7 +13,7 @@
                 <td>{{user.username | titlecase}}</td>
                 <td>{{user.roles}}</td>
                 <td>
-                    <button class="btn-edit-role"> Edit roles </button>
+                    <button (click)="openRolesModel(user)" class="btn-edit-role"> Edit roles </button>
                 </td>
             </tr>
             }
