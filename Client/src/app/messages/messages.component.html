@@ -53,9 +53,11 @@
     </div>
     }
 
-    @if (messageService.paginatedResult()?.pagination) {
+    @if (messageService.paginatedResult()?.pagination && messageService.paginatedResult()?.pagination?.totalItems! > 0) {
     <div class="pagination-container">
-        <pagination [boundaryLinks]="true" [totalItems]="messageService.paginatedResult()?.pagination!.totalItems"
+        <pagination 
+            [boundaryLinks]="true" 
+            [totalItems]="messageService.paginatedResult()?.pagination!.totalItems"
             [itemsPerPage]="messageService.paginatedResult()?.pagination!.itemsPerPage"
             (pageChanged)="pageChanged($event)" [(ngModel)]="messageService.paginatedResult()?.pagination!.currentPage"
             [maxSize]="10" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">

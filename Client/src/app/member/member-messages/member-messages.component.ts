@@ -13,7 +13,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class MemberMessagesComponent {
   @ViewChild('messageForm') messageForm?: NgForm;
-  private messageService = inject(MessageService);
+  messageService = inject(MessageService);
   username = input.required<string>();
   messages = input.required<Message[]>();
   messageContent = '';
