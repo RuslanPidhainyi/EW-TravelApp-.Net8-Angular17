@@ -7,7 +7,7 @@ import { LikesService } from '../../_services/likes.service';
 @Component({
   selector: 'app-member-offer-card',
   standalone: true,
-  imports: [TitleCasePipe, RouterLink],
+  imports: [RouterLink],
   templateUrl: './member-offer-card.component.html',
   styleUrl: './member-offer-card.component.scss'
 })

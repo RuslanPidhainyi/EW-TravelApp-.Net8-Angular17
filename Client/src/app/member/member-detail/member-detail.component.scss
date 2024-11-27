@@ -187,6 +187,12 @@
                 .info {
                     margin-bottom: .5rem;
 
+                    span {
+                        i {
+                            color: green;
+                        }
+                    }
+
                     strong {
                         display: block;
                         color: #333;

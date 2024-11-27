@@ -1,4 +1,4 @@
-<div class="offer-container">
+  <div class="offer-container">
   <div class="photo-container">
     <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
     <div class="location-overlay">
@@ -8,7 +8,9 @@
   <div class="info">
     <div class="info-row-1-left">
       <div class="user-info" routerLink="/members/{{post().userName}}">
-        <i class="fa fa-user"></i>
+        <span [class.is-online]="isOnline()">
+          <i class="fa fa-user"></i>
+        </span>
         <h5><b>{{post().userName | titlecase}}</b></h5>
       </div>
       <div class="icon-buttons">

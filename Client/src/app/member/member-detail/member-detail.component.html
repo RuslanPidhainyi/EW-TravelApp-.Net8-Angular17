@@ -73,6 +73,14 @@
                 <img src="{{member.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
                 <div class="info-container">
                     <div class="info">
+                        @if(presenceService.onlineUsers().includes(member.username)) {
+                        <span>
+                            <i class="fa fa-user"></i>
+                        </span>
+                        Online now
+                        }
+                    </div>
+                    <div class="info">
                         <strong>Location:</strong>
                         <p>{{member.city}}, {{member.country}}</p>
                     </div>
@@ -136,11 +144,8 @@
                     <tab heading="Messages" (selectTab)="OnTabActived($event)">
                         <div class="message-section">
                             <div class="message-container">
-                                <app-member-messages 
-                                [username]="member.username" 
-                                [messages]="messages"
-                                (updateMessages)="onUpdateMessage($event)"
-                                ></app-member-messages>
+                                <app-member-messages [username]="member.username" [messages]="messages"
+                                    (updateMessages)="onUpdateMessage($event)"></app-member-messages>
                             </div>
                         </div>
                     </tab>

@@ -12,6 +12,7 @@ import { TimeagoModule, TimeagoPipe } from 'ngx-timeago';
 import { MemberMessagesComponent } from '../member-messages/member-messages.component';
 import { Message } from '../../_models/message';
 import { MessageService } from '../../_services/message.service';
+import { PresenceService } from '../../_services/presence.service';
 
 @Component({
   selector: 'app-member-detail',
@@ -34,6 +35,7 @@ export class MemberDetailComponent implements OnInit {
   private memberService = inject(MembersService);
   private route = inject(ActivatedRoute);
   private postService = inject(PostsService);
+  presenceService = inject(PresenceService);
   member?: Member;
   images: GalleryItem[] = [];
   posts: Post[] = [];
