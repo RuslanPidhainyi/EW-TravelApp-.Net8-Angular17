@@ -37,13 +37,6 @@
         </app-text-input>
 
     </div>
-    <!-- <div class="register-errors-container" *ngIf="validationErrors">
-        <ul>
-            <li *ngFor="let error of validationErrors">
-                {{error}}
-            </li>
-        </ul>
-    </div> -->
 
     @if(validationErrors){
     <div class="register-errors-container">
@@ -56,16 +49,7 @@
     }
 
     <div class="button-container">
-        <button class="register-button" type="submit" [disabled]="!registerForm.valid">Register</button>
-        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+        <button class="register-btn" type="submit" [disabled]="!registerForm.valid">Register</button>
+        <button class="cancel-btn" type="button" (click)="cancel()">Cancel</button>
     </div>
-    <!-- <div class="button-container">
-        <button 
-            class="register-button" 
-            type="submit"
-            [disabled]="!registerForm.valid">
-                Create Account
-        </button>
-        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
-    </div> -->
 </form>
