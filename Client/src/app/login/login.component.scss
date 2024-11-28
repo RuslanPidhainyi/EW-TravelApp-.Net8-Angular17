@@ -91,6 +91,31 @@
                     }
                 }
 
+                .input-group {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    
+                    .btn-eye {
+                        position: absolute;
+                        right: 20px;
+                        top: 15px;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        padding: 0;
+                        
+                        &:focus {
+                            outline: none;
+                        }
+                        
+                        i {
+                            font-size: 1.2rem;
+                            color: black;
+                        }
+                    }
+                }
+
                 .login-btn {
                     height: 53px;
                     border-radius: 5px;

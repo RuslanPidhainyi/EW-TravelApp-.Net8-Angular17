@@ -19,6 +19,7 @@ export class LoginComponent {
   private toastr = inject(ToastrService);
   registerMode = false;
   model: any = {};
+  showPassword: boolean = false;
 
   //Methods inside component.ts
   /*
@@ -54,8 +55,7 @@ export class LoginComponent {
         );
         this.toastr.success(`User ${username} logged in successfully`);
       },
-      error: (error) => {
-        // this.toastr.error(error.error);
+      error: () => {
         this.toastr.error('Failed to login');
       },
     });
@@ -67,5 +67,9 @@ export class LoginComponent {
 
   cancelRegisterMode(event: boolean) {
     this.registerMode = event;
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

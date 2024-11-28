@@ -45,8 +45,28 @@
 
     @if(!accountService.currentUser()) {
     <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off">
-        <input name="username" [(ngModel)]="model.username" class="login-input" type="text" placeholder="Username">
-        <input name="password" [(ngModel)]="model.password" class="login-input" type="password" placeholder="Password">
+        <input 
+            name="username" 
+            [(ngModel)]="model.username" 
+            class="login-input" 
+            type="text" 
+            placeholder="Username"
+        >
+        
+        <input 
+            id="password" 
+            name="password" 
+            [(ngModel)]="model.password" 
+            class="login-input" 
+            [type]="showPassword ? 'text' : 'password'" 
+            placeholder="Password"
+        >
+        <button 
+            type="button" 
+            class="btn-eye" 
+            (click)="togglePasswordVisibility()"
+        ><i [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i></button>
+        
         <button class="login-btn" type="submit">Login</button>
     </form>
     }

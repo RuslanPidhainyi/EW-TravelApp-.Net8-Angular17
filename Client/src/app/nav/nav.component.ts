@@ -20,11 +20,7 @@ export class NavComponent {
   private router = inject(Router);
   private toastr = inject(ToastrService);
   model: any = {};
-  // model: any = {
-  //   username: '',
-  //   password: ''
-  // };
-
+  showPassword: boolean = false; 
 
   login() {
     this.accountService.login(this.model).subscribe({
@@ -34,7 +30,6 @@ export class NavComponent {
         this.toastr.success(`User ${username} logged in successfully`);
       },
       error: error => {
-        // this.toastr.error(error.error);
         this.toastr.error('Failed to login');
       },
     });
@@ -45,4 +40,8 @@ export class NavComponent {
     this.router.navigateByUrl('/');
     this.toastr.success(`User is logged out!`);
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  } 
 }
