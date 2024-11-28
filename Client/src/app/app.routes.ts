@@ -16,15 +16,16 @@ import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 import { EditOfferComponent } from './offers/edit-offer/edit-offer.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { adminGuard } from './_guards/admin.guard';
+import { redirectAuthenticatedGuard } from './_guards/redirect-authenticated.guard';
 
 export const routes: Routes = [
-    { path: '', component: LoginComponent },
+    { path: '', component: LoginComponent, canActivate: [redirectAuthenticatedGuard] },
     {
         path: '',
         runGuardsAndResolvers: 'always',
         canActivate: [authGuard],
         children: [
-            { path: '', component: LoginComponent },
+            { path: '', component: LoginComponent, canActivate: [redirectAuthenticatedGuard] },
             { path: 'offers', component: OffersListComponent },
             { path: 'offers/:id', component: OfferDetailComponent },
             { path: 'members/:username', component: MemberDetailComponent},
