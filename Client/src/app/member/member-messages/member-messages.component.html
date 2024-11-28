@@ -1,6 +1,6 @@
 <div class="messaging-container">
     <div class="messages-section">
-        @if(messages().length === 0) {
+        @if(messageService.messageThread().length === 0) {
         <div class="no-messages">
             <div class="no-messages-container">
                 <p>
@@ -9,10 +9,10 @@
             </div>
         </div>
         }
-        @if(messages().length > 0)
+        @if(messageService.messageThread().length > 0)
         {
         <ul>
-            @for (message of messages(); track message.id) {
+            @for (message of messageService.messageThread(); track message.id) {
             <li>
                 <!-- <div [ngClass]="currentUser && message.senderUsername === currentUser.username ? 'our-message' : 'their-message'">
                             <img *ngIf="currentUser && message.senderUsername !== currentUser.username" src="{{message.senderPhotoUrl || './assets/user.png'}}" alt="Profile photo">
