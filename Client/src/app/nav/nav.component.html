@@ -1,7 +1,6 @@
 <nav>
     <a routerLink="/" routerLinkActive="active" class="app-title">EW</a>
 
-
     <ul class="nav-items">
         @if(accountService.currentUser()) {
             <li class="nav-item">
@@ -20,11 +19,7 @@
                 <a routerLink="/errors" class="nav-item-link">Errors</a>
             </li>
         }
-
-
-
     </ul>
-
 
     @if(accountService.currentUser()) {
     <div dropdown class="dropdown">

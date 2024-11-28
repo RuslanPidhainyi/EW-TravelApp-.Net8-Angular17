@@ -29,7 +29,7 @@ export class NavComponent {
         const username = TextUtils.titleCase(this.accountService.currentUser()?.username || '');
         this.toastr.success(`User ${username} logged in successfully`);
       },
-      error: error => {
+      error: () => {
         this.toastr.error('Failed to login');
       },
     });
