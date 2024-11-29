@@ -1,24 +1,16 @@
 import { Component, EventEmitter, inject, OnInit, output, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { TextInputComponent } from '../_forms/text-input/text-input.component';
 import { DatePickerComponent } from '../_forms/date-picker/date-picker.component';
-import { TextUtils } from '../Helpers/TextUtils';
+import { TextUtils } from '../helpers/TextUtils';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ ReactiveFormsModule, NgIf, NgFor, TextInputComponent, DatePickerComponent, TitleCasePipe ],
+  imports: [ ReactiveFormsModule, TextInputComponent, DatePickerComponent ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
@@ -59,9 +51,7 @@ export class RegisterComponent implements OnInit {
 
   matchValues(matchTo: string): ValidatorFn {
     return (control: AbstractControl) => {
-      return control.value === control.parent?.get(matchTo)?.value
-        ? null
-        : { notMatching: true };
+      return control.value === control.parent?.get(matchTo)?.value ? null : { notMatching: true };
     };
   }
 
@@ -97,8 +87,6 @@ export class RegisterComponent implements OnInit {
       dateOfdob.setMinutes(
         dateOfdob.getMinutes() - dateOfdob.getTimezoneOffset()
       )
-    )
-      .toISOString()
-      .slice(0, 10);
+    ).toISOString().slice(0, 10);
   }
 }

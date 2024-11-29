@@ -5,7 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TitleCasePipe } from '@angular/common';
-import { TextUtils } from '../Helpers/TextUtils';
+import { TextUtils } from '../helpers/TextUtils';
 import { HasRoleDirective } from '../_directives/has-role.directive';
 
 @Component({

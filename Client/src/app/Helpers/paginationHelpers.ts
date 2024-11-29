@@ -1,5 +1,4 @@
 import { HttpParams, HttpResponse } from '@angular/common/http';
-import { Member } from '../_models/member';
 import { signal } from '@angular/core';
 import { PaginatedResult } from '../_models/pagination';
 
