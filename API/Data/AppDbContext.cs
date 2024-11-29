@@ -1,4 +1,3 @@
-using System;
 using API.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -9,7 +8,6 @@ namespace API.Data;
 public class AppDbContext(DbContextOptions options)
 : IdentityDbContext<AppUser, AppRole, int, IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>, IdentityRoleClaim<int>, IdentityUserToken<int>>(options)
 {
-    //public DbSet<AppUser> Users { get; set; }
     public DbSet<Photo> GeneralPhotos { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Like> Likes { get; set; }
@@ -35,37 +33,11 @@ public class AppDbContext(DbContextOptions options)
             .HasForeignKey(ur => ur.RoleId)
             .IsRequired();
 
-        // builder.Entity<AppUser>()
-        //     .HasMany(u => u.Posts)
-        //     .WithOne(p => p.AppUser)
-        //     .HasForeignKey(p => p.AppUserId);
-
         builder.Entity<AppUser>()
             .HasMany(u => u.Posts)
             .WithOne(p => p.AppUser)
             .HasForeignKey(p => p.AppUserId)
             .OnDelete(DeleteBehavior.Cascade);
-
-
-
-
-        // builder.Entity<Like>()
-        //     .HasKey(up => new {
-        //         up.AppUserId,
-        //         up.PostId
-        //     });
-
-        // builder.Entity<Like>()
-        //     .HasOne(up => up.AppUser)
-        //     .WithMany(up => up.Likes)
-        //     .HasForeignKey(up => up.AppUserId)
-        //     .OnDelete(DeleteBehavior.Cascade);
-
-        // builder.Entity<Like>()
-        //     .HasOne(up => up.Post)
-        //     .WithMany(up => up.Likes)
-        //     .HasForeignKey(up => up.PostId)
-        //     .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<Like>()
             .HasKey(l => new { l.AppUserId, l.PostId });
