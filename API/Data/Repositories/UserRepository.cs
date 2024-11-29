@@ -1,4 +1,3 @@
-using System;
 using API.DTOs;
 using API.Entities;
 using API.Interface;
@@ -32,10 +31,7 @@ public class UserRepository(AppDbContext context, IMapper mapper) : IUserReposit
             .Include(x => x.Posts)
             .SingleOrDefaultAsync(x => x.UserName == username);
     }
-
-
-
-
+    
     public async Task<AppUser?> GetUserByIdAsync(int id)
     {
         return await context.Users.FindAsync(id);
