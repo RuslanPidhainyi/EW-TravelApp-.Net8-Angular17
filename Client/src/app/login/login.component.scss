@@ -29,7 +29,9 @@
                 background-clip: text; 
                 -webkit-background-clip: text; 
                 color: transparent; 
-                
+                margin: 0; 
+                padding: 0; 
+                line-height: 1.5; 
             }
 
             .list {

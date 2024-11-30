@@ -10,14 +10,13 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddApplicationServices(builder.Configuration);//note: Połączenia pliku ApplicationServiceExtensions.cs do Program.cs
 
-builder.Services.AddApplicationServices(builder.Configuration);//note: połączenia pliku ApplicationServiceExtensions.cs do Program.cs
-
-builder.Services.AddIdentetiService(builder.Configuration);//note: połączenia pliku IdentetiServiceExtensions.cs do Program.cs
+builder.Services.AddIdentetiService(builder.Configuration);//note: Połączenia pliku IdentetiServiceExtensions.cs do Program.cs
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();//note: odp za Swagger 
-builder.Services.AddSwaggerGen();//note: odp za Swagger 
+builder.Services.AddEndpointsApiExplorer();//note: Odp za Swagger 
+builder.Services.AddSwaggerGen();//note: Odp za Swagger 
 
 var app = builder.Build();
 
@@ -30,9 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<ExceptionMiddleware>();
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials()
-    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
+app.UseMiddleware<ExceptionMiddleware>(); //note: Wykorzystania Middleware
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200", "https://localhost:4200")); //note: Wykorzystujemy nasz CORS i zezwolujemy nasze zródło url naszego Servera
 
 app.UseAuthentication();
 app.UseAuthorization();
