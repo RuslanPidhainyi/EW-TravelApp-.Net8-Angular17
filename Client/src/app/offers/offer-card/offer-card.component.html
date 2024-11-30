@@ -9,13 +9,15 @@
     <div class="info-row-1-left">
       <div class="user-info" routerLink="/members/{{post().userName}}">
         <span [class.is-online]="isOnline()">
-          <i class="fa fa-user"></i>
+          <img 
+              class="users-profile-image"
+              src="{{post().ownerPhotoUrl || './assets/user.png'}}" 
+              alt="owner photo">
         </span>
         <h5><b>{{post().userName | titlecase}}</b></h5>
       </div>
       <div class="icon-buttons">
         <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
-        <!-- <i class="fa fa-ellipsis-h" routerLink="/offers/{{post().id}}"></i> -->
       </div>
     </div>
     <div class="info-row-2-left">

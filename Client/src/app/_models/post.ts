@@ -25,6 +25,6 @@ export interface Post {
     maxPriceGuide: number;
     currency: string
     description: string;
-    //appUserId: number;
+    ownerPhotoUrl: string;
     userName: string;
 }

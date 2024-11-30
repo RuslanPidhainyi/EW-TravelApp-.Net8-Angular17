@@ -1,33 +1,38 @@
 <div class="offer-container">
     <div class="photo-container">
-        <img src="{{post?.url}}" alt="{{post?.title}}">
+        <img src="{{post()?.url}}" alt="{{post()?.title}}">
         <div class="location-overlay">
-            <p><i class="fa fa-map-marker me-1"></i> {{post?.locationCountry}}, {{post?.locationCity}}</p>
+            <p><i class="fa fa-map-marker me-1"></i> {{post()?.locationCountry}}, {{post()?.locationCity}}</p>
         </div>
     </div>
     <div class="info">
         <div class="info-row-1-left">
-            <div class="user-info" routerLink="/members/{{post?.userName}}">
-                <i class="fa fa-user"></i>
-                <h4>{{post?.userName | titlecase}}</h4>
+            <div class="user-info" routerLink="/members/{{post()?.userName}}">
+                <span [class.is-online]="isOnline()" > 
+                    <img 
+                        class="users-profile-image"
+                        src="{{post()?.ownerPhotoUrl || './assets/user.png'}}" 
+                        alt="owner photo">
+                </span>
+                <h4>{{post()?.userName | titlecase}}</h4>
             </div>
-            <!-- <div class="icon-buttons">
-                <i class="fa fa-heart"></i>
-            </div> -->
+            <div class="icon-buttons">
+                <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+            </div>
         </div>
         <div class="info-row-left">
             <div class="info-row-2-left">
                 <div class="place-info">
-                    <h5>{{post?.locationCountry}}, {{post?.locationCity}}</h5> – <h5>{{post?.title}}</h5>
+                    <h5>{{post()?.locationCountry}}, {{post()?.locationCity}}</h5> – <h5>{{post()?.title}}</h5>
                 </div>
             </div>
             <div class="info-row-3-left">
                 <div class="last-location-info">
                     <i class="fa fa-map-marker"></i>
-                    <h6>Last visited place before the journey - {{post?.lastCountry}}, {{post?.lastCity}}</h6>
+                    <h6>Last visited place before the journey - {{post()?.lastCountry}}, {{post()?.lastCity}}</h6>
                 </div>
             </div>
-            @if(post?.localTransport)
+            @if(post()?.localTransport)
             {
             <div class="info-row-4-left">
                 <div class="local-transport-info">
@@ -35,17 +40,17 @@
                     <h6>Used local transport</h6>
                 </div>
                 <div class="local-transport-extra-info1">
-                    <h6>Low price: {{post?.minPriceLocalTrans}}{{post?.currency}}</h6>
+                    <h6>Low price: {{post()?.minPriceLocalTrans}}{{post()?.currency}}</h6>
                 </div>
                 <div class="local-transport-extra-info2">
-                    <h6>High price: {{post?.maxPriceLocalTrans}}{{post?.currency}}</h6>
+                    <h6>High price: {{post()?.maxPriceLocalTrans}}{{post()?.currency}}</h6>
                 </div>
                 <div class="local-transport-extra-info3">
-                    <h6>Approximately, the journey took - {{post?.travelTime}} h</h6>
+                    <h6>Approximately, the journey took - {{post()?.travelTime}} h</h6>
                 </div>
             </div>
             }
-            @if(post?.entranceFee)
+            @if(post()?.entranceFee)
             {
             <div class="info-row-5-left">
                 <div class="entrance-fee-info">
@@ -53,14 +58,14 @@
                     <h6>Entrance was paid</h6>
                 </div>
                 <div class="entrance-fee-extra-info1">
-                    <h6>Low price: {{post?.minPriceEntrFee}}{{post?.currency}}</h6>
+                    <h6>Low price: {{post()?.minPriceEntrFee}}{{post()?.currency}}</h6>
                 </div>
                 <div class="entrance-fee-extra-info2">
-                    <h6>High price: {{post?.maxPriceEntrFee}}{{post?.currency}}</h6>
+                    <h6>High price: {{post()?.maxPriceEntrFee}}{{post()?.currency}}</h6>
                 </div>
             </div>
             }
-            @if(post?.placeStay)
+            @if(post()?.placeStay)
             {
             <div class="info-row-6-left">
                 <div class="place-for-rest-info">
@@ -68,17 +73,17 @@
                     <h6>Accommodation</h6>
                 </div>
                 <div class="place-for-rest-extra-info1">
-                    <h6>Low price: {{post?.minPricePlaceStay}}{{post?.currency}}</h6>
+                    <h6>Low price: {{post()?.minPricePlaceStay}}{{post()?.currency}}</h6>
                 </div>
                 <div class="place-for-rest-extra-info2">
-                    <h6>High price: {{post?.maxPricePlaceStay}}{{post?.currency}}</h6>
+                    <h6>High price: {{post()?.maxPricePlaceStay}}{{post()?.currency}}</h6>
                 </div>
                 <div class="place-for-rest-extra-info3">
-                    <h6>{{post?.typePlaceStay}}</h6>
+                    <h6>{{post()?.typePlaceStay}}</h6>
                 </div>
             </div>
             }
-            @if(post?.groceryStore)
+            @if(post()?.groceryStore)
             {
             <div class="info-row-7-left">
                 <div class="store-info">
@@ -86,14 +91,14 @@
                     <h6>Grocery store</h6>
                 </div>
                 <div class="store-extra-info1">
-                    <h6>Low price: {{post?.minPriceGroceryStore}}{{post?.currency}}</h6>
+                    <h6>Low price: {{post()?.minPriceGroceryStore}}{{post()?.currency}}</h6>
                 </div>
                 <div class="store-extra-info2">
-                    <h6>High price: {{post?.maxPriceGroceryStore}}{{post?.currency}}</h6>
+                    <h6>High price: {{post()?.maxPriceGroceryStore}}{{post()?.currency}}</h6>
                 </div>
             </div>
             }
-            @if(post?.guide)
+            @if(post()?.guide)
             {
             <div class="info-row-8-left">
                 <div class="guide-info">
@@ -101,18 +106,17 @@
                     <h6>Guide services</h6>
                 </div>
                 <div class="guide-extra-info1">
-                    <h6>Low price: {{post?.minPriceGuide}}{{post?.currency}}</h6>
+                    <h6>Low price: {{post()?.minPriceGuide}}{{post()?.currency}}</h6>
                 </div>
                 <div class="guide-extra-info2">
-                    <h6>High price: {{post?.maxPriceGuide}}{{post?.currency}}</h6>
+                    <h6>High price: {{post()?.maxPriceGuide}}{{post()?.currency}}</h6>
                 </div>
             </div>
             }
         <div class="info-row-n-left">
             <div class="desc-info">
-                <h6>{{post?.description}}</h6>
+                <h6>{{post()?.description}}</h6>
             </div>
         </div>
     </div>
-</div>
 </div>
