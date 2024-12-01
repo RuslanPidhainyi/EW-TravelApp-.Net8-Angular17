@@ -113,13 +113,29 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="posts-container">
+                            @if(posts.length === 0)
+                            {
+                                <div class="no-posts-container">
+                                    <h3>No posts yet</h3>
+                                </div>
+                            }
+                            @if(posts.length >= 1)
+                            {
+                                <div class="posts-container">
                                     @for (post of posts.slice().reverse(); track post.id) {
                                         <div class="single-offer">
                                             <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
                                         </div>
                                     }
-                            </div>
+                                </div>
+                            }
+                            <!-- <div class="posts-container">
+                                    @for (post of posts.slice().reverse(); track post.id) {
+                                        <div class="single-offer">
+                                            <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
+                                        </div>
+                                    }
+                            </div> -->
                         </div>
                     </tab>
 

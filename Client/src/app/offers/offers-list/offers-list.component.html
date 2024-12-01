@@ -1,7 +1,15 @@
 <div class="title-section">
     <h1>Posts</h1>
 </div>
-<div *ngIf="postService.posts().length > 0; else noPosts">
+@if(!postService.posts() || postService.posts().length === 0)
+{
+    <div class="no-posts-container">
+        <h3>No posts yet</h3>
+    </div>
+}
+
+@if(postService.posts().length >= 1)
+{
     <div class="offers-container">
         @for (post of postService.posts().slice().reverse(); track post.id) {
         <div class="single-offer">
@@ -9,7 +17,4 @@
         </div>
         }
     </div>
-</div>
-<ng-template #noPosts>
-    <p>You have not new posts yet.</p>
-</ng-template>
+}

@@ -24,3 +24,8 @@
     grid-template-columns: 1fr; // 1 колонка на маленьких екранах
   }
 }
+
+.no-posts-container {
+  display: flex;
+  justify-content: center;
+}
