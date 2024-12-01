@@ -120,3 +120,41 @@
         </div>
     </div>
 </div>
+
+<!-- Modal window version  -->
+
+<!-- 
+<div class="modal-header">
+    <h4 class="modal-title">{{post?.title}}</h4>
+    <button type="button" class="btn-close" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="offer-container">
+      <div class="photo-container">
+        <img src="{{post?.url}}" alt="{{post?.title}}">
+        <div class="location-overlay">
+          <p><i class="fa fa-map-marker me-1"></i> {{post?.locationCountry}}, {{post?.locationCity}}</p>
+        </div>
+      </div>
+      <div class="info">
+        <div class="info-row-1-left">
+          <div class="user-info">
+            <span [class.is-online]="isOnline()"> 
+              <img class="users-profile-image" src="{{post?.ownerPhotoUrl || './assets/user.png'}}" alt="owner photo">
+            </span>
+            <h4>{{post?.userName | titlecase}}</h4>
+          </div>
+          <div class="icon-buttons">
+            <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+          </div>
+        </div>
+        <div class="info-row-left">
+          <h5>{{post?.description}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+   -->
