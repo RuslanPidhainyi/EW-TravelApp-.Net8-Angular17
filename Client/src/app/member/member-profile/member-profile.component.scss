@@ -154,7 +154,7 @@
 //     }
 // }
 
-.detail-container {
+.profile-member-container {
     width: 100%;
     padding: 2rem;
 
@@ -369,6 +369,7 @@
                     height: 100%;           /* Висота контейнера */
                     min-height: 200px;      /* Мінімальна висота, якщо контейнер порожній */
                     text-align: center;     /* Текст по центру */
+                    color: gray
                 } 
             }
 

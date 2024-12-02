@@ -27,5 +27,10 @@
 
 .no-posts-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Горизонтальне вирівнювання */
+  align-items: center;    /* Вертикальне вирівнювання */
+  height: 100%;           /* Висота контейнера */
+  min-height: 200px;      /* Мінімальна висота, якщо контейнер порожній */
+  text-align: center;     /* Текст по центру */
+  color: gray
 }

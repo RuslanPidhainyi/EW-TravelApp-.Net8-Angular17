@@ -9,7 +9,7 @@ import { Post } from '../../_models/post';
 import { RouterLink } from '@angular/router';
 import { MemberProfileOfferCardComponent } from '../member-profile-offer-card/member-profile-offer-card.component';
 import { TimeagoModule } from 'ngx-timeago';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { switchMap, tap } from 'rxjs';
 import { MemberMessagesComponent } from "../member-messages/member-messages.component";
 
@@ -23,7 +23,7 @@ import { MemberMessagesComponent } from "../member-messages/member-messages.comp
     MemberProfileOfferCardComponent,
     TimeagoModule,
     DatePipe,
-    MemberMessagesComponent
+    MemberMessagesComponent, NgClass
 ],
   templateUrl: './member-profile.component.html',
   styleUrl: './member-profile.component.scss',
