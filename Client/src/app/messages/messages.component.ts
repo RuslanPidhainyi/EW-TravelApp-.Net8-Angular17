@@ -7,11 +7,12 @@ import { Message } from '../_models/message';
 import { RouterLink } from '@angular/router';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { previousDate } from 'ngx-bootstrap/datepicker/bs-datepicker.component';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-messages',
   standalone: true,
-  imports: [ ButtonsModule, FormsModule, TimeagoModule, RouterLink, PaginationModule],
+  imports: [ ButtonsModule, FormsModule, TimeagoModule, RouterLink, PaginationModule, NgIf, NgFor],
   templateUrl: './messages.component.html',
   styleUrl: './messages.component.scss',
 })
@@ -26,23 +27,46 @@ export class MessagesComponent implements OnInit {
     this.loadMessages();
   }
 
+  // loadMessages() {
+  //   this.messageService.getMessages(this.pageNumber, this.pageSize, this.container);
+  // }
+
   loadMessages() {
-    this.messageService.getMessages(this.pageNumber, this.pageSize, this.container);
+    this.messageService.getMessages(this.container);
   }
+  
+
+  trackByMessageId(index: number, message: Message): number {
+    return message.id;
+  }
+  
+
+  // deleteMessage(id: number) {
+  //   this.messageService.deleteMessage(id).subscribe({
+  //     next: _ => {
+  //       this.messageService.paginatedResult.update(prev  => {
+  //         if(prev && prev.items) {
+  //           prev.items.splice(prev.items.findIndex(m => m.id === id), 1)
+  //           return prev;
+  //         }
+  //         return prev;
+  //       })
+  //     }
+  //   })
+  // }
 
   deleteMessage(id: number) {
     this.messageService.deleteMessage(id).subscribe({
-      next: _ => {
-        this.messageService.paginatedResult.update(prev  => {
-          if(prev && prev.items) {
-            prev.items.splice(prev.items.findIndex(m => m.id === id), 1)
-            return prev;
-          }
-          return prev;
-        })
-      }
-    })
+      next: () => {
+        this.messageService.messageThread.update((messages) =>
+          messages.filter((message) => message.id !== id)
+        );
+      },
+      error: (err) => console.error('Failed to delete message', err),
+    });
   }
+  
+  
 
   getRoute(message: Message) {
     if (this.container === 'Outbox') return `/members/${message.recipientUsername}`;

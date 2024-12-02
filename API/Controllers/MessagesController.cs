@@ -42,16 +42,25 @@ public class MessagesController(IMessageRepository messageRepo, IUserRepository 
         return BadRequest("Failed to save message");
     }
 
+    // [HttpGet]
+    // public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessagesForUser([FromQuery] MessageParams messageParams)
+    // {
+    //     messageParams.Username = User.GetUsername();
+
+    //     var messages = await messageRepo.GetMessagesForUser(messageParams);
+
+    //     Response.AddPaginationHeader(messages);
+
+    //     return messages;
+    // }
+
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessagesForUser([FromQuery] MessageParams messageParams)
+    public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessagesForUser([FromQuery] string container = "Unread")
     {
-        messageParams.Username = User.GetUsername();
+        var username = User.GetUsername();
+        var messages = await messageRepo.GetMessagesForUser(username, container);
 
-        var messages = await messageRepo.GetMessagesForUser(messageParams);
-
-        Response.AddPaginationHeader(messages);
-
-        return messages;
+        return Ok(messages);
     }
 
     [HttpGet("thread/{username}")]
