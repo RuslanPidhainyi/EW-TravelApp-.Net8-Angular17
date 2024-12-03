@@ -4,7 +4,7 @@ public class PostDto
 {
     public int Id { get; set; }
     public string? Url { get; set; }
-    public required string OwnerPhotoUrl {get; set;}
+    public string? OwnerPhotoUrl {get; set;}
     public required string Title { get; set; }
     public required string LocationCountry { get; set; }
     public required string LocationCity { get; set; }

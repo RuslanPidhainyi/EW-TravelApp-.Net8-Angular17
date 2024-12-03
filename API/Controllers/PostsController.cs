@@ -45,7 +45,6 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         PostExtensions.SetConditionalFieldsForAddPost(postDto);
 
         var uploadResult = await photoService.AddPhotoAsync(file);
-
         if (uploadResult.Error != null) return BadRequest(uploadResult.Error.Message);
 
         var post = mapper.Map<Post>(postDto);
@@ -60,6 +59,8 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
             var createdPostDto = mapper.Map<PostDto>(post);
             createdPostDto.AppUserId = user.Id;
             createdPostDto.UserName = user.UserName;
+
+            createdPostDto.OwnerPhotoUrl = user.GeneralPhotos.FirstOrDefault(x => x.IsMain)?.Url ?? "default-image-url.jpg";
 
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, createdPostDto);
         }
