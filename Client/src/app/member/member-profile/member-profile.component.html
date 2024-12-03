@@ -76,7 +76,7 @@
                 <div class="info-container">
                     <div class="info">
                         <strong>Location:</strong>
-                        @if(!member.city && member.country) {
+                        @if(member.city && member.country) {
                             <p>{{member.city}}, {{member.country}}</p>
                         }
                     </div>

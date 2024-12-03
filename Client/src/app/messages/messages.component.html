@@ -67,12 +67,10 @@
       </button>
     </div>
   
-    <!-- Якщо повідомлень немає -->
     <div *ngIf="!messageService.messageThread().length" class="no-messages-container">
       <h3>No messages yet</h3>
     </div>
   
-    <!-- Якщо повідомлення є -->
     <div *ngIf="messageService.messageThread().length" class="users-messages-container">
       <table>
         <thead>
