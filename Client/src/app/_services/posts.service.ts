@@ -20,42 +20,13 @@ export class PostsService {
     });
   }
 
-  // getPostById(id: number): Observable<Post> {
-  //   // const post: Post = [...this.postCashe.values()]
-  //   // .reduce((arr, elem) => arr.concat(elem.body), [])
-  //   // .find((p: Post) => p.id  === id);
-
-  //   // if(post) return of(post);
-
-  //   return this.http.get<Post>(`${this.baseUrl}posts/${id}`).pipe(
-  //     tap((post) => {
-  //       this.posts.update((posts) =>
-  //         posts.map((p) => (p.id === id ? post : p))
-  //       );
-  //     })
-  //   );
-  // }
-
-
-  getPostById(id: number) {
-    return this.http.get<Post>(this.baseUrl + 'posts/' + id)
+  getPostById(postId: number) {
+    return this.http.get<Post>(this.baseUrl + 'posts/' + postId)
   }
 
-
-  // getPostByUsername(username: string): Observable<Post[]> {
-  //   // const posts = this.posts().filter((x) => x.userName === username);
-  //   // if (posts.length > 0) return of(posts);
-
-  //   return this.http.get<Post[]>(`${this.baseUrl}posts/user/${username}`);
-  // }
-
-  getPostByUsername(username: string) {
-    return this.http.get<Post[]>(this.baseUrl + 'posts/user/'+ username);
+  getPostByUsername(postUsername: string) {
+    return this.http.get<Post[]>(this.baseUrl + 'posts/user/'+ postUsername);
   }
-
-  // addPost(postData: FormData): Observable<Post> {
-  //   return this.http.post<Post>(`${this.baseUrl}posts/add-post`, postData);
-  // }
 
   addPost(postData: FormData){
     return this.http.post<Post>(this.baseUrl + 'posts/add-post/', postData).pipe(

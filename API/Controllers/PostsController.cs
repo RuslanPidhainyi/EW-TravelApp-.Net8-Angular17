@@ -19,27 +19,25 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         return Ok(posts);
     }
 
-    [HttpGet("{id:int}")]
-    public async Task<ActionResult<PostDto>> GetPost(int id)
+    [HttpGet("{postId:int}")]
+    public async Task<ActionResult<PostDto>> GetPost(int postId)
     {
-        var post = await postRepo.GetOfferAsync(id);
+        var post = await postRepo.GetOfferAsync(postId);
         if (post == null) return NotFound();
         return post;
     }
 
-    [HttpGet("user/{username}")]
-    public async Task<ActionResult<IEnumerable<PostDto>>> GetPostsByUsername(string username)
+    [HttpGet("user/{postUsername}")]
+    public async Task<ActionResult<IEnumerable<PostDto>>> GetPostsByUsername(string postUsername)
     {
-        var posts = await postRepo.GetPostsByUsernameAsync(username);
+        var posts = await postRepo.GetPostsByUsernameAsync(postUsername);
         return Ok(posts);
     }
 
     [HttpPost("add-post")]
     public async Task<ActionResult<PostDto>> CreatePost([FromForm] PostDto postDto, [FromForm] IFormFile file)
     {
-        var username = User.GetUsername();
-        var user = await userRepo.GetUserByUsernameAsync(username);
-
+        var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
         if (user == null) return BadRequest("Could not find user");
 
         PostExtensions.SetConditionalFieldsForAddPost(postDto);
@@ -60,17 +58,16 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
             createdPostDto.AppUserId = user.Id;
             createdPostDto.UserName = user.UserName;
 
-            createdPostDto.OwnerPhotoUrl = user.GeneralPhotos.FirstOrDefault(x => x.IsMain)?.Url ?? "default-image-url.jpg";
+            createdPostDto.OwnerPhotoUrl = user.GeneralPhotos.FirstOrDefault(x => x.IsMain)?.Url ?? "/assets/user.png";
 
-            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, createdPostDto);
+            return CreatedAtAction(nameof(GetPost), new { postId = post.Id }, createdPostDto);
         }
 
-        return BadRequest("Failed to create post");
+        return BadRequest("Problem adding post");
     }
 
-
     [HttpPut("edit-post/{id:int}")]
-    public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto) //note: dodatkowy argumant dla edytowania photo [FromForm] IFormFile? file = null
+    public async Task<ActionResult> UpdatePost(int id, [FromForm] PostDto postDto) //note: dodatkowy argumant dla edytowania post [FromForm] IFormFile? file = null
     {
         var post = await postRepo.GetPostByIdAsync(id);
         if (post == null) return BadRequest("Post not found.");
@@ -118,7 +115,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
             return NoContent();
         }
 
-        return BadRequest("Failed to update post");
+        return BadRequest("Problem update post");
     }
 
     [HttpDelete("delete-post/{id:int}")]
@@ -139,7 +136,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
 
         return BadRequest("Failed to delete post");
     }
-    
+
     //TODO: Is better methout
     //     [HttpDelete("delete-post/{postId:int}")]
     // public async Task<ActionResult> DeletePost(int postId)
