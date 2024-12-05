@@ -48,11 +48,11 @@ export class MemberEditProfileComponent implements OnInit {
           this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
         });
 
-        this.postService.getPostByUsername(member.username).subscribe({
-          next: (posts) => {
-            this.posts = posts;
-          },
-        });
+        // this.postService.getPostByUsername(member.username).subscribe({
+        //   next: (posts) => {
+        //     this.posts = posts;
+        //   },
+        // });
       },
     });
   }
