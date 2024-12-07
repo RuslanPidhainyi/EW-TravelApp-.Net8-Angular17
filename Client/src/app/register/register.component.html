@@ -18,8 +18,7 @@
         <app-text-input [formControl]="$any(registerForm.controls['knownAs'])" [label]="'Known As'">
         </app-text-input>
 
-        <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Date of birth'"
-            [maxDate]="maxDate">
+        <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Date of birth'" [maxDate]="maxDate">
         </app-date-picker>
 
         <app-text-input [formControl]="$any(registerForm.controls['city'])" [label]="'City'">
@@ -28,22 +27,12 @@
         <app-text-input [formControl]="$any(registerForm.controls['country'])" [label]="'Country'">
         </app-text-input>
 
-        <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Password'"
-            [type]="'password'">
+        <app-text-input [formControl]="$any(registerForm.controls['password'])"  [label]="'Password'" [type]="'password'">
         </app-text-input>
 
-        <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Confirm Password'"
-            [type]="'password'">
+        <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Confirm Password'"[type]="'password'">
         </app-text-input>
-
     </div>
-    <!-- <div class="register-errors-container" *ngIf="validationErrors">
-        <ul>
-            <li *ngFor="let error of validationErrors">
-                {{error}}
-            </li>
-        </ul>
-    </div> -->
 
     @if(validationErrors){
     <div class="register-errors-container">
@@ -56,16 +45,7 @@
     }
 
     <div class="button-container">
-        <button class="register-button" type="submit" [disabled]="!registerForm.valid">Register</button>
-        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
+        <button class="register-btn" type="submit" [disabled]="!registerForm.valid">Register</button>
+        <button class="cancel-btn" type="button" (click)="cancel()">Cancel</button>
     </div>
-    <!-- <div class="button-container">
-        <button 
-            class="register-button" 
-            type="submit"
-            [disabled]="!registerForm.valid">
-                Create Account
-        </button>
-        <button class="cancel-button" type="button" (click)="cancel()">Cancel</button>
-    </div> -->
 </form>

@@ -18,7 +18,7 @@ public static class ApplicationServiceExtensions
         {
             opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
         });
-        services.AddCors();
+        services.AddCors(); //note: Dodano usługę ochrony CORS(Cross-Origin Resource Sharing). (Nasz serwer będzie ładowany tylko z zaufanych źródeł określonych przez serwer).
         services.AddScoped<ITokenService, TokenService>(); //note: AddScoped - Okresla czas uzycza usługi. Usługe te są tworzone raz na ządanie klienta (ządanie HTTP), potem po wykorzystaniu bedzie te ządanie usuniete.
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPhotoService, PhotoService>();

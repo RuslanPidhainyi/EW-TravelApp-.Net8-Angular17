@@ -68,15 +68,17 @@
 
 
 @if(member) {
-<div class="detail-container">
-    <div class="user-container">
+<div class="profile-container">
+    <div class="profile-member-container">
         <div class="user-container">
             <div class="left-side">
                 <img src="{{member.generalPhotoUrl || './assets/user.png'}}" alt="User's photo">
                 <div class="info-container">
                     <div class="info">
                         <strong>Location:</strong>
-                        <p>{{member.city}}, {{member.country}}</p>
+                        @if(member.city && member.country) {
+                            <p>{{member.city}}, {{member.country}}</p>
+                        }
                     </div>
                     <div class="info">
                         <strong>Age:</strong>
@@ -113,13 +115,22 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="posts-container">
+                            @if(posts.length === 0)
+                            {
+                                <div class="no-posts-container">
+                                    <h3>No posts yet</h3>
+                                </div>
+                            }
+                            @if(posts.length >= 1)
+                            {
+                                <div class="posts-container">
                                     @for (post of posts.slice().reverse(); track post.id) {
                                         <div class="single-offer">
                                             <app-member-profile-offer-card [postE]="post" (postDeleted)="onPostDeleted($event)"> </app-member-profile-offer-card>
                                         </div>
                                     }
-                            </div>
+                                </div>
+                            }
                         </div>
                     </tab>
 

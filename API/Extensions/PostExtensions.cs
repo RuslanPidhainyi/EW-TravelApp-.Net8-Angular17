@@ -1,4 +1,3 @@
-using System;
 using API.DTOs;
 using API.Entities;
 
@@ -81,6 +80,7 @@ public static class PostExtensions
         var uri = new Uri(url);
         var segments = uri.Segments;
         var fileName = segments.Last();
+        
         return Path.GetFileNameWithoutExtension(fileName);
     }
 }

@@ -2,7 +2,12 @@
     <div class="title-section">
         <h1>Posts you like</h1>
     </div>
-    <div *ngIf="posts.length > 0; else noPosts">
+    @if(!posts || posts.length === 0) {
+        <div class="no-posts-container">
+            <h3>You have not liked any posts yet</h3>
+        </div>
+    }
+    @if(posts.length >= 1) {
         <div class="offers-container">
             @for (post of posts; track post.id) {
             <div class="single-offer">
@@ -10,8 +15,5 @@
             </div>
             }
         </div>
-    </div>
-    <ng-template #noPosts>
-        <p>You have not liked any posts yet.</p>
-    </ng-template>
+    }
 </div>

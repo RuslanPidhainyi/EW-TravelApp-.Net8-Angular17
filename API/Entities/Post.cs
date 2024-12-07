@@ -33,6 +33,5 @@ public class Post
     //Navigation properties
     public int AppUserId { get; set; }
     public AppUser AppUser { get; set; } = null!;
-
     public List<Like> Likes { get; set; } = [];
 }

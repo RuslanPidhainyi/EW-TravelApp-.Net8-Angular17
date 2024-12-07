@@ -1,7 +1,7 @@
 .single-input {
     position: relative;
     
-    input {
+    .register-date-input {
         border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 1.1rem;
@@ -11,7 +11,8 @@
 
         &:focus {
             outline: none;
-            border-color: rgb(16, 80, 154);
+            border-color: black;
+            box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
         }
     }
 

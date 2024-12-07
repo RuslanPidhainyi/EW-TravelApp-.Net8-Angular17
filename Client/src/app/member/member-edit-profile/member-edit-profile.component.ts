@@ -11,11 +11,12 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PhotoEditorComponent } from '../photo-editor/photo-editor.component';
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-edit-profile',
   standalone: true,
-  imports: [ TabsModule, FormsModule, MemberOfferCardComponent, GalleryModule, RouterLink, PhotoEditorComponent ],
+  imports: [ TabsModule, FormsModule, MemberOfferCardComponent, GalleryModule, RouterLink, PhotoEditorComponent, TimeagoModule],
   templateUrl: './member-edit-profile.component.html',
   styleUrl: './member-edit-profile.component.scss',
 })
@@ -48,11 +49,11 @@ export class MemberEditProfileComponent implements OnInit {
           this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
         });
 
-        this.postService.getPostByUsername(member.username).subscribe({
-          next: (posts) => {
-            this.posts = posts;
-          },
-        });
+        // this.postService.getPostByUsername(member.username).subscribe({
+        //   next: (posts) => {
+        //     this.posts = posts;
+        //   },
+        // });
       },
     });
   }

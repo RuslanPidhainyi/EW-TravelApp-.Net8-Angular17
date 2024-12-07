@@ -1,10 +1,11 @@
 <div class="single-input">
     <input 
-        [class.is-invalid]="control.touched && control.invalid" [type]="type()"
+        class="register-text-input"
+        [class.is-invalid]="control.touched && control.invalid" 
+        [type]="type()"
         [formControl]="control"
         placeholder={{label()}}>
-    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid">
-    </i>
+    <i class="fa fa-exclamation error-icon" [class.is-error-icon]="ngControl.touched && ngControl.invalid"></i>
 
     <div 
         *ngIf="control.hasError('required')" 

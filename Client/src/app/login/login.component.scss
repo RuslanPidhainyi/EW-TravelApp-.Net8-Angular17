@@ -1,12 +1,12 @@
 .login-page {
     display: flex;
-    align-items: center; //verticaly
-    justify-content: center; //horizontal
-    margin-top: 8rem;//Odstep od navBar
+    align-items: center; //note: verticaly
+    justify-content: center; //note: horizontal
+    margin-top: 5rem;//8rem //note: Odstep od navBar
 
     .common-card {
         display: flex;
-        width: 70%;
+        width: 90%;//70%
         min-height: 400px;
 
         .left-side {
@@ -16,9 +16,22 @@
             flex-direction: column;
             gap: 15px;
 
-            h1 {
-                font-size: 60px;
-                color: black;
+            // h1 {
+            //     font-size: 60px;
+            //     color: black;
+            // }
+            .greeting-img {
+                font-size: 100px;
+                font-weight:900; 
+                text-transform: uppercase; 
+                background-image: url('../../assets/pexels-photo-1933318.jpeg'); 
+                background-size: cover; 
+                background-clip: text; 
+                -webkit-background-clip: text; 
+                color: transparent; 
+                margin: 0; 
+                padding: 0; 
+                line-height: 1.5; 
             }
 
             .list {
@@ -47,7 +60,8 @@
                 background-color: green;
                 border: 1px white solid;
                 color: white;
-                padding: 0 1rem;
+                //padding: 0 1rem;
+                margin-right: 8rem;
                 transition: background-color .3s ease;
 
                 &:hover {
@@ -59,7 +73,8 @@
 
         .right-side {
             flex: 1;
-            padding: 10px;
+            margin-top: 6rem; //10px
+            padding-left: 5rem; //(wasnot)
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -82,11 +97,37 @@
                     border-radius: 5px;
                     font-size: 1.1rem;
                     padding: 12px 20px; 
-                    width: 100%;
+                    width: 99%;//100%
 
                     &:focus {
                         outline: none;
                         border-color:black;
+                        box-shadow: 0 0 5px rgba(0, 9, 19, 0.5);
+                    }
+                }
+
+                .input-group {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    
+                    .btn-eye {
+                        position: absolute;
+                        right: 20px;
+                        top: 15px;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        padding: 0;
+                        
+                        &:focus {
+                            outline: none;
+                        }
+                        
+                        i {
+                            font-size: 1.2rem;
+                            color: black;
+                        }
                     }
                 }
 

@@ -9,7 +9,7 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     padding: 0 4rem;
-    z-index: 1000; /* Додаємо z-index, щоб панель була зверху */
+    z-index: 1000;
 
     .app-title {
         text-decoration: none;
@@ -88,6 +88,20 @@ nav {
 
             &:focus {
                 outline: none;
+            }
+        }
+
+        .btn-eye {
+            background: none;
+            border: none;
+            position: absolute;
+            right: 150px;
+            bottom: 1pc;
+            cursor: pointer;
+        
+            i {
+                font-size: 1.3rem;
+                color: black;
             }
         }
 

@@ -4,7 +4,7 @@ import { AccountService } from '../_services/account.service';
 import { RegisterComponent } from '../register/register.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { TextUtils } from '../Helpers/TextUtils';
+import { TextUtils } from '../helpers/TextUtils';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,9 @@ export class LoginComponent {
   private toastr = inject(ToastrService);
   registerMode = false;
   model: any = {};
+  showPassword: boolean = false;
 
-  //Methods inside component.ts
+  //note: Methods inside component.ts
   /*
     model: any = {} //Za pomocy tego "model" otrzymujemo wartosc z inputów z componenta.html i wykorzystamy w naszych metodach  
 
@@ -54,8 +55,7 @@ export class LoginComponent {
         );
         this.toastr.success(`User ${username} logged in successfully`);
       },
-      error: (error) => {
-        // this.toastr.error(error.error);
+      error: () => {
         this.toastr.error('Failed to login');
       },
     });
@@ -67,5 +67,9 @@ export class LoginComponent {
 
   cancelRegisterMode(event: boolean) {
     this.registerMode = event;
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 }

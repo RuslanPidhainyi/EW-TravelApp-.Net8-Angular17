@@ -105,7 +105,14 @@
 
                     <tab heading="{{member.knownAs}}'s Posts" (selectTab)="OnTabActived($event)">
                         <div class="posts-section">
-                            <div *ngIf="posts.length > 0; else noPosts">
+                            @if(posts.length === 0)
+                            {
+                                <div class="no-posts-container">
+                                    <h3>No posts yet</h3>
+                                </div>
+                            }
+                            @if(posts.length >= 1)
+                            {
                                 <div class="posts-container">
                                     @for (post of posts.slice().reverse(); track post.id) {
                                     <div class="single-offer">
@@ -113,10 +120,7 @@
                                     </div>
                                     }
                                 </div>
-                            </div>
-                            <ng-template #noPosts>
-                                <p>You have not liked any posts yet.</p>
-                            </ng-template>
+                            }
                         </div>
                     </tab>
 

@@ -1,7 +1,6 @@
 <nav>
     <a routerLink="/" routerLinkActive="active" class="app-title">EW</a>
 
-
     <ul class="nav-items">
         @if(accountService.currentUser()) {
             <li class="nav-item">
@@ -20,11 +19,7 @@
                 <a routerLink="/errors" class="nav-item-link">Errors</a>
             </li>
         }
-
-
-
     </ul>
-
 
     @if(accountService.currentUser()) {
     <div dropdown class="dropdown">
@@ -45,8 +40,28 @@
 
     @if(!accountService.currentUser()) {
     <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off">
-        <input name="username" [(ngModel)]="model.username" class="login-input" type="text" placeholder="Username">
-        <input name="password" [(ngModel)]="model.password" class="login-input" type="password" placeholder="Password">
+        <input 
+            name="username" 
+            [(ngModel)]="model.username" 
+            class="login-input" 
+            type="text" 
+            placeholder="Username"
+        >
+        
+        <input 
+            id="password" 
+            name="password" 
+            [(ngModel)]="model.password" 
+            class="login-input" 
+            [type]="showPassword ? 'text' : 'password'" 
+            placeholder="Password"
+        >
+        <button 
+            type="button" 
+            class="btn-eye" 
+            (click)="togglePasswordVisibility()"
+        ><i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i></button>
+        
         <button class="login-btn" type="submit">Login</button>
     </form>
     }

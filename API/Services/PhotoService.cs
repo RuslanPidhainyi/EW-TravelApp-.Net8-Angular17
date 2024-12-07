@@ -1,4 +1,3 @@
-using System;
 using API.Interface;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
