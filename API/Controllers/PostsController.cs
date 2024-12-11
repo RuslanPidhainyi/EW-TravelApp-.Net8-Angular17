@@ -118,62 +118,62 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         return BadRequest("Problem update post");
     }
 
-    [HttpDelete("delete-post/{id:int}")]
-    public async Task<ActionResult> DeletePost(int id)
-    {
-        var post = await postRepo.GetPostByIdAsync(id);
-        if (post == null) return NotFound("Post not found.");
-
-        if (!string.IsNullOrEmpty(post.PublicId))
-        {
-            var result = await photoService.DeletePhotoAsync(post.PublicId);
-            if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
-        }
-
-        postRepo.Delete(post);
-
-        if (await postRepo.SaveAllAsync()) return NoContent();
-
-        return BadRequest("Failed to delete post");
-    }
-
-    //TODO: Is better methout
-    //     [HttpDelete("delete-post/{postId:int}")]
-    // public async Task<ActionResult> DeletePost(int postId)
+    // [HttpDelete("delete-post/{id:int}")]
+    // public async Task<ActionResult> DeletePost(int id)
     // {
-    //     // var post = await postRepo.GetPostByIdAsync(id);
-    //     // if (post == null) return NotFound("Post not found.");
+    //     var post = await postRepo.GetPostByIdAsync(id);
+    //     if (post == null) return NotFound("Post not found.");
 
-    //     // if (!string.IsNullOrEmpty(post.PublicId))
-    //     // {
-    //     //     var result = await photoService.DeletePhotoAsync(post.PublicId);
-    //     //     if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
-    //     // }
-
-    //     // postRepo.Delete(post);
-
-    //     // if (await postRepo.SaveAllAsync()) return NoContent();
-
-    //     // return BadRequest("Failed to delete post");
-
-    //     var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
-
-    //     if (user == null) return BadRequest("User not found");
-
-    //     var post =  user.Posts.FirstOrDefault(x => x.Id == postId);//user.GeneralPhotos.FirstOrDefault(x => x.Id == photoId);
-
-    //     if (post == null) return BadRequest("This post cannot be deleted");
-
-    //     if (post.PublicId != null)
+    //     if (!string.IsNullOrEmpty(post.PublicId))
     //     {
     //         var result = await photoService.DeletePhotoAsync(post.PublicId);
-    //         if (result.Error != null) return BadRequest(result.Error.Message);
+    //         if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
     //     }
 
-    //     user.Posts.Remove(post);
+    //     postRepo.Delete(post);
 
-    //     if (await userRepo.SaveAllAsync()) return Ok();
+    //     if (await postRepo.SaveAllAsync()) return NoContent();
 
-    //     return BadRequest("Problem deleting post");
+    //     return BadRequest("Failed to delete post");
     // }
+
+    //TODO: Is better methout
+    [HttpDelete("delete-post/{postId:int}")]
+    public async Task<ActionResult> DeletePost(int postId)
+    {
+        // var post = await postRepo.GetPostByIdAsync(id);
+        // if (post == null) return NotFound("Post not found.");
+
+        // if (!string.IsNullOrEmpty(post.PublicId))
+        // {
+        //     var result = await photoService.DeletePhotoAsync(post.PublicId);
+        //     if (result.Error != null) return BadRequest("Failed to delete photo from Cloudinary.");
+        // }
+
+        // postRepo.Delete(post);
+
+        // if (await postRepo.SaveAllAsync()) return NoContent();
+
+        // return BadRequest("Failed to delete post");
+
+        var user = await userRepo.GetUserByUsernameAsync(User.GetUsername());
+
+        if (user == null) return BadRequest("User not found");
+
+        var post =  user.Posts.FirstOrDefault(x => x.Id == postId);//user.GeneralPhotos.FirstOrDefault(x => x.Id == photoId);
+
+        if (post == null) return BadRequest("This post cannot be deleted");
+
+        if (post.PublicId != null)
+        {
+            var result = await photoService.DeletePhotoAsync(post.PublicId);
+            if (result.Error != null) return BadRequest(result.Error.Message);
+        }
+
+        user.Posts.Remove(post);
+
+        if (await userRepo.SaveAllAsync()) return Ok();
+
+        return BadRequest("Problem deleting post");
+    }
 }

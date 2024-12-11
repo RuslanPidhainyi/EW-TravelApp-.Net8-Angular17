@@ -46,11 +46,11 @@ export class PostsService {
     );
   }
 
-  deletePost(id: number) {
-    return this.http.delete(this.baseUrl + 'posts/delete-post/' + id).pipe(
+  deletePost(post: Post) {
+    return this.http.delete(this.baseUrl + 'posts/delete-post/' + post.id).pipe(
       tap(() => {
-        this.posts.update((posts) => posts.filter((post) => post.id !== id));
+        this.posts.update(posts => posts.filter(p => p.id !== post.id));
       })
     );
-  }
+  }  
 }
