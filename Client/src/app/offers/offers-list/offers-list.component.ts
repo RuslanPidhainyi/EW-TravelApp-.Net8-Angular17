@@ -7,7 +7,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-offers-list',
   standalone: true,
-  imports: [OfferCardComponent, NgIf],
+  imports: [OfferCardComponent],
   templateUrl: './offers-list.component.html',
   styleUrl: './offers-list.component.scss',
 })

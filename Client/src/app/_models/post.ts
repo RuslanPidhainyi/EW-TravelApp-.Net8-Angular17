@@ -5,7 +5,7 @@ export interface Post {
     locationCountry: string;
     locationCity: string;
     lastCountry: string;
-    lastCity: string;
+    lastRegion: string;
     localTransport: boolean;
     minPriceLocalTrans: number;
     maxPriceLocalTrans: number;

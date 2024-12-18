@@ -1,6 +1,5 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, EventEmitter, inject, Input, input, Output } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Post } from '../../_models/post';
 import { PostsService } from '../../_services/posts.service';
 import { ToastrService } from 'ngx-toastr';

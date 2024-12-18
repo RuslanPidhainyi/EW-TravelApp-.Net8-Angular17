@@ -26,7 +26,7 @@ import { NumberInputPostComponent } from '../../_forms/number-input-post/number-
   standalone: true,
   templateUrl: './edit-offer.component.html',
   styleUrl: './edit-offer.component.scss',
-  imports: [TabsModule, FormsModule, ReactiveFormsModule, NgIf, NgFor, NgStyle, NgClass, DecimalPipe,  RouterLink, TextInputPostComponent, TextTextareaPostComponent, CheckboxInputPostComponent,NumberInputPostComponent],
+  imports: [TabsModule, FormsModule, ReactiveFormsModule, TextInputPostComponent, TextTextareaPostComponent,NumberInputPostComponent],
 })
 export class EditOfferComponent implements OnInit {
   // @ViewChild('editForm') editForm?: NgForm;
@@ -77,7 +77,7 @@ export class EditOfferComponent implements OnInit {
       locationCountry: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
       locationCity: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
       lastCountry: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
-      lastCity: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
+      lastRegion: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
       localTransport: [false],
       minPriceLocalTrans: [0], //TODO: [Validators.min(1),Validators.max(999999)],
       maxPriceLocalTrans: [0], //TODO: [Validators.min(1),Validators.max(999999)],

@@ -3,12 +3,12 @@ namespace API.Entities;
 public class Post
 {
     public int Id { get; set; }
-    public required string Url { get; set; } // Url 
+    public required string Url { get; set; }
     public required string Title { get; set; }
     public required string LocationCountry { get; set; }
     public required string LocationCity { get; set; }
     public required string LastCountry { get; set; }
-    public required string LastCity { get; set; }
+    public required string LastRegion { get; set; } //LastRegion => LastCity
     public required bool LocalTransport { get; set; }
     public required int MinPriceLocalTrans { get; set; }
     public required int MaxPriceLocalTrans { get; set; }

@@ -76,7 +76,7 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         post.LocationCountry = postDto.LocationCountry;
         post.LocationCity = postDto.LocationCity;
         post.LastCountry = postDto.LastCountry;
-        post.LastCity = postDto.LastCity;
+        post.LastRegion = postDto.LastRegion;
         post.LocalTransport = postDto.LocalTransport;
         post.MinPriceLocalTrans = postDto.MinPriceLocalTrans;
         post.MaxPriceLocalTrans = postDto.MaxPriceLocalTrans;
