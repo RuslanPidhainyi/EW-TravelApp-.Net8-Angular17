@@ -4,7 +4,7 @@ import { AccountService } from '../_services/account.service';
 import { RegisterComponent } from '../register/register.component';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { TextUtils } from '../helpers/TextUtils';
+import { TextUtils } from '../_helpers/TextUtils';
 
 @Component({
   selector: 'app-login',

@@ -5,7 +5,7 @@ import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validator
 import { Router } from '@angular/router';
 import { TextInputComponent } from '../_forms/text-input/text-input.component';
 import { DatePickerComponent } from '../_forms/date-picker/date-picker.component';
-import { TextUtils } from '../helpers/TextUtils';
+import { TextUtils } from '../_helpers/TextUtils';
 
 @Component({
   selector: 'app-register',

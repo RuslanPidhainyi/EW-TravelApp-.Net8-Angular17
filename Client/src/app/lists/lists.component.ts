@@ -1,13 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LikesService } from '../_services/likes.service';
 import { Post } from '../_models/post';
-import { NgIf } from '@angular/common';
 import { OfferCardComponent } from "../offers/offer-card/offer-card.component";
 
 @Component({
   selector: 'app-lists',
   standalone: true,
-  imports: [NgIf, OfferCardComponent],
+  imports: [OfferCardComponent],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.scss'
 })
