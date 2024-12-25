@@ -16,15 +16,7 @@ import { MemberMessagesComponent } from "../member-messages/member-messages.comp
 @Component({
   selector: 'app-member-profile',
   standalone: true,
-  imports: [
-    TabsModule,
-    GalleryModule,
-    RouterLink,
-    MemberProfileOfferCardComponent,
-    TimeagoModule,
-    DatePipe,
-    MemberMessagesComponent, NgClass
-],
+  imports: [ TabsModule, GalleryModule, RouterLink, MemberProfileOfferCardComponent, TimeagoModule, DatePipe ],
   templateUrl: './member-profile.component.html',
   styleUrl: './member-profile.component.scss',
 })
@@ -68,7 +60,6 @@ export class MemberProfileComponent implements OnInit {
   }
 
   onPostDeleted(postId: number) {
-    // Видаляємо пост зі списку без оновлення сторінки
     this.posts = this.posts.filter((post) => post.id !== postId);
   }
 }
