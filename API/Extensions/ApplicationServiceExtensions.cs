@@ -14,10 +14,8 @@ public static class ApplicationServiceExtensions
     public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
     {
         services.AddControllers();
-        services.AddDbContext<AppDbContext>(opt =>
-        {
-            opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-        });
+        services.AddDbContext<AppDbContext>(
+    options => options.UseSqlServer(config["Data:Connection"]));
         services.AddCors(); //note: Dodano usługę ochrony CORS(Cross-Origin Resource Sharing). (Nasz serwer będzie ładowany tylko z zaufanych źródeł określonych przez serwer).
         services.AddScoped<ITokenService, TokenService>(); //note: AddScoped - Okresla czas uzycza usługi. Usługe te są tworzone raz na ządanie klienta (ządanie HTTP), potem po wykorzystaniu bedzie te ządanie usuniete.
         services.AddScoped<IUserRepository, UserRepository>();
