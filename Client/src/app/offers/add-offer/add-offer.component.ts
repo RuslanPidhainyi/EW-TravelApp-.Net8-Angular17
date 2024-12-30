@@ -11,11 +11,12 @@ import { TextInputPostComponent } from "../../_forms/text-input-post/text-input-
 import { TextTextareaPostComponent } from "../../_forms/text-textarea-post/text-textarea-post.component";
 import { CheckboxInputPostComponent } from "../../_forms/checkbox-input-post/checkbox-input-post.component";
 import { NumberInputPostComponent } from "../../_forms/number-input-post/number-input-post.component";
+import { last } from 'rxjs';
 
 @Component({  
   selector: 'app-add-offer',
   standalone: true,
-  imports: [ ReactiveFormsModule, NgIf, NgFor, NgStyle, NgClass, FileUploadModule, DecimalPipe,  RouterLink, TextInputPostComponent, TextTextareaPostComponent, CheckboxInputPostComponent,NumberInputPostComponent ],
+  imports: [ ReactiveFormsModule, NgIf, NgFor, NgStyle, NgClass, FileUploadModule, DecimalPipe, TextInputPostComponent, TextTextareaPostComponent ,NumberInputPostComponent ],
   templateUrl: './add-offer.component.html',
   styleUrls: ['./add-offer.component.scss'],
 })
@@ -43,7 +44,7 @@ export class AddOfferComponent implements OnInit {
           locationCountry: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
           locationCity: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
           lastCountry: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
-          lastCity: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
+          lastRegion: ['', Validators.required], //TODO: Validators.minLength(2), Validators.maxLength(50)
           localTransport: [false],
           minPriceLocalTrans: [0], //TODO: [Validators.min(1),Validators.max(999999)], 
           maxPriceLocalTrans: [0], //TODO: [Validators.min(1),Validators.max(999999)],

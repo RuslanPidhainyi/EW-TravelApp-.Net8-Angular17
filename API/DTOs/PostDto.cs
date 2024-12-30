@@ -9,7 +9,7 @@ public class PostDto
     public required string LocationCountry { get; set; }
     public required string LocationCity { get; set; }
     public required string LastCountry { get; set; }
-    public required string LastCity { get; set; }
+    public required string LastRegion { get; set; } //v => LastCity
     public required bool LocalTransport { get; set; }
     public required int MinPriceLocalTrans { get; set; }
     public required int MaxPriceLocalTrans { get; set; }

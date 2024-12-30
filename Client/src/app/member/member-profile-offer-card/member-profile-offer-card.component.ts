@@ -1,6 +1,5 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, EventEmitter, inject, Input, input, Output } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Post } from '../../_models/post';
 import { PostsService } from '../../_services/posts.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,32 +7,26 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-member-profile-offer-card',
   standalone: true,
-  imports: [TitleCasePipe, RouterLink],
+  imports: [RouterLink],
   templateUrl: './member-profile-offer-card.component.html',
   styleUrl: './member-profile-offer-card.component.scss',
 })
 export class MemberProfileOfferCardComponent {
   private postsService = inject(PostsService);
   private toastr = inject(ToastrService);
-  //private router = inject(Router);
   postE = input.required<Post>();
   @Input() post!: Post;
   @Output() postDeleted = new EventEmitter<number>();
 
-  deletePost() {
-    const post = this.postE(); // Retrieve the post from the signal
-    if (post && confirm('Are you sure you want to delete this post?')) {
-      this.postsService.deletePost(post.id).subscribe({
-        next: () => {
-          this.toastr.success('Post deleted successfully');
-          console.log('Post deleted successfully');
-          // Reload the list or update the parent component if needed
-        },
-        error: (err) => {
-          console.error('Error deleting post:', err);
-          this.toastr.error('Failed to deleted post');
-        },
-      });
-    }
+  deletePost(post: Post) {
+    this.postsService.deletePost(post).subscribe({
+      next: (_) => {
+        this.toastr.success('Post deleted successfully');
+        this.postDeleted.emit(post.id);
+      },
+      error: () => {
+        this.toastr.error('Failed to deleted post');
+      }
+    });
   }
 }

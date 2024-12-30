@@ -5,7 +5,7 @@ import { Message } from '../_models/message';
 import {
   setPaginatedResponse,
   setPaginationHeaders,
-} from '../helpers/paginationHelpers';
+} from '../_helpers/paginationHelpers';
 import { PaginatedResult } from '../_models/pagination';
 import { HubConnection, HubConnectionBuilder, HubConnectionState } from '@microsoft/signalr';
 import { User } from '../_models/user';

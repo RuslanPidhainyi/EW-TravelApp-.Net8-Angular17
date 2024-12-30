@@ -81,13 +81,13 @@ public class MessageRepository(AppDbContext context, IMapper mapper) : IMessageR
     public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername)
     {   
         //note: liste jednostek messages z bd
-        var messages = await context.Messages
+        var messages = context.Messages
             .Where(x =>
                 x.RecipientUsername == currentUsername && x.RecipientDeleted == false && x.SenderUsername == recipientUsername
                 || x.SenderUsername == currentUsername && x.SenderDeleted == false && x.RecipientUsername == recipientUsername)
             .OrderBy(x => x.MessageSent)
-            .ProjectTo<MessageDto>(mapper.ConfigurationProvider)
-            .ToListAsync();
+            .AsQueryable();// .ProjectTo<MessageDto>(mapper.ConfigurationProvider)
+            // .ToListAsync();
         
         //note: Sprawdzania czy są jakies nie przyczytane messages
         var unreadMessages = messages
@@ -102,7 +102,7 @@ public class MessageRepository(AppDbContext context, IMapper mapper) : IMessageR
         }
 
         //note: odsyła nasz messages
-        return messages;
+        return await messages.ProjectTo<MessageDto>(mapper.ConfigurationProvider).ToListAsync();
     }
 
     public async Task<bool> SaveAllAsync()

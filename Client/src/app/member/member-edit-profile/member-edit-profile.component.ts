@@ -16,7 +16,7 @@ import { TimeagoModule } from 'ngx-timeago';
 @Component({
   selector: 'app-member-edit-profile',
   standalone: true,
-  imports: [ TabsModule, FormsModule, MemberOfferCardComponent, GalleryModule, RouterLink, PhotoEditorComponent, TimeagoModule],
+  imports: [ TabsModule, FormsModule, GalleryModule, PhotoEditorComponent, TimeagoModule],
   templateUrl: './member-edit-profile.component.html',
   styleUrl: './member-edit-profile.component.scss',
 })
@@ -48,12 +48,6 @@ export class MemberEditProfileComponent implements OnInit {
         member.generalPhotos.map((p) => {
           this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
         });
-
-        // this.postService.getPostByUsername(member.username).subscribe({
-        //   next: (posts) => {
-        //     this.posts = posts;
-        //   },
-        // });
       },
     });
   }

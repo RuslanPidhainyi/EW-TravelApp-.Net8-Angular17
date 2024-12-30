@@ -1,13 +1,12 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { Post } from '../../_models/post';
-import { TitleCasePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { LikesService } from '../../_services/likes.service';
 
 @Component({
   selector: 'app-member-offer-card',
   standalone: true,
-  imports: [TitleCasePipe, RouterLink],
+  imports: [RouterLink],
   templateUrl: './member-offer-card.component.html',
   styleUrl: './member-offer-card.component.scss'
 })
