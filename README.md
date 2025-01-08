@@ -60,9 +60,17 @@ Likes post - p2 (page Lists)
 
 https://github.com/user-attachments/assets/e239afc8-a459-4f29-b344-fc164eebf596
 
-Message - p1
+Message - p1 (Sending a message)
 
 https://github.com/user-attachments/assets/afabf7eb-bf94-4265-b1c4-303e4b44527b
+
+Messaage - p2 (Notification & status online)
+
+https://github.com/user-attachments/assets/5d32ac03-859d-45fc-a708-e40aa06883bf
+
+Message - p3 (Unread, Inbox, OutBox)
+
+https://github.com/user-attachments/assets/6afbd13b-dff0-407d-9704-db4f238067d8
 
 
 
