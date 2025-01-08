@@ -72,10 +72,37 @@ Message - p3 (Unread, Inbox, OutBox)
 
 https://github.com/user-attachments/assets/6afbd13b-dff0-407d-9704-db4f238067d8
 
+Logout - Daria
 
+https://github.com/user-attachments/assets/70e39af0-84ae-4cf0-a2c1-d2f0316130c3
 
+Admin - p1 page admin (Moderator)
 
+https://github.com/user-attachments/assets/333a42bb-4228-4a3c-a847-43e2069c672e
 
+Admin - p2 page Erorrs
 
+https://github.com/user-attachments/assets/f0486e5a-7974-42fa-a459-7854f5c7849c
 
+Set Validation
+
+Valid - page Register
+
+https://github.com/user-attachments/assets/a1360757-ef03-408c-aa04-8dccac29a962
+
+Valid - page Login
+
+https://github.com/user-attachments/assets/7ab8e6a1-04ab-49ac-b30f-15f8dd2bb6c9
+
+Valid - Add post
+
+https://github.com/user-attachments/assets/81ab9426-374e-4542-9336-1d885907e437
+
+Valid - Like own post
+
+https://github.com/user-attachments/assets/6c16f5fd-dd35-4915-a3fd-2657f65d58eb
+
+Valid - Edit post
+
+https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
