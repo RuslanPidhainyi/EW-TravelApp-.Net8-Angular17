@@ -1,3 +1,45 @@
+## Intro
+
+TravelApp is a social network for travelers that allows users to share their travel experiences in the form of posts. The main idea of the project is to create a platform where one can find unique locations, obtain useful information about routes, expenses, and services, as well as communicate with other travelers.
+
+Users can:
+
+- Publish posts with photographs of unique places, information about the country, region, and route details.
+- Add data about expenses (transportation, accommodation, entrance fees, guide services, etc.).
+- Communicate with each other through the messaging system to clarify details or receive personalized advice.
+- Plan trips using reliable and structured information from posts.
+
+The platform simplifies the travel planning process and saves time by providing the opportunity to share real experiences and build a community of like-minded individuals.
+
+## For what purpose was TravelApp created and what problems does it solve?
+
+- The lack of a specialized platform for sharing unique experiences:
+
+Travelers who visit little-known and rare places had limited opportunities to share their experiences with an interested audience. 
+Traditional social networks do not always provide the necessary structure for a detailed description of the specifics of a journey.
+
+
+- Lack of reliable information on safety and logistics:
+
+The need for travelers to obtain up-to-date data on road conditions, regional safety, accommodation options, transportation,
+and other details—especially during times of war or pandemics—remained unmet.
+
+- Difficulty in finding like-minded individuals and organizing joint excursions:
+
+Travelers found it challenging to locate kindred spirits, discuss routes, receive advice, and even organize group trips.
+This created barriers for beginners or those traveling to unfamiliar places.
+
+- The absence of a centralized source for travel planning:
+
+Gathering information about places, routes, expenses, and services (such as guides, transport, accommodation) from various sources took a lot of time and resources, and could also contain inaccuracies. Searching for specific information required significant effort and often led to situations where the data was fragmented or incomplete.
+
+TravelApp solves this problem by providing a centralized platform where all the necessary experience and information are collected in one place – in a single user post. Such a post presents a lot of clear and structured information:
+
+Route details – from path descriptions to advice on optimal routes.
+Photographs – visual confirmation of the uniqueness of the place.
+Expenses and logistics – information about local transport, price ranges, travel time, as well as fees for entry, accommodation, the availability of shops, and guide services.
+Moreover, if necessary, the user can directly contact the post's author through the TravelApp messaging system to ask additional questions or clarify travel details. This enables users to receive personalized advice from someone who has already visited the place, significantly saving time and effort when planning their next trip.
+
 Register Diana
 
 https://github.com/user-attachments/assets/8272f388-a7b9-47a9-9ba9-d2df22bd606e
