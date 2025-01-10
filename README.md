@@ -21,6 +21,7 @@
    - 2.12 [Logout](#logout)
    - 2.13 [Admin](#admin)
    - 2.14 [Validation](#valid)
+3. [Technologies](#techn)
 
 
 <a name="intro"></a>
@@ -177,19 +178,39 @@ https://github.com/user-attachments/assets/f0486e5a-7974-42fa-a459-7854f5c7849c
 
 https://github.com/user-attachments/assets/a1360757-ef03-408c-aa04-8dccac29a962
 
-#### 2.14.1 Valid - page Login
+### 2.14.1 Valid - page Login
 
 https://github.com/user-attachments/assets/7ab8e6a1-04ab-49ac-b30f-15f8dd2bb6c9
 
-#### 2.18.2 Valid - Add post
+### 2.14.2 Valid - Add post
 
 https://github.com/user-attachments/assets/81ab9426-374e-4542-9336-1d885907e437
 
-#### 2.18.3 Valid - Like own post
+### 2.14.3 Valid - Like own post
 
 https://github.com/user-attachments/assets/6c16f5fd-dd35-4915-a3fd-2657f65d58eb
 
-#### 2.18.4 Valid - Edit post
+### 2.14.4 Valid - Edit post
 
 https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
+<a name="techn"></a>
+## 3 Technologies
+
+### Frontend:
+   #### - Framework: Angular
+   #### - Runtime environment: Node & NPM
+   #### - Programming Languages: JavaScript & TypeScript
+   #### - Markup Language: HTML
+   #### - Style Sheet Language: CSS & SCSS
+
+### Backend:
+   #### - Framework: ASP .Net Core Web API
+   #### - APIs: RESTful API, WebSocket
+
+### Database: 
+   ### - SQLite (SQL)
+   ### - Microsoft SQL Server (SQL)
+
+### Hosting:
+   Cloudinary
