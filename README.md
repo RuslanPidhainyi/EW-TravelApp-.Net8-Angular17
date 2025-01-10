@@ -6,9 +6,9 @@
 0. [Intro](#intro)
 1. [For what purpose was TravelApp created and what problems does it solve?](#problems)
 2. [About an App](#aboutaapp)
-   - 2.0 [Register](#register)
+   - 2.0 [User registration](#register)
    - 2.1 [Login](#login)
-   - 2.2 [Posts-PostsDetail status: true & false](#post)
+   - 2.2 [Post and post details](#post)
    - 2.3 [My Profile](#myprofile)
    - 2.4 [My Profile Edit](#myprofile-edit)
    - 2.5 [Add Post](#add-post)
@@ -74,21 +74,29 @@ Moreover, if necessary, the user can directly contact the post's author through 
 ## 2. About an App
 
 <a name="register"></a>
-### 2.0 Register Diana
+### 2.0 User registration
 
 https://github.com/user-attachments/assets/8272f388-a7b9-47a9-9ba9-d2df22bd606e
 
+In order to register, you need to go to the Registration page as shown in the video. Then select your gender and fill in fields such as Username, Known As, Date of Birth, City, Country, Password, and Confirm Password. After completing these fields, click on the "Register" button. You will be redirected to the publications page and will immediately receive a notification that the user has been successfully registered.
+
 <a name="login"></a>
-### 2.1 Login - way 1
+### 2.1 Login
 
 https://github.com/user-attachments/assets/c9aaf44f-2b54-402d-ba09-74c1a652a0e9
 
-### 2.1.1 Login - way 2
+First Way of Logging In - To log into the system, you must first be registered. If you are registered, you can proceed to the login page. There, enter your username and current password, then click the "Log In" button. You will be redirected to the main page and immediately receive a notification that the user has been successfully logged in.
+
+Additionally, you can use the eye icon in the form to toggle password visibility. This feature has been implemented for the user's convenience.
+
+### 2.1.1 Login - via the Navigation Bar
 
 https://github.com/user-attachments/assets/cfbd3d97-291f-4dc2-95bc-9e0f68c8bb3e
 
+Second Way of Logging In via the Navigation Bar - To log in using the navigation bar, you need to enter the same credentials as in the first method to access the system. There is also an eye icon feature that allows the user to view the password in case any issues arise. This navigation bar is dynamic, allowing you to log in even from the Registration page.
+
 <a name="post"></a>
-### 2.2 Posts-PostsDetail status: true & false
+### 2.2 Post and post details
 
 https://github.com/user-attachments/assets/17daa42d-49d9-46c1-8d7a-b0dff06989de
 
