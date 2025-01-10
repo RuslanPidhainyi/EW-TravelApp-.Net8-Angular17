@@ -124,6 +124,19 @@ In addition, the post’s author specifies the currency used for payments during
 
 https://github.com/user-attachments/assets/84bf2536-e162-42c6-971b-caaa7c8747a8
 
+To navigate to your own profile, you can do this in two ways:
+
+First Method:
+
+- In the navigation bar, click on the "Welcome" button.
+- A dropdown menu will appear, which includes a "Profile" option.
+- Click on the "Profile" option, and you will be taken to your profile page.
+
+Second Method:
+
+- In the navigation bar, click on your avatar using the left mouse button.
+- The system will immediately redirect you to your profile page.
+
 <a name="myprofile-edit"></a>
 ### 2.4 My Profile Edit-Part1(Adding photos)
 
