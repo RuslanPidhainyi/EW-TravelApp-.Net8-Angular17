@@ -209,8 +209,8 @@ https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
    #### - APIs: RESTful API, WebSocket
 
 ### Database: 
-   ### - SQL:#### SQLite
-   ### - SQL:#### Microsoft SQL Server (SQL)
+   ### - SQL: #### SQLite
+   ### - SQL: #### Microsoft SQL Server (SQL)
 
 ### Hosting:
    Cloudinary
