@@ -100,6 +100,25 @@ Second Way of Logging In via the Navigation Bar - To log in using the navigation
 
 https://github.com/user-attachments/assets/17daa42d-49d9-46c1-8d7a-b0dff06989de
 
+You have a page with posts where you can scroll through a feed of publications. If you want to view detailed information about a specific post, simply click on it with the left mouse button, and you will be taken to a page with expanded details about that post.
+
+In the detailed view of the post, you will see:
+
+- A photograph from the trip.
+- The location of this place: country and region.
+- The name of the place.
+- The last visited location before the start of the journey: country and city, or the point from which the journey began.
+- 
+Additional details may also be included in the post:
+
+- Use of local transportation – information on how the author reached the starting point of the trip and how many hours the journey took.
+- Paid entry – if visiting the place required payment, the cost is specified.
+- Accommodation – details about the types of lodging the author used (for example, hostel, camping, hotel) and the expenses involved.
+- Grocery store – if the author visited a grocery store during the trip, this information may be reflected in the post.
+- Guide services – if guide services were used, relevant information is also provided.
+
+In addition, the post’s author specifies the currency used for payments during the trip. The user also has the option to add their own description of the place, sharing impressions and additional details.
+
 <a name="myprofile"></a>
 ### 2.3 My Profile
 
