@@ -10,7 +10,7 @@
    - 2.1 [Login](#login)
    - 2.2 [Post and post details](#post)
    - 2.3 [My Profile](#myprofile)
-   - 2.4 [My Profile Edit](#myprofile-edit)
+   - 2.4 [Profile Editing](#myprofile-edit)
    - 2.5 [Add Post](#add-post)
    - 2.6 [Edit Post](#edit-post)
    - 2.7 [Delete Post](#delete-post)
@@ -138,18 +138,24 @@ Second Method:
 - The system will immediately redirect you to your profile page.
 
 <a name="myprofile-edit"></a>
-### 2.4 My Profile Edit-Part1(Adding photos)
+### 2.4 Profile Editing – Part One (Adding Photos)
 
 https://github.com/user-attachments/assets/e6c08747-2a19-40d8-8048-882df21c7ac4
 
-### 2.4.1 MyProfileEdit-Part2(Updating profile)
+To edit your profile, click the "Edit Profile" button located on the lower left above your avatar, as shown in the video. The system will redirect you to the profile editing page, where you can add photos and customize your avatar that will represent your profile to other users.
+
+### 2.4.1 Profile Editing – Part Two
 
 https://github.com/user-attachments/assets/94a50fb2-7eb0-4143-a389-bf36c188ff39
+
+Additionally, while editing your profile, you can describe yourself, list your interests, and specify your location.
 
 <a name="add-post"></a>
 ### 2.5 Add Post - way 1. Status: False
 
 https://github.com/user-attachments/assets/4a5530e1-4fe9-4e87-9837-1d6171adcc2e
+
+To save your changes, click the "Save Changes" button located on the lower left above your avatar, as shown in the video.
 
 ### 2.5.1 Add Post - way 2. Status: True
 
