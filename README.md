@@ -1,5 +1,7 @@
 # Travel Application
-> ASP.Net Core & Angular
+> - Share photos of the places you've visited.
+> - Connect with like-minded people and share experiences.
+> - Discover new places.
 
 ## Contents
 
