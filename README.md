@@ -11,7 +11,7 @@
    - 2.2 [Post and post details](#post)
    - 2.3 [My Profile](#myprofile)
    - 2.4 [Profile Editing](#myprofile-edit)
-   - 2.5 [Add Post](#add-post)
+   - 2.5 [Adding a Post](#add-post)
    - 2.6 [Edit Post](#edit-post)
    - 2.7 [Delete Post](#delete-post)
    - 2.8 [Check My Profile](#check-my-profile)
@@ -150,14 +150,38 @@ https://github.com/user-attachments/assets/94a50fb2-7eb0-4143-a389-bf36c188ff39
 
 Additionally, while editing your profile, you can describe yourself, list your interests, and specify your location.
 
+To save your changes, click the "Save Changes" button located on the lower left above your avatar, as shown in the video.
+
 <a name="add-post"></a>
-### 2.5 Add Post - way 1. Status: False
+### 2.5 Adding a Post - way 1
 
 https://github.com/user-attachments/assets/4a5530e1-4fe9-4e87-9837-1d6171adcc2e
 
-To save your changes, click the "Save Changes" button located on the lower left above your avatar, as shown in the video.
+First Method to Create a Post - To create a post, follow these steps:
+   1. Navigate to your profile page.
+   2. In the center of the page, you will find a button with a plus sign and the text above it: "What to share your journey?"
+   3. Click this button.
+The system will then direct you to the post creation page.
 
-### 2.5.1 Add Post - way 2. Status: True
+When creating a post, you can detail your journey by including the following elements:
+
+- Photograph from the trip – the main image that illustrates your impressions.
+- Location – specify the country and region of the place you visited, as well as its name.
+- The last visited location before starting the journey – mention the country and city, or the exact point from which your journey began.
+
+In addition, you may include extra information in the post:
+
+- Use of local transportation: Describe how you reached the starting point of your journey and how long it took.
+- Paid entry: If visiting the place required payment, note the amount or cost.
+- Accommodation: Detail the types of lodging you used (e.g., hostel, camping, hotel) and the associated expenses.
+- Grocery shopping: If you shopped for groceries during the trip, you can reflect that as well.
+- Guide services: If you used guide services, provide the relevant information.
+
+The post’s author also specifies the currency used for payments or purchases during the trip. Equally important is adding your own description of the place, sharing impressions and additional details to help other users better understand your experience.
+
+### 2.5.1 Adding a Post - way 2
+
+Alternatively, you can create a post through the navigation bar on the right side of the page. Click on "Welcome", and you will immediately see a dropdown menu with the "Share Post" option.
 
 https://github.com/user-attachments/assets/e5f9cdc5-0370-4b0b-a9df-55c8b36486c2
 
