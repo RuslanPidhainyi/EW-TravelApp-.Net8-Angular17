@@ -111,7 +111,7 @@ In the detailed view of the post, you will see:
 - The location of this place: country and region.
 - The name of the place.
 - The last visited location before the start of the journey: country and city, or the point from which the journey began.
-- 
+  
 Additional details may also be included in the post:
 
 - Use of local transportation – information on how the author reached the starting point of the trip and how many hours the journey took.
