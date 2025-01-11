@@ -17,9 +17,9 @@
    - 2.5 [Adding a Post](#add-post)
    - 2.6 [Editing a Post](#edit-post)
    - 2.7 [Deleting a Post](#delete-post)
-   - 2.8 [Check My Profile](#check-my-profile)
-   - 2.9 [Check Another Profile](#check-another-profile)
-   - 2.10 [Like Posts](#like-posts)
+   - 2.8 [Viewing Your Own Profile](#check-my-profile)
+   - 2.9 [Viewing Someone Else's Profile](#check-another-profile)
+   - 2.10 [Liking a Post](#like-posts)
    - 2.11 [Message](#message)
    - 2.12 [Logout](#logout)
    - 2.13 [Admin](#admin)
@@ -223,23 +223,41 @@ https://github.com/user-attachments/assets/53e282df-8fd6-4730-a6d9-c134fbe33005
 To delete a post, go to your personal profile and find the desired post. Click on the delete icon within that post.
 
 <a name="check-my-profile"></a>
-### 2.8 Check My Profile
+### 2.8 Viewing Your Own Profile
 
 https://github.com/user-attachments/assets/1fbcc7bd-8c9c-439a-a4ab-e5f68a899c81
 
+You can view detailed information about yourself in the About tab. There, you can see your photos and read the information you provided about yourself, including your description, your interests, and your location.
+
 <a name="check-another-profile"></a>
-### 2.9 Check Another Profile
+### 2.9 Viewing Someone Else's Profile
 
 https://github.com/user-attachments/assets/a782f74f-d6c0-4e85-b328-4b55b5517e6a
 
+When viewing another user's profile, you gain access to publicly available information that the user has chosen to share. This may include:
+
+- Personal Data and Description: You will see their description, interests, and possibly their location if provided.
+- Photos: Access to photos from their travels or other events that the user has shared.
+- Posts: A list of posts made by the user, with the ability to view detailed information about each publication.
+- Messenger: The profile may include an option to send a message to this user. This makes it easy to contact them directly to discuss common interests or other topics.
+
 <a name="like-posts"></a>
-### 2.10 Like Posts - part 1
+### 2.10 Liking a Post
 
 https://github.com/user-attachments/assets/f51fb5ba-6e3a-4a98-b82f-1abdf4188fb7
 
-### 2.10.1 Like Posts - p2 (page Lists)
+You can like a post in several ways:
+
+- Click the "like" button directly on the chosen post.
+- Go to the detailed view of the post and click the "like" button there.
+
+### 2.10.1 Liking a Post - (page Lists)
 
 https://github.com/user-attachments/assets/e239afc8-a459-4f29-b344-fc164eebf596
+
+All liked posts are saved on the Lists page. 
+
+In this video, I demonstrate how to unlike a post. When you remove a like, the post is not immediately removed from the saved list. This means that the post will remain in the list until you refresh the page, even if you no longer like it. Thus, you can continue interacting with the post until the page is updated.
 
 <a name="message"></a>
 ### 2.11 Message - p1 (Sending a message)
