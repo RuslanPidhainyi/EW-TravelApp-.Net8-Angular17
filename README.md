@@ -272,27 +272,27 @@ https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
 ### Frontend:
    #### - Framework: 
-                  Angular
+      Angular
    #### - Runtime environment: 
-                  Node & NPM
+      Node & NPM
    #### - Programming Languages:
-                  JavaScript & TypeScript
+      JavaScript & TypeScript
    #### - Markup Language: 
-                  HTML
+      HTML
    #### - Style Sheet Language: 
-                  CSS & SCSS
+      CSS & SCSS
 
 ### Backend:
    #### - Framework: 
-            ASP .Net Core Web API
+      ASP .Net Core Web API
+   #### - Programming Languages:
+      C#
    #### - APIs: 
-            RESTful API, WebSocket
+      RESTful API, WebSocket
 
 ### Database: 
    ### - SQL: 
-            SQLite
-   ### - SQL: 
-            Microsoft SQL Server (SQL)
+      SQLite, Microsoft SQL Server (SQL)
 
 ### Hosting:
-            Cloudinary
+      Cloudinary
