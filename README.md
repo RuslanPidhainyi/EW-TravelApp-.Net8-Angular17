@@ -1,9 +1,10 @@
-# Travel Application
+# Travel Application 🧗
 > - Share photos of the places you've visited.
 > - Connect with like-minded people and share experiences.
 > - Discover new places.
 
-## Contents
+
+## Contents 📋
 
 0. [Intro](#intro)
 1. [For what purpose was TravelApp created and what problems does it solve?](#problems)
@@ -27,7 +28,7 @@
 
 
 <a name="intro"></a>
-## 0. Intro
+## 0. Intro 👁️👁️
 
 TravelApp is a social network for travelers that allows users to share their travel experiences in the form of posts. The main idea of the project is to create a platform where one can find unique locations, obtain useful information about routes, expenses, and services, as well as communicate with other travelers.
 
@@ -42,7 +43,7 @@ The platform simplifies the travel planning process and saves time by providing 
 
 
 <a name="problems"></a>
-## 1. For what purpose was TravelApp created and what problems does it solve?
+## 1. For what purpose was TravelApp created and what problems does it solve? 🔭
 
 - The lack of a specialized platform for sharing unique experiences:
 
@@ -73,7 +74,7 @@ Moreover, if necessary, the user can directly contact the post's author through 
 
 
 <a name="aboutaapp"></a>
-## 2. About an App
+## 2. About an App ℹ️
 
 <a name="register"></a>
 ### 2.0 User registration
