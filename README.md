@@ -15,8 +15,8 @@
    - 2.3 [My Profile](#myprofile)
    - 2.4 [Profile Editing](#myprofile-edit)
    - 2.5 [Adding a Post](#add-post)
-   - 2.6 [Edit Post](#edit-post)
-   - 2.7 [Delete Post](#delete-post)
+   - 2.6 [Editing a Post](#edit-post)
+   - 2.7 [Deleting a Post](#delete-post)
    - 2.8 [Check My Profile](#check-my-profile)
    - 2.9 [Check Another Profile](#check-another-profile)
    - 2.10 [Like Posts](#like-posts)
@@ -191,14 +191,36 @@ https://github.com/user-attachments/assets/e5f9cdc5-0370-4b0b-a9df-55c8b36486c2
 https://github.com/user-attachments/assets/1789ce9f-5b43-4dcb-a213-f347e0ad2064
 
 <a name="edit-post"></a>
-### 2.6 Edit Post
+### 2.6 Editing a Post
 
 https://github.com/user-attachments/assets/8a1aad17-7a21-4bee-9257-bc9980efecdd
 
+To edit a post, follow these steps:
+
+   1. Go to your personal profile and find the post you want to edit.
+
+   2. Click on the edit icon on the selected post.
+
+   3. On the edit page, you can update the following details:
+
+   - Location: Specify the country, region, and the name of the place you visited.
+   - Last visited location before starting the journey: Indicate the country, city, or point where your journey began.
+   - Use of local transportation: Describe how you reached the starting point of your journey and how long it took.
+   - Paid entry: If visiting the location required payment, specify the amount or cost.
+   - Accommodation: Describe the types of lodging (e.g., hostel, camping, hotel) you used and the associated expenses.
+   - Grocery shopping: If you visited grocery stores during your trip, include that information.
+   - Guide services: If you used guide services, provide the relevant details.
+
+   5. You can also edit the currency you used for payments or purchases and update the post description, sharing your impressions and additional details.
+
+   6. To save the changes, click the "Edit Post" button.
+
 <a name="delete-post"></a>
-### 2.7 Delete Post
+### 2.7 Deleting a Post
 
 https://github.com/user-attachments/assets/53e282df-8fd6-4730-a6d9-c134fbe33005
+
+To delete a post, go to your personal profile and find the desired post. Click on the delete icon within that post.
 
 <a name="check-my-profile"></a>
 ### 2.8 Check My Profile
