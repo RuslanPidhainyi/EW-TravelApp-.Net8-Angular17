@@ -332,7 +332,7 @@ https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
 ### Database: 
    ### - SQL: 
-      SQLite, Microsoft SQL Server (SQL)
+      SQLite, Microsoft SQL Server
 
 ### Hosting:
       Cloudinary
