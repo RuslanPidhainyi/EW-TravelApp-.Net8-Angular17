@@ -20,7 +20,7 @@
    - 2.8 [Viewing Your Own Profile](#check-my-profile)
    - 2.9 [Viewing Someone Else's Profile](#check-another-profile)
    - 2.10 [Liking a Post](#like-posts)
-   - 2.11 [Message](#message)
+   - 2.11 [Messaging](#message)
    - 2.12 [Logout](#logout)
    - 2.13 [Admin](#admin)
    - 2.14 [Validation](#valid)
@@ -260,29 +260,39 @@ All liked posts are saved on the Lists page.
 In this video, I demonstrate how to unlike a post. When you remove a like, the post is not immediately removed from the saved list. This means that the post will remain in the list until you refresh the page, even if you no longer like it. Thus, you can continue interacting with the post until the page is updated.
 
 <a name="message"></a>
-### 2.11 Message - p1 (Sending a message)
+### 2.11 Messaging
 
 https://github.com/user-attachments/assets/afabf7eb-bf94-4265-b1c4-303e4b44527b
 
-### 2.11.1 Messaage - p2 (Notification & status online)
+Users can message each other. To start a conversation, go to the profile of the person you want to chat with. Then:
+
+   - Use the "Message" tab located in the center to open the chat.
+   - Or click the "Send a message" button, after which you will be taken directly to the chat and can begin communicating.
+An example of this process is shown in the video.
+
+### 2.11.1 Message - (Notification & status online)
 
 https://github.com/user-attachments/assets/5d32ac03-859d-45fc-a708-e40aa06883bf
 
-### 2.11.2 Message - p3 (Unread, Inbox, OutBox)
+Users who are currently online have green badges indicating their online status. Additionally, when you receive a message, a blue notification will appear in the bottom right corner of the screen. An example is shown in the video.
+
+### 2.11.2 Message - (Unread, Inbox, OutBox)
 
 https://github.com/user-attachments/assets/6afbd13b-dff0-407d-9704-db4f238067d8
 
 <a name="logout"></a>
-### 2.12 Logout - Daria
+### 2.12 Logout
 
 https://github.com/user-attachments/assets/70e39af0-84ae-4cf0-a2c1-d2f0316130c3
 
+When you log out of the system, you receive a notification.
+
 <a name="admin"></a>
-### 2.13 Admin - p1 page admin (Moderator)
+### 2.13 Admin - page admin (Moderator)
 
 https://github.com/user-attachments/assets/333a42bb-4228-4a3c-a847-43e2069c672e
 
-### 2.13.1 Admin - p2 page Erorrs
+### 2.13.1 Admin - page Erorrs
 
 https://github.com/user-attachments/assets/f0486e5a-7974-42fa-a459-7854f5c7849c
 
