@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from '../_models/post';
-import { tap } from 'rxjs';
+import { switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -35,13 +35,19 @@ export class PostsService {
   }
 
   updatePost(id: number, postData: FormData) {
-    return this.http.put<Post>(this.baseUrl + 'posts/edit-post/' + id, postData).pipe(
-      tap((updatedPost) => {
-        this.posts.update((posts) =>
-          posts.map((post) => (post.id === id ? updatedPost : post))
-        );
-      })
-    );
+    return this.http.put(this.baseUrl + 'posts/edit-post/' + id, postData, { observe: 'response' })
+      .pipe(
+        switchMap(response => {
+          // Якщо відповідь 204 No Content, беремо пост заново:
+          return this.http.get<Post>(this.baseUrl + 'posts/' + id);
+        }),
+        tap((updatedPost) => {
+          // Тепер updatedPost – справді наш оновлений об’єкт із id
+          this.posts.update((posts) =>
+            posts.map((post) => (post.id === id ? updatedPost : post))
+          );
+        })
+      );
   }
 
   deletePost(post: Post) {

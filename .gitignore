@@ -1,7 +1,60 @@
-# SQLite files
+####################################
+# FRONT-END (CLIENT) IGNORE RULES
+####################################
+
+# Logs
+Client/npm-debug.log*
+Client/yarn-debug.log*
+Client/yarn-error.log*
+
+# Node modules
+Client/node_modules/
+
+# Angular build output
+Client/dist/
+Client/build/
+Client/out-tsc/
+
+# Angular CLI cache
+Client/.angular/
+
+# Test coverage output
+Client/coverage/
+
+# (Optional) IDE settings
+Client/.vscode/
+
+
+####################################
+# BACK-END (SERVER) IGNORE RULES
+####################################
+
+# .NET build outputs
+API/bin/
+API/obj/
+
+# Visual Studio local data
+API/.vs/
+.vs/
+
+# VS user-specific files
+API/*.user
+API/*.suo
+API/*.slnx.sqlite
+API/*.ncrunch*
+API/*.localhistory
+
+# Test results (if you use MSTest/NUnit/xUnit)
+TestResults/
+
+# SQLite temp files
 *.db-shm
 *.db-wal
 
-# Build files
-API/bin/Debug/net8.0
-API/obj/
+####################################
+# COMMON (APPLIES TO BOTH)
+####################################
+
+# (Optional) If you use VS Code at the root level
+.vscode/
+

@@ -23,8 +23,8 @@ export default function () {
 
 
 /*
-Żebyś uruchomc test musimy: 
-    1 - być w tecie "k6-tests\Perfomance",
+Żebyś uruchomc k6-test musimy: 
+    1 - być w tecie "k6-tests\Performance",
     2 - w termenarze wpisać taką komende
 
 

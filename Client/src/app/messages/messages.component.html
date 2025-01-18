@@ -1,59 +1,3 @@
-<!-- <div class="messages-container">
-    <div class="buttons-container" name="container">
-        <button btnRadio="Unread" [(ngModel)]="container" (click)="loadMessages()">
-            Unread
-        </button>
-        <button btnRadio="Inbox" [(ngModel)]="container" (click)="loadMessages()">
-            Inbox
-        </button>
-        <button btnRadio="Outbox" [(ngModel)]="container" (click)="loadMessages()">
-            Outbox
-        </button>
-    </div>
-
-    @if(!messageService.messageThread() || messageService.messageThread().length === 0) {
-    <div class="no-messages-container">
-        <h3>No messages yet</h3>
-    </div>
-    }
-    @else {
-    <div class="users-messages-container">
-        <table>
-            <thead>
-                <tr>
-                    <th class="table-messages">Message</th>
-                    <th class="table-from-to">From / To</th>
-                    <th class="table-sent">Sent / Received</th>
-                    <th class="table-actions"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (message of messageService.paginatedResult()?.items; track message.id) {
-                <tr class="message-row" routerLink="{{getRoute(message)}}" [queryParams]="{tab: 'Messages'}">
-                    <td class="table-messages">{{message.content}}</td>
-                    <td class="table-from-to">
-                        <div class="user">
-                            <img [src]="isOutbox
-                                    ? (message.recipientPhotoUrl || './assets/user.png') 
-                                    : (message.senderPhotoUrl || './assets/user.png')" alt="image of user">
-                            <strong>
-                                {{isOutbox
-                                ? message.recipientUsername : message.senderUsername}}
-                            </strong>
-                        </div>
-                    </td>
-                    <td class="table-sent">{{message.messageSent | timeago}}</td>
-                    <td (click)="$event.stopPropagation()" class="table-actions">
-                        <button (click)="deleteMessage(message.id)" class="btn-delete">Delete</button>
-                    </td>
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-    }
-</div> -->
-
 <div class="messages-container">
     <div class="buttons-container" name="container">
       <button btnRadio="Unread" [(ngModel)]="container" (click)="loadMessages()">
@@ -109,4 +53,3 @@
       </table>
     </div>
   </div>
-  
