@@ -46,7 +46,7 @@ public class AppDbContext(DbContextOptions options)
             .HasOne(l => l.AppUser)
             .WithMany(u => u.Likes)
             .HasForeignKey(l => l.AppUserId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
 
         builder.Entity<Like>()
             .HasOne(l => l.Post)

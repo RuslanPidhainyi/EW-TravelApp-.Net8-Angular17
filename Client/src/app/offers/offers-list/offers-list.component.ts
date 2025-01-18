@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PostsService } from '../../_services/posts.service';
-import { Post } from '../../_models/post';
 import { OfferCardComponent } from '../offer-card/offer-card.component';
 
 @Component({
