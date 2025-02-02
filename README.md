@@ -24,7 +24,8 @@
    - 2.12 [Logout](#logout)
    - 2.13 [Admin](#admin)
    - 2.14 [Validation](#valid)
-3. [Technologies](#techn)
+3. [Implementation](#impl)
+4. [Technologies](#techn)
 
 
 <a name="intro"></a>
@@ -317,32 +318,55 @@ https://github.com/user-attachments/assets/6c16f5fd-dd35-4915-a3fd-2657f65d58eb
 
 https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
+<a name="impl"></a>
+## 3 Implementation ☕️
+      TODO
+
 <a name="techn"></a>
-## 3 Technologies
+## 4 Technologies 📚
 
 ### Frontend:
    #### - Framework: 
       Angular
-   #### - Runtime environment: 
-      Node & NPM
+   #### - Runtime Environments: 
+      Node.js
+   #### - Package Manager
+      NPM
    #### - Programming Languages:
       JavaScript & TypeScript
    #### - Markup Language: 
       HTML
-   #### - Style Sheet Language: 
+   #### - Stylesheet Language: 
       CSS & SCSS
 
 ### Backend:
    #### - Framework: 
       ASP .Net Core Web API
+   #### - Runtime Environments: 
+      .Net Core
+   #### - Package Manager
+      NuGet
    #### - Programming Languages:
       C#
    #### - APIs: 
-      RESTful API, WebSocket
+      RESTful - API, WebSocket - computer communications protocol
 
 ### Database: 
    ### - SQL: 
       SQLite, Microsoft SQL Server
 
+### Protocol:
+      HTTPS (SSL/TLS)
+
 ### Hosting:
       Cloudinary
+      
+### Tests:
+      K6
+
+### Version Control System & Platform:
+      Git & GitHub
+
+### DevOps:
+      Jira 
+      
