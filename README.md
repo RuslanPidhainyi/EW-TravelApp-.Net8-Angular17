@@ -24,8 +24,13 @@
    - 2.12 [Logout](#logout)
    - 2.13 [Admin](#admin)
    - 2.14 [Validation](#valid)
-3. [Implementation](#impl)
-4. [Technologies](#techn)
+3. [Design](#dsgn)
+   - 3.0 [Diagrams](#diagrams)
+   - 3.1 [Mockups](#mockups)
+4. [Application security](#security)
+5. [Implementation](#impl)
+6. [Technologies](#techn)
+7. [Engineering Thesis - Documentation (PDF)](#pdf)
 
 
 <a name="intro"></a>
@@ -318,12 +323,50 @@ https://github.com/user-attachments/assets/6c16f5fd-dd35-4915-a3fd-2657f65d58eb
 
 https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
+<a name="dsgn"></a>
+## 3 Design 🗃️ 
+
+<a name="diagrams"></a>
+### 3.0 Diagrams 📊:
+
+   #### - Use Case Diagram
+   ![(Use-Case-Diagram)TravelApp vpd](https://github.com/user-attachments/assets/f0367b8e-144a-49e4-b078-06e4f8d414d3)
+
+   ### - Class Diagram
+   ![(Diagram Class)TravelApp](https://github.com/user-attachments/assets/594a7cab-d96d-4557-94dc-411e3db1f6b1)
+
+   ### - Entity–Relationship Diagrams (SQLite & MSSQL)
+      SQLite - DBeaver
+   ![ERD-travel db](https://github.com/user-attachments/assets/4ed2691f-56b9-4dc7-8dc2-b4807ff3100c)
+
+      MSSQL - Microsoft SQL Server Management Studio
+   ![Screenshot 2024-12-30 221430](https://github.com/user-attachments/assets/aeb768ee-8161-4adc-b423-364b51830803)
+   
+<a name="mockups"></a>
+### 3.1 Mockups 🎨:
+
+- Login page
+![image](https://github.com/user-attachments/assets/b5d59755-d204-4e83-84a7-bfe74340e5af)
+
+- Register page
+![image](https://github.com/user-attachments/assets/a9141341-a450-4c89-9dd0-2052fb2bed1d)
+
+- Offers page (Main page)
+![image](https://github.com/user-attachments/assets/46963e9d-79ec-4668-9eb7-6fe592d7a3de)
+
+- Offers/[detail]
+![image](https://github.com/user-attachments/assets/5c1161b4-dd5e-4a36-844f-cea10461b715)
+
+<a name="security"></a>
+## 4 Application security 🔒:
+      TODO
+   
 <a name="impl"></a>
-## 3 Implementation ☕️
+## 5 Implementation application ☕️:
       TODO
 
 <a name="techn"></a>
-## 4 Technologies 📚
+## 6 Technologies 📚
 
 ### Frontend:
    #### - Framework: 
@@ -369,4 +412,16 @@ https://github.com/user-attachments/assets/c0b7ea9a-84d3-4559-9516-f16a0ae27a06
 
 ### DevOps:
       Jira 
+
+### Others:
+      Postman, Figma, VisualParadigm
+
+### IDEs:
+      Visual Studio, Visual Studio Code, Microsoft SQL Server Management Studio, DBeaver
+
+### Libraries:
+      TODO
       
+<a name="pdf"></a>
+## 7 Engineering Thesis - Documentation (PDF) 💼:
+      TODO
