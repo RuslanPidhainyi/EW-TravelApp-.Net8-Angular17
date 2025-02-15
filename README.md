@@ -30,7 +30,7 @@
 4. [Application security](#security)
 5. [Implementation](#impl)
 6. [Technologies](#techn)
-7. [Engineering Thesis - Documentation (PDF)](#pdf)
+
 
 
 <a name="intro"></a>
@@ -372,6 +372,7 @@ In the project, I decided to use various mechanisms and technologies to enhance 
    https://github.com/RuslanPidhainyi/EW-TravelApp-.Net8-Angular17
    
 2. To start the ASP.NET Core server, you need to install the .NET 8 SDK packages, which can be found at the link below.
+
    https://dotnet.microsoft.com/en-us/download/dotnet/8.0
    
 3. To add the application's HTTPS certificate to the system's trusted certificates list, navigate to the API directory in the terminal and execute the following commands:
@@ -400,6 +401,7 @@ And try again:
    - „ mkcert localhost ”
    
    Example of correctly executed SSL certificate addition commands:
+
    ![image](https://github.com/user-attachments/assets/0d805e96-5820-4ef3-8b8a-970e18ea975f)
 
 8. While in the command prompt, you should also install mkcert with the following command:
@@ -408,6 +410,7 @@ And try again:
 After successfully completing the installation, restart the computer.
 
 9. To configure the MSSQL database, you need to specify the name of the local server in the 'appsettings.Development.json' file. Below is a screenshot showing an example of the modified server name.
+
 ![image](https://github.com/user-attachments/assets/d7e9dc47-514b-4afa-a5fc-7ebfc0627f6c)
 
 10. Cloudinary 
@@ -424,7 +427,7 @@ After successfully completing the installation, restart the computer.
 - On the backend: " dotnet run "
 - On the frontend: " ng serve "
 
-    Below are screenshots showing the launch of the frontend and backend servers.
+Below are screenshots showing the launch of the frontend and backend servers.
 
   ![image](https://github.com/user-attachments/assets/1bce86f1-09b6-4dc7-9112-df65eeff6382)
   
@@ -515,8 +518,3 @@ After successfully completing the installation, restart the computer.
       Microsoft.EntityFrameworkCore.SqlServer
       Swashbuckle.AspNetCore
       System.IdentityModel.Tokens.Jwt   
-      
-<a name="pdf"></a>
-## 7 Engineering Thesis - Documentation (PDF) 💼:
-      [Praca Inz. TravelApp Ruslan Pidhainyi nr  Albumu 13787.pdf](https://github.com/user-attachments/files/18810799/Praca.Inz.TravelApp.Ruslan.Pidhainyi.nr.Albumu.13787.pdf)
-
