@@ -30,6 +30,7 @@
 4. [Application security](#security)
 5. [Implementation](#impl)
 6. [Technologies](#techn)
+7. [Engineering Thesis - Documentation (PDF)](#pdf)
 
 
 
@@ -517,4 +518,8 @@ Below are screenshots showing the launch of the frontend and backend servers.
       Microsoft.EntityFrameworkCore.Sqlite
       Microsoft.EntityFrameworkCore.SqlServer
       Swashbuckle.AspNetCore
-      System.IdentityModel.Tokens.Jwt   
+      System.IdentityModel.Tokens.Jwt 
+      
+<a name="pdf"></a>
+## 7 Engineering Thesis - Documentation (PDF) 💼
+The thesis in PDF format, written in Polish, is located in the repository
