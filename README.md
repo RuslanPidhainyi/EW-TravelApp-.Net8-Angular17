@@ -523,3 +523,6 @@ Below are screenshots showing the launch of the frontend and backend servers.
 <a name="pdf"></a>
 ## 7 Engineering Thesis - Documentation (PDF) 💼
 The thesis in PDF format, written in Polish, is located in the repository
+
+![image](https://github.com/user-attachments/assets/84040fb3-957d-45b7-9978-0fe321cf207a)
+
