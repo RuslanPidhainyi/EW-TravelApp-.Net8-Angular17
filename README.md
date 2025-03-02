@@ -415,7 +415,60 @@ After successfully completing the installation, restart the computer.
 ![image](https://github.com/user-attachments/assets/d7e9dc47-514b-4afa-a5fc-7ebfc0627f6c)
 
 10. Cloudinary 
-   TODO
+
+To make the application work properly, you also need to integrate it with the Cloudinary service.
+You can find the main page here: [Cloudinary](https://cloudinary.com/)
+Cloudinary will help us host images online. This guide is up to date as of March 2, 2025.
+
+Steps to integrate Cloudinary:
+
+- Go to the Cloudinary main page
+[Cloudinary Main Page](https://cloudinary.com/)
+
+![Screenshot 2025-03-02 134859](https://github.com/user-attachments/assets/3f923d2d-1ce1-4650-a805-994a4cbce765)
+
+- (Free usage option) To use Cloudinary services, you need to sign up on the platform or log in using your email or GitHub account.
+The "Sign up for free" button is located at the top right of the page.
+[Sign up for free](https://cloudinary.com/users/register_free)
+
+![image](https://github.com/user-attachments/assets/dbdca9b3-0d7f-4da2-984d-76ee8a226924)
+
+- After registering, you will be redirected to the Cloudinary dashboard.
+
+![image](https://github.com/user-attachments/assets/77339d17-722d-4d74-8f43-d7db9be8392c)
+
+- Click on the "Programmable Media" tab in the right-hand menu, as shown in the screenshot.
+
+![screen](https://github.com/user-attachments/assets/76d95ab1-9c53-41df-8078-1528b59b1ce5)
+
+- On the "Programmable Media" page, in the "Product Environment" section, click the "Go to API Keys" button.
+
+![key](https://github.com/user-attachments/assets/1ab9dc99-f738-418f-8a36-ad5e67cff53b)
+
+- Generate an API key by clicking "+ Generate New API Key".
+This will create a key with the default name "Untitled," which you can rename — like I did in the screenshot (my key is named "Fake-API").
+
+![fa](https://github.com/user-attachments/assets/3f9e08d5-ec03-4675-bcfa-774301f108e8)
+
+- Copy your Cloud Name, API Key, and API Secret and paste them into the "appsettings.json" configuration file in your project.
+An example is provided below.
+
+![CKS](https://github.com/user-attachments/assets/b0044cbc-65e4-428e-819a-4bd008e7018c)
+
+![image](https://github.com/user-attachments/assets/ee6f0de7-3be5-4c64-9112-22f8f52c0e3e)
+
+- Go to the "Assets" tab in the left sidebar, then click on the "folder" section in the navigation bar.
+Here, you can create a folder to store your photos (an example of how I did it is shown below).
+
+![folder](https://github.com/user-attachments/assets/d5fba9ba-4700-47fb-9730-db96de7f6f15)
+
+- After creating the folder and giving it a name, go to your project and open the "PhotoService.cs" file.
+Make sure to specify the same folder name you just created.
+(An example is shown below.)
+
+![folder-fa](https://github.com/user-attachments/assets/e82e2e6d-81ef-4079-883e-fbe5b4815985)
+
+![image](https://github.com/user-attachments/assets/300434c8-795d-452b-ab44-cdb8e955bedc)
 
 11. You can create a migration by executing the following command:
     - „ dotnet ef migrations add InitialCreate --output-dir Data/Migrations ”
