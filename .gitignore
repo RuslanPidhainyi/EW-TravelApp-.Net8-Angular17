@@ -61,3 +61,10 @@ API/Data/Migrations/
 # (Optional) If you use VS Code at the root level
 .vscode/
 
+API\appsettings.Development.json
+
+API\appsettings.json
+
+Client\ssl\localhost-key.pem
+Client\ssl\localhost.pem
+.env
