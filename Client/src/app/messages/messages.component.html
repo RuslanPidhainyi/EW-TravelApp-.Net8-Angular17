@@ -1,5 +1,5 @@
 <div class="messages-container">
-    <div class="buttons-container" name="container">
+    <div class="buttons-container" name="container" data-testid="messages-containers">
       <button btnRadio="Unread" [(ngModel)]="container" (click)="loadMessages()">
         Unread
       </button>
@@ -11,12 +11,12 @@
       </button>
     </div>
   
-    <div *ngIf="!messageService.messageThread().length" class="no-messages-container">
+    <div *ngIf="!messageService.messageThread().length" class="no-messages-container" data-testid="messages-empty">
       <h3>No messages yet</h3>
     </div>
   
     <div *ngIf="messageService.messageThread().length" class="users-messages-container">
-      <table>
+      <table data-testid="messages-table">
         <thead>
           <tr>
             <th class="table-messages">Message</th>
@@ -28,25 +28,25 @@
         <tbody>
           <tr
             *ngFor="let message of messageService.messageThread(); trackBy: trackByMessageId"
-            class="message-row"
+            class="message-row" data-testid="message-row"
             [routerLink]="getRoute(message)"
             [queryParams]="{ tab: 'Messages' }"
           >
-            <td class="table-messages">{{ message.content }}</td>
+            <td class="table-messages" data-testid="message-row-content">{{ message.content }}</td>
             <td class="table-from-to">
               <div class="user">
                 <img
                   [src]="isOutbox
                     ? (message.recipientPhotoUrl || './assets/user.png')
                     : (message.senderPhotoUrl || './assets/user.png')"
-                  alt="image of user"
+                  alt="image of user" data-testid="message-row-avatar"
                 />
-                <strong>{{ isOutbox ? message.recipientUsername : message.senderUsername }}</strong>
+                <strong data-testid="message-row-counterpart">{{ isOutbox ? message.recipientUsername : message.senderUsername }}</strong>
               </div>
             </td>
-            <td class="table-sent">{{ message.messageSent | timeago }}</td>
+            <td class="table-sent" data-testid="message-row-sent">{{ message.messageSent | timeago }}</td>
             <td (click)="$event.stopPropagation()" class="table-actions">
-              <button (click)="deleteMessage(message.id)" class="btn-delete">Delete</button>
+              <button (click)="deleteMessage(message.id)" class="btn-delete" data-testid="message-row-delete">Delete</button>
             </td>
           </tr>
         </tbody>

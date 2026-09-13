@@ -1,16 +1,16 @@
 <div class="photo-editor-container">
     @for (photo of member().generalPhotos; track photo.id) {
-    <div class="single-photo-editor">
-        <img src="{{photo.url}}" alt="user's photo">
+    <div class="single-photo-editor" data-testid="photo-editor-photo">
+        <img src="{{photo.url}}" alt="user's photo" data-testid="photo-editor-image">
         <div class="buttons-section">
             <button 
             [disabled]="photo.isMain"
-            (click)="setMainPhoto(photo)"
+            (click)="setMainPhoto(photo)" data-testid="photo-editor-set-main"
             [ngClass]="photo.isMain ? 'btn-active' : 'btn-unactive'">
                 Main
             </button>
             <button 
-                class="delete-button"
+                class="delete-button" data-testid="photo-editor-delete"
                 [disabled]="photo.isMain"
                 (click)="deletePhoto(photo)">
                 <i class="fa fa-trash"></i>
@@ -31,7 +31,7 @@
         <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" 
             (fileOver)="fileOverBase($event)"
             [uploader]="uploader" 
-            class="card bg-faded p-5 text-center my-drop-zone">
+            class="card bg-faded p-5 text-center my-drop-zone" data-testid="file-drop-zone">
             <i class="fa fa-dropbox fa-3x"></i>
             Base drop zone
         </div>

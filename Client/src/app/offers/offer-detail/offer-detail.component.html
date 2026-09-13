@@ -1,40 +1,40 @@
-<div class="offer-container">
+<div class="offer-container" data-testid="offer-detail">
     <div class="photo-container">
-        <img src="{{post()?.url}}" alt="{{post()?.title}}">
-        <div class="location-overlay">
+        <img src="{{post()?.url}}" alt="{{post()?.title}}" data-testid="offer-detail-photo">
+        <div class="location-overlay" data-testid="offer-detail-location">
             <p><i class="fa fa-map-marker me-1"></i> {{post()?.locationCountry}}, {{post()?.locationCity}}</p>
         </div>
     </div>
     <div class="info">
         <div class="info-row-1-left">
-            <div class="user-info" routerLink="/members/{{post()?.userName}}">
+            <div class="user-info" routerLink="/members/{{post()?.userName}}" data-testid="offer-detail-owner">
                 <span [class.is-online]="isOnline()" > 
                     <img 
-                        class="users-profile-image"
+                        class="users-profile-image" data-testid="offer-detail-owner-avatar"
                         src="{{post()?.ownerPhotoUrl || './assets/user.png'}}" 
                         alt="owner photo">
                 </span>
-                <h4>{{post()?.userName | titlecase}}</h4>
+                <h4 data-testid="offer-detail-owner-name">{{post()?.userName | titlecase}}</h4>
             </div>
             <div class="icon-buttons">
-                <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+                <i data-testid="offer-detail-like" (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
             </div>
         </div>
         <div class="info-row-left">
             <div class="info-row-2-left">
-                <div class="place-info">
+                <div class="place-info" data-testid="offer-detail-place">
                     <h5>{{post()?.locationCountry}}, {{post()?.locationCity}}</h5> – <h5>{{post()?.title}}</h5>
                 </div>
             </div>
             <div class="info-row-3-left">
-                <div class="last-location-info">
+                <div class="last-location-info" data-testid="offer-detail-last-visited">
                     <i class="fa fa-map-marker"></i>
                     <h6>Last visited place before the journey - {{post()?.lastCountry}}, {{post()?.lastRegion}}</h6>
                 </div>
             </div>
             @if(post()?.localTransport)
             {
-            <div class="info-row-4-left">
+            <div class="info-row-4-left" data-testid="offer-detail-local-transport">
                 <div class="local-transport-info">
                     <i class="fa fa-car"></i>
                     <h6>Used local transport</h6>
@@ -52,7 +52,7 @@
             }
             @if(post()?.entranceFee)
             {
-            <div class="info-row-5-left">
+            <div class="info-row-5-left" data-testid="offer-detail-entrance-fee">
                 <div class="entrance-fee-info">
                     <i class="fa fa-sign-in"></i>
                     <h6>Entrance was paid</h6>
@@ -67,7 +67,7 @@
             }
             @if(post()?.placeStay)
             {
-            <div class="info-row-6-left">
+            <div class="info-row-6-left" data-testid="offer-detail-place-stay">
                 <div class="place-for-rest-info">
                     <i class="fa fa-bed"></i>
                     <h6>Accommodation</h6>
@@ -85,7 +85,7 @@
             }
             @if(post()?.groceryStore)
             {
-            <div class="info-row-7-left">
+            <div class="info-row-7-left" data-testid="offer-detail-grocery-store">
                 <div class="store-info">
                     <i class="fa fa-shopping-cart"></i>
                     <h6>Grocery store</h6>
@@ -100,7 +100,7 @@
             }
             @if(post()?.guide)
             {
-            <div class="info-row-8-left">
+            <div class="info-row-8-left" data-testid="offer-detail-guide">
                 <div class="guide-info">
                     <i class="fa fa-blind"></i>
                     <h6>Guide services</h6>
@@ -114,7 +114,7 @@
             </div>
             }
         <div class="info-row-n-left">
-            <div class="desc-info">
+            <div class="desc-info" data-testid="offer-detail-description">
                 <h6>{{post()?.description}}</h6>
             </div>
         </div>

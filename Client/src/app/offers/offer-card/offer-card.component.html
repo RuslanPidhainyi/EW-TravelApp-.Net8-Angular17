@@ -1,27 +1,27 @@
-<div class="offer-container">
+<div class="offer-container" data-testid="offer-card">
   <div class="photo-container">
-    <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
-    <div class="location-overlay">
+    <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}" data-testid="offer-card-photo">
+    <div class="location-overlay" data-testid="offer-card-location">
       <p><i class="fa fa-map-marker me-1"></i> {{post().locationCountry}}, {{post().locationCity}}</p>
     </div>
   </div>
   <div class="info">
     <div class="info-row-1-left">
-      <div class="user-info" routerLink="/members/{{post().userName}}">
+      <div class="user-info" routerLink="/members/{{post().userName}}" data-testid="offer-card-owner">
         <span [class.is-online]="isOnline()">
           <img 
-              class="users-profile-image"
+              class="users-profile-image" data-testid="offer-card-owner-avatar"
               src="{{post().ownerPhotoUrl || './assets/user.png'}}" 
               alt="owner photo">
         </span>
-        <h5><b>{{post().userName | titlecase}}</b></h5>
+        <h5 data-testid="offer-card-owner-name"><b>{{post().userName | titlecase}}</b></h5>
       </div>
       <div class="icon-buttons">
-        <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+        <i data-testid="offer-card-like" (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
       </div>
     </div>
     <div class="info-row-2-left">
-      <h6>{{post().title}}</h6>
+      <h6 data-testid="offer-card-title">{{post().title}}</h6>
     </div>
   </div>
 </div>
