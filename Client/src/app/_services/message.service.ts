@@ -21,16 +21,31 @@ export class MessageService {
   private http = inject(HttpClient);
   paginatedResult = signal<PaginatedResult<Message[]> | null>(null);
   messageThread = signal<Message[]>([]);
+  // SendMessage can only be invoked while the hub is connected
+  hubConnected = signal(false);
 
   createHubConnection(user: User, otherUsername: string) {
-    this.hubConnection = new HubConnectionBuilder()
+    const connection = new HubConnectionBuilder()
       .withUrl(this.hubUrl + 'message?user=' + otherUsername, {
         accessTokenFactory: () => user.token,
       })
       .withAutomaticReconnect()
       .build();
+    this.hubConnection = connection;
+    this.hubConnected.set(false);
 
-    this.hubConnection.start().catch((error) => console.log(error));
+    // An older connection that is still closing must not overwrite the state of the current one
+    const setConnected = (connected: boolean) => {
+      if (this.hubConnection === connection) this.hubConnected.set(connected);
+    };
+    connection.onclose(() => setConnected(false));
+    connection.onreconnecting(() => setConnected(false));
+    connection.onreconnected(() => setConnected(true));
+
+    connection
+      .start()
+      .then(() => setConnected(true))
+      .catch((error) => console.log(error));
 
     this.hubConnection.on('ReceiveMessageThread', (messages) => {
       this.messageThread.set(messages);
