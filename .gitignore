@@ -51,9 +51,6 @@ TestResults/
 *.db-shm
 *.db-wal
 
-# Migrations
-API/Data/Migrations/
-
 ####################################
 # COMMON (APPLIES TO BOTH)
 ####################################
