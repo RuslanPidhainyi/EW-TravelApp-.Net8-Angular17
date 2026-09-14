@@ -15,6 +15,7 @@ import { MessageService } from '../../_services/message.service';
 import { PresenceService } from '../../_services/presence.service';
 import { AccountService } from '../../_services/account.service';
 import { HubConnectionState } from '@microsoft/signalr';
+import { AccessibleTabsetDirective } from '../../_directives/accessible-tabset.directive';
 
 @Component({
   selector: 'app-member-detail',
@@ -27,6 +28,7 @@ import { HubConnectionState } from '@microsoft/signalr';
     TimeagoModule,
     DatePipe,
     MemberMessagesComponent,
+    AccessibleTabsetDirective,
   ],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.scss',
@@ -110,7 +112,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
       next: (member) => {
         this.member = member;
         member.generalPhotos.map((p) => {
-          this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
+          this.images.push(new ImageItem({ src: p.url, thumb: p.url, alt: `${member.knownAs}'s photo` }));
         });
 
         this.postService.getPostByUsername(username).subscribe({

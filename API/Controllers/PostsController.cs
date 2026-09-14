@@ -72,6 +72,9 @@ public class PostsController(IPostRepository postRepo, IUserRepository userRepo,
         var post = await postRepo.GetPostByIdAsync(id);
         if (post == null) return BadRequest("Post not found.");
 
+        //note: Edytowac post moze tylko jego wlasciciel
+        if (post.AppUserId != User.GetUserId()) return Forbid();
+
         post.Title = postDto.Title;
         post.LocationCountry = postDto.LocationCountry;
         post.LocationCity = postDto.LocationCity;

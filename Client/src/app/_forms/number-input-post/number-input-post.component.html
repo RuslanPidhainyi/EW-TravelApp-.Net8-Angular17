@@ -1,6 +1,7 @@
 <div class="single-input">
     <input 
         class="post-number-input"
+        [attr.aria-label]="label()"
         [class.is-invalid]="control.touched && control.invalid" 
         [type]="type()"
         [formControl]="control">

@@ -1,8 +1,7 @@
 @if(!registerMode){
 <div class='login-page'>
-    <main class='common-card'>
-        <aside class='left-side'>
-            <!-- <h1>Welcome on EW!</h1> -->
+    <div class='common-card'>
+        <div class='left-side'>
             <div class="greeting-img">Welcome on EW!</div>
             <div class='list'>
                 <h4>What can you do on EW?</h4>
@@ -14,8 +13,8 @@
             </div>
             <span>Do not you have an account?</span>
             <button (click)="registerToggle()" class="register-btn">Register</button>
-        </aside>
-        <aside class='right-side'>
+        </div>
+        <div class='right-side'>
             <h1>Log in</h1>
             <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off">
                 <input 
@@ -37,17 +36,18 @@
                     <div class="input-group-append">
                         <button
                         class="btn-eye btn-outline-secondary"
+                        [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
                         type="button"
                         (click)="togglePasswordVisibility()"
                         >
-                        <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                        <i aria-hidden="true" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
                         </button>
                     </div>
                 </div>
                 <button class="login-btn" type="submit">Login</button>
             </form>
-        </aside>
-    </main>
+        </div>
+    </div>
 </div>
 }
 @else {

@@ -31,9 +31,9 @@
         <tabset class="member-tabset" #memberTabs>
             <tab heading="About {{member.knownAs}}">
                 <div class="about-container">
-                    <h4>{{"Description" }}</h4>
+                    <h2 class="h4">Description</h2>
                     <p>{{member.description}}</p>
-                    <h4>{{"Interests"}}</h4>
+                    <h2 class="h4">Interests</h2>
                     <p>{{member.interests}}</p>
                 </div>
             </tab>
@@ -67,6 +67,7 @@
 
 @if(member) {
 <div class="detail-container">
+    <h1 class="visually-hidden">{{member.knownAs}}'s profile</h1>
     <div class="detail-member-container">
         <div class="user-container">
             <div class="left-side">
@@ -108,7 +109,7 @@
                             @if(posts.length === 0)
                             {
                                 <div class="no-posts-container">
-                                    <h3>No posts yet</h3>
+                                    <h2 class="h3">No posts yet</h2>
                                 </div>
                             }
                             @if(posts.length >= 1)
@@ -133,9 +134,9 @@
                                     }
                                 </div>
                                 <div class="about-container-row2">
-                                    <h4>{{"Description" }}</h4>
+                                    <h2 class="h4">Description</h2>
                                     <p>{{member.description}}</p>
-                                    <h4>{{"Interests"}}</h4>
+                                    <h2 class="h4">Interests</h2>
                                     <p>{{member.interests}}</p>
                                 </div>
                             </div>

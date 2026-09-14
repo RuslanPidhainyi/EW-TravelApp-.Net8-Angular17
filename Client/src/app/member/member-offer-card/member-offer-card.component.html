@@ -1,17 +1,17 @@
-<div class="offer-container">
+<div class="offer-container" data-testid="offer-card">
     <div class="photo-container">
-      <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}">
-      <div class="location-overlay">
+      <img src="{{post().url}}" alt="{{post().title}}" routerLink="/offers/{{post().id}}" data-testid="offer-card-photo">
+      <div class="location-overlay" data-testid="offer-card-location">
         <p><i class="fa fa-map-marker me-1"></i> {{post().locationCountry}}, {{post().locationCity}}</p>
       </div>
     </div>
     <div class="info">
       <div class="info-row-1-left">
         <div class="title-info">
-          <h6>{{post().title}}</h6>
+          <h2 class="h6" data-testid="offer-card-title">{{post().title}}</h2>
         </div>
         <div class="icon-buttons">
-          <i (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
+          <i data-testid="offer-card-like" (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
           <!-- <i class="fa fa-heart"></i>
           <i class="fa fa-ellipsis-h" routerLink="/offers/{{post().id}}"></i> -->
         </div>

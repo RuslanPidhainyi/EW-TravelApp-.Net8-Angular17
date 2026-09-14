@@ -50,6 +50,15 @@ public class UserRepository(AppDbContext context, IMapper mapper) : IUserReposit
         return await context.SaveChangesAsync() > 0;
     }
 
+    // One UPDATE with no tracked entity and no ConcurrencyStamp check: recording activity must not fail
+    // a request whose user row changed meanwhile, e.g. while an admin edits the user's roles.
+    public async Task UpdateLastActiveAsync(int userId)
+    {
+        await context.Users
+            .Where(x => x.Id == userId)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(x => x.LastActive, DateTime.UtcNow));
+    }
+
     public void Update(AppUser user)
     {
         context.Entry(user).State = EntityState.Modified;

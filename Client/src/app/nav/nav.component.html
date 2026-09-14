@@ -1,22 +1,22 @@
-<nav>
-    <a routerLink="/" routerLinkActive="active" class="app-title">EW</a>
+<nav data-testid="nav">
+    <a routerLink="/" routerLinkActive="active" class="app-title" data-testid="nav-brand">EW</a>
 
     <ul class="nav-items">
         @if(accountService.currentUser()) {
             <li class="nav-item">
-                <a routerLink="/offers" class="nav-item-link">Offers</a>
+                <a routerLink="/offers" class="nav-item-link" data-testid="nav-link">Offers</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/lists" class="nav-item-link">Lists</a>
+                <a routerLink="/lists" class="nav-item-link" data-testid="nav-link">Lists</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/messages" class="nav-item-link">Messages</a>
+                <a routerLink="/messages" class="nav-item-link" data-testid="nav-link">Messages</a>
             </li>
             <li *appHasRole="['Admin', 'Moderator']" class="nav-item">
-                <a routerLink="/admin" class="nav-item-link">Admin</a>
+                <a routerLink="/admin" class="nav-item-link" data-testid="nav-link">Admin</a>
             </li>
             <li *appHasRole="['Admin']" class="nav-item">
-                <a routerLink="/errors" class="nav-item-link">Errors</a>
+                <a routerLink="/errors" class="nav-item-link" data-testid="nav-link">Errors</a>
             </li>
         }
     </ul>
@@ -25,11 +25,11 @@
     <div dropdown class="dropdown">
         <img 
         routerLink="/member/profile"
-        class="users-profile-image"
+        class="users-profile-image" data-testid="nav-avatar"
         src="{{accountService.currentUser()?.generalPhotoUrl || './assets/user.png'}}" 
         alt="user main image">
-        <a dropdownToggle class="dropdown-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</a>
-        <div *dropdownMenu class="dropdown-menu">
+        <button type="button" dropdownToggle class="dropdown-toggle" data-testid="nav-user-menu-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</button>
+        <div *dropdownMenu class="dropdown-menu" data-testid="nav-user-menu">
             <a routerLink="/member/profile" class="dropdown-item">Profile</a>
             <a routerLink="/add-offer" class="dropdown-item">Share post</a>
             <a class="dropdown-item">Settings</a>
@@ -39,9 +39,9 @@
     }
 
     @if(!accountService.currentUser()) {
-    <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off">
+    <form #loginForm="ngForm" (ngSubmit)="login()" class="login-form" autocomplete="off" data-testid="nav-login-form">
         <input 
-            name="username" 
+            name="username" data-testid="nav-login-username" 
             [(ngModel)]="model.username" 
             class="login-input" 
             type="text" 
@@ -50,7 +50,7 @@
         
         <input 
             id="password" 
-            name="password" 
+            name="password" data-testid="nav-login-password" 
             [(ngModel)]="model.password" 
             class="login-input" 
             [type]="showPassword ? 'text' : 'password'" 
@@ -58,11 +58,12 @@
         >
         <button 
             type="button" 
-            class="btn-eye" 
+            class="btn-eye"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
             (click)="togglePasswordVisibility()"
-        ><i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i></button>
+        ><i aria-hidden="true" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i></button>
         
-        <button class="login-btn" type="submit">Login</button>
+        <button class="login-btn" type="submit" data-testid="nav-login-submit">Login</button>
     </form>
     }
 </nav>

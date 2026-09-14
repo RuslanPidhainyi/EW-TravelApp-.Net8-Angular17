@@ -3,6 +3,7 @@ import { MessageService } from '../../_services/message.service';
 import { Message } from '../../_models/message';
 import { TimeagoModule } from 'ngx-timeago';
 import { FormsModule, NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-messages',
@@ -14,12 +15,14 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class MemberMessagesComponent {
   @ViewChild('messageForm') messageForm?: NgForm;
   messageService = inject(MessageService);
+  private toastr = inject(ToastrService);
   username = input.required<string>();
   messageContent = '';
 
   sendMessage() {
-    this.messageService.sendMessage(this.username(), this.messageContent).then(() => {
-      this.messageForm?.reset();
-    })
+    this.messageService
+      .sendMessage(this.username(), this.messageContent)
+      .then(() => this.messageForm?.reset())
+      .catch(() => this.toastr.error('Failed to send message'));
   }
 }

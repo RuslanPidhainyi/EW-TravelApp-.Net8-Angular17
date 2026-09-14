@@ -1,19 +1,19 @@
 <div class="photo-editor-container">
     @for (photo of member().generalPhotos; track photo.id) {
-    <div class="single-photo-editor">
-        <img src="{{photo.url}}" alt="user's photo">
+    <div class="single-photo-editor" data-testid="photo-editor-photo">
+        <img src="{{photo.url}}" alt="user's photo" data-testid="photo-editor-image">
         <div class="buttons-section">
             <button 
             [disabled]="photo.isMain"
-            (click)="setMainPhoto(photo)"
+            (click)="setMainPhoto(photo)" data-testid="photo-editor-set-main"
             [ngClass]="photo.isMain ? 'btn-active' : 'btn-unactive'">
                 Main
             </button>
             <button 
-                class="delete-button"
+                class="delete-button" data-testid="photo-editor-delete" aria-label="Delete photo"
                 [disabled]="photo.isMain"
                 (click)="deletePhoto(photo)">
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
         </div>
     </div>
@@ -26,12 +26,12 @@
 
     <div class="col-md-3">
 
-        <h3 class="fw-bold">Add Photos</h3>
+        <h2 class="fw-bold h3">Add Photos</h2>
 
         <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" 
             (fileOver)="fileOverBase($event)"
             [uploader]="uploader" 
-            class="card bg-faded p-5 text-center my-drop-zone">
+            class="card bg-faded p-5 text-center my-drop-zone" data-testid="file-drop-zone">
             <i class="fa fa-dropbox fa-3x"></i>
             Base drop zone
         </div>
@@ -39,7 +39,7 @@
 
     <div class="col-md-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
 
-        <h3 class="fw-bold">Upload queue</h3>
+        <h2 class="fw-bold h3">Upload queue</h2>
         <p>Queue length: {{ uploader?.queue?.length }}</p>
 
         <table class="table">
@@ -61,7 +61,7 @@
             <div>
                 Queue progress:
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader?.progress + '%' }"></div>
+                    <div class="progress-bar" role="progressbar" aria-label="Upload progress" [ngStyle]="{ 'width': uploader?.progress + '%' }"></div>
                 </div>
             </div>
             <div>

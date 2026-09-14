@@ -69,6 +69,7 @@
 
 @if(member) {
 <div class="profile-container">
+    <h1 class="visually-hidden">Your profile</h1>
     <div class="profile-member-container">
         <div class="user-container">
             <div class="left-side">
@@ -108,17 +109,17 @@
                     <tab heading="{{member.knownAs}}'s Posts">
                         <div class="posts-section">
                             <div class="add-post-container">
-                                <h5>Want to share your journey?</h5>
+                                <h2 class="h5">Want to share your journey?</h2>
                                 <div class="buttons-container-right-side">
-                                    <button class="add-post-button" routerLink="/add-offer">
-                                        <i class="fa fa-plus"></i>
+                                    <button class="add-post-button" routerLink="/add-offer" aria-label="Share post">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
                                     </button>
                                 </div>
                             </div>
                             @if(posts.length === 0)
                             {
                                 <div class="no-posts-container">
-                                    <h3>No posts yet</h3>
+                                    <h2 class="h3">No posts yet</h2>
                                 </div>
                             }
                             @if(posts.length >= 1)
@@ -146,9 +147,9 @@
                                     }
                                 </div>
                                 <div class="about-container-row2">
-                                    <h4>Description: </h4>
+                                    <h2 class="h4">Description: </h2>
                                     <p>{{member.description}}</p>
-                                    <h4>Interests: </h4>
+                                    <h2 class="h4">Interests: </h2>
                                     <p>{{member.interests}}</p>
                                 </div>
                             </div>

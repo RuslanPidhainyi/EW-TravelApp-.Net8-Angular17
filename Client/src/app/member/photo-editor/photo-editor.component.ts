@@ -6,6 +6,7 @@ import { AccountService } from '../../_services/account.service';
 import { environment } from '../../../environments/environment';
 import { GeneralPhoto } from '../../_models/generalPhoto';
 import { MembersService } from '../../_services/members.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-photo-editor',
@@ -17,6 +18,7 @@ import { MembersService } from '../../_services/members.service';
 export class PhotoEditorComponent implements OnInit {
   private accountService = inject(AccountService);
   private memberService = inject(MembersService);
+  private toastr = inject(ToastrService);
   member = input.required<Member>();
   uploader?: FileUploader;
   hasBaseDropZoneOver = false;
@@ -75,6 +77,10 @@ export class PhotoEditorComponent implements OnInit {
 
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
+    };
+
+    this.uploader.onErrorItem = (_item, response) => {
+      this.toastr.error(response || 'Failed to upload the photo');
     };
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       const photo = JSON.parse(response);

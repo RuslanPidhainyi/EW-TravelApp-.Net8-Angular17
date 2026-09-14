@@ -82,7 +82,7 @@
                 type="text" 
                 placeholder="Send message">
             <button 
-            [disabled]="!messageForm.valid"
+            [disabled]="!messageForm.valid || !messageService.hubConnected()"
             type="submit">
                 Send
             </button>
