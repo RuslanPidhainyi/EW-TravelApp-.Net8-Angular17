@@ -26,6 +26,7 @@ export class UserManagementComponent implements OnInit {
   openRolesModel(user: User) {
     const initialState: ModalOptions = {
       class: 'modal-lg',
+      ariaLabelledBy: 'roles-modal-title',
       initialState: {
         title: 'User roles',
         username: user.username,

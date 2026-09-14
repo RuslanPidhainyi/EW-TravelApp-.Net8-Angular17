@@ -2,7 +2,7 @@
     <form class="container-photo" (ngSubmit)="onSubmit()" data-testid="add-offer-photo">
         <div class="row mt-5 mb-5">
             <div class="col-md-3">
-                <h3 class="fw-bold">Add Post</h3>
+                <h1 class="fw-bold h3">Add Post</h1>
                 <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)"
                     [uploader]="uploader" class="card bg-faded p-5 text-center my-drop-zone" data-testid="file-drop-zone">
                     <i class="fa fa-dropbox fa-3x"></i>
@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-md-9" style="margin-bottom: 40px">
-                <h3 class="fw-bold">Upload queue</h3>
+                <h2 class="fw-bold h3">Upload queue</h2>
                 <p>Queue length: {{ uploader?.queue?.length }}</p>
                 <table class="table">
                     <thead>
@@ -33,7 +33,7 @@
                     <div>
                         Queue progress:
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar"
+                            <div class="progress-bar" role="progressbar" aria-label="Upload progress"
                                 [ngStyle]="{ 'width': uploader?.progress + '%' }">
                             </div>
                         </div>
@@ -84,7 +84,7 @@
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container" data-testid="post-form-toggle-local-transport">
-                <input type="checkbox" formControlName="localTransport">
+                <input type="checkbox" id="localTransport" formControlName="localTransport">
                 <span class="checkmark"></span>
             </label>
             <label class="add-post-checkbox-label" for="localTransport" data-testid="post-form-toggle-local-transport-label">Did you use local transport to get to your
@@ -121,7 +121,7 @@
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container" data-testid="post-form-toggle-entrance-fee">
-                <input type="checkbox" formControlName="entranceFee">
+                <input type="checkbox" id="entranceFee" formControlName="entranceFee">
                 <span class="checkmark"></span>
             </label>
             <label class="add-post-checkbox-label" for="entranceFee" data-testid="post-form-toggle-entrance-fee-label">Entrance was paid?</label>
@@ -149,7 +149,7 @@
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container" data-testid="post-form-toggle-place-stay">
-                <input type="checkbox" formControlName="placeStay">
+                <input type="checkbox" id="placeStay" formControlName="placeStay">
                 <span class="checkmark"></span>
             </label>
             <label class="add-post-checkbox-label" for="placeStay" data-testid="post-form-toggle-place-stay-label">Accommodation?</label>
@@ -174,7 +174,7 @@
             </div>
 
             <div class="form-group">
-                <select id="typePlaceStay" data-testid="post-form-type-place-stay" formControlName="typePlaceStay" class="add-post-select">
+                <select id="typePlaceStay" aria-label="Type of accommodation" data-testid="post-form-type-place-stay" formControlName="typePlaceStay" class="add-post-select">
                     <option class="add-post-option" value="" disabled selected>Choose type of accommodation...</option>
                     <option class="add-post-option" value="Camping">Camping</option>
                     <option class="add-post-option" value="Hotel">Hotel</option>
@@ -186,7 +186,7 @@
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container" data-testid="post-form-toggle-grocery-store">
-                <input type="checkbox" formControlName="groceryStore">
+                <input type="checkbox" id="groceryStore" formControlName="groceryStore">
                 <span class="checkmark"></span>
             </label>
             <label class="add-post-checkbox-label" for="groceryStore" data-testid="post-form-toggle-grocery-store-label">Grocery stores nearby?</label>
@@ -215,7 +215,7 @@
 
         <div class="add-post-checkbox-wrapper form-check-inline">
             <label class="add-post-checkbox-container" data-testid="post-form-toggle-guide">
-                <input type="checkbox" formControlName="guide">
+                <input type="checkbox" id="guide" formControlName="guide">
                 <span class="checkmark"></span>
             </label>
             <label class="add-post-checkbox-label" for="guide" data-testid="post-form-toggle-guide-label">Guide services?</label>

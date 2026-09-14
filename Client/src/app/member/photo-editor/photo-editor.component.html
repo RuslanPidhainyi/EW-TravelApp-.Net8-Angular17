@@ -10,10 +10,10 @@
                 Main
             </button>
             <button 
-                class="delete-button" data-testid="photo-editor-delete"
+                class="delete-button" data-testid="photo-editor-delete" aria-label="Delete photo"
                 [disabled]="photo.isMain"
                 (click)="deletePhoto(photo)">
-                <i class="fa fa-trash"></i>
+                <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
     <div class="col-md-3">
 
-        <h3 class="fw-bold">Add Photos</h3>
+        <h2 class="fw-bold h3">Add Photos</h2>
 
         <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" 
             (fileOver)="fileOverBase($event)"
@@ -39,7 +39,7 @@
 
     <div class="col-md-9" style="margin-bottom: 40px" *ngIf="uploader?.queue?.length">
 
-        <h3 class="fw-bold">Upload queue</h3>
+        <h2 class="fw-bold h3">Upload queue</h2>
         <p>Queue length: {{ uploader?.queue?.length }}</p>
 
         <table class="table">
@@ -61,7 +61,7 @@
             <div>
                 Queue progress:
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader?.progress + '%' }"></div>
+                    <div class="progress-bar" role="progressbar" aria-label="Upload progress" [ngStyle]="{ 'width': uploader?.progress + '%' }"></div>
                 </div>
             </div>
             <div>

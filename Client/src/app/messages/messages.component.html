@@ -1,5 +1,6 @@
 <div class="messages-container">
-    <div class="buttons-container" name="container" data-testid="messages-containers">
+    <h1 class="visually-hidden">Messages</h1>
+    <div class="buttons-container" name="container" data-testid="messages-containers" role="radiogroup" aria-label="Messages to show">
       <button btnRadio="Unread" [(ngModel)]="container" (click)="loadMessages()">
         Unread
       </button>
@@ -12,7 +13,7 @@
     </div>
   
     <div *ngIf="!messageService.messageThread().length" class="no-messages-container" data-testid="messages-empty">
-      <h3>No messages yet</h3>
+      <h2 class="h3">No messages yet</h2>
     </div>
   
     <div *ngIf="messageService.messageThread().length" class="users-messages-container">
@@ -22,7 +23,7 @@
             <th class="table-messages">Message</th>
             <th class="table-from-to">From / To</th>
             <th class="table-sent">Sent / Received</th>
-            <th class="table-actions"></th>
+            <th class="table-actions"><span class="visually-hidden">Actions</span></th>
           </tr>
         </thead>
         <tbody>

@@ -12,11 +12,12 @@ import { TimeagoModule } from 'ngx-timeago';
 import { DatePipe, NgClass } from '@angular/common';
 import { switchMap, tap } from 'rxjs';
 import { MemberMessagesComponent } from "../member-messages/member-messages.component";
+import { AccessibleTabsetDirective } from '../../_directives/accessible-tabset.directive';
 
 @Component({
   selector: 'app-member-profile',
   standalone: true,
-  imports: [ TabsModule, GalleryModule, RouterLink, MemberProfileOfferCardComponent, TimeagoModule, DatePipe ],
+  imports: [ TabsModule, GalleryModule, RouterLink, MemberProfileOfferCardComponent, TimeagoModule, DatePipe, AccessibleTabsetDirective ],
   templateUrl: './member-profile.component.html',
   styleUrl: './member-profile.component.scss',
 })
@@ -40,7 +41,7 @@ export class MemberProfileComponent implements OnInit {
     //   next: (member) => {
     //     this.member = member;
     //     member.generalPhotos.map((p) => {
-    //       this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
+    //       this.images.push(new ImageItem({ src: p.url, thumb: p.url, alt: `${member.knownAs}'s photo` }));
     //     });
 
     //     this.postService.getPostByUsername(member.username).subscribe((posts)=>
@@ -52,7 +53,7 @@ export class MemberProfileComponent implements OnInit {
       tap(((member) => {
         this.member = member;
         member.generalPhotos.map((p) => {
-          this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
+          this.images.push(new ImageItem({ src: p.url, thumb: p.url, alt: `${member.knownAs}'s photo` }));
         });
   })),
       switchMap(member=> this.postService.getPostByUsername(member.username))

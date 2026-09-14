@@ -12,11 +12,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PhotoEditorComponent } from '../photo-editor/photo-editor.component';
 import { TimeagoModule } from 'ngx-timeago';
+import { AccessibleTabsetDirective } from '../../_directives/accessible-tabset.directive';
 
 @Component({
   selector: 'app-member-edit-profile',
   standalone: true,
-  imports: [ TabsModule, FormsModule, GalleryModule, PhotoEditorComponent, TimeagoModule],
+  imports: [ TabsModule, FormsModule, GalleryModule, PhotoEditorComponent, TimeagoModule, AccessibleTabsetDirective],
   templateUrl: './member-edit-profile.component.html',
   styleUrl: './member-edit-profile.component.scss',
 })
@@ -46,7 +47,7 @@ export class MemberEditProfileComponent implements OnInit {
       next: (member) => {
         this.member = member;
         member.generalPhotos.map((p) => {
-          this.images.push(new ImageItem({ src: p.url, thumb: p.url }));
+          this.images.push(new ImageItem({ src: p.url, thumb: p.url, alt: `${member.knownAs}'s photo` }));
         });
       },
     });

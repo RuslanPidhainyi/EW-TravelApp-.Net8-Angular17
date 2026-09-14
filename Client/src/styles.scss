@@ -11,3 +11,55 @@ body {
     
     background-color: var(--light-background-color-for-main-style);
 }
+
+/* Accessibility - colours that meet the WCAG AA contrast ratio */
+.nav-tabs .nav-link:not(.active) {
+    color: #b94a14;
+}
+
+.theme-blue .bs-datepicker-head,
+.theme-blue .bs-datepicker-body table td span.selected,
+.theme-blue .bs-datepicker-body table td.selected span {
+    background-color: #1b6d85;
+}
+
+.bs-datepicker-body table th {
+    color: #5f7285;
+}
+
+.bs-datepicker-body table td span.is-other-month,
+.bs-datepicker-body table td span.disabled {
+    color: #707070;
+}
+
+.btn-success {
+    --bs-btn-bg: #1e7b2e;
+    --bs-btn-border-color: #1e7b2e;
+    --bs-btn-hover-bg: #186525;
+    --bs-btn-hover-border-color: #186525;
+    --bs-btn-active-bg: #145720;
+    --bs-btn-disabled-bg: #1e7b2e;
+    --bs-btn-disabled-border-color: #1e7b2e;
+}
+
+.btn-danger {
+    --bs-btn-bg: #c0392b;
+    --bs-btn-border-color: #c0392b;
+    --bs-btn-hover-bg: #a53125;
+    --bs-btn-hover-border-color: #a53125;
+    --bs-btn-active-bg: #8f2a20;
+    --bs-btn-disabled-bg: #c0392b;
+    --bs-btn-disabled-border-color: #c0392b;
+}
+
+.toast-success {
+    background-color: #2f7a2f;
+}
+
+.toast-info {
+    background-color: #1f6f8b;
+}
+
+.toast-warning {
+    background-color: #a35d00;
+}

@@ -28,7 +28,7 @@
         class="users-profile-image" data-testid="nav-avatar"
         src="{{accountService.currentUser()?.generalPhotoUrl || './assets/user.png'}}" 
         alt="user main image">
-        <a dropdownToggle class="dropdown-toggle" data-testid="nav-user-menu-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</a>
+        <button type="button" dropdownToggle class="dropdown-toggle" data-testid="nav-user-menu-toggle">Welcome {{accountService.currentUser()?.username | titlecase}}</button>
         <div *dropdownMenu class="dropdown-menu" data-testid="nav-user-menu">
             <a routerLink="/member/profile" class="dropdown-item">Profile</a>
             <a routerLink="/add-offer" class="dropdown-item">Share post</a>
@@ -58,9 +58,10 @@
         >
         <button 
             type="button" 
-            class="btn-eye" 
+            class="btn-eye"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
             (click)="togglePasswordVisibility()"
-        ><i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i></button>
+        ><i aria-hidden="true" [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i></button>
         
         <button class="login-btn" type="submit" data-testid="nav-login-submit">Login</button>
     </form>

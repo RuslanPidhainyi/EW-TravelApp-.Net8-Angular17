@@ -14,14 +14,14 @@
               src="{{post().ownerPhotoUrl || './assets/user.png'}}" 
               alt="owner photo">
         </span>
-        <h5 data-testid="offer-card-owner-name"><b>{{post().userName | titlecase}}</b></h5>
+        <p class="owner-name h5" data-testid="offer-card-owner-name"><b>{{post().userName | titlecase}}</b></p>
       </div>
       <div class="icon-buttons">
         <i data-testid="offer-card-like" (click)="toggleLike()" class="fa fa-heart" [style.color]="hasLiked() ? 'red' : 'black'"></i>
       </div>
     </div>
     <div class="info-row-2-left">
-      <h6 data-testid="offer-card-title">{{post().title}}</h6>
+      <h2 class="h6" data-testid="offer-card-title">{{post().title}}</h2>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
 <div class="container">
+    <h1 class="visually-hidden">Edit post</h1>
     <form [formGroup]="editForm" (ngSubmit)="updatePost()" data-testid="post-form">
 
         <div class="form-group">
@@ -35,7 +36,7 @@
 
         <div class="edit-post-checkbox-wrapper form-check-inline">
             <label class="edit-post-checkbox-container" data-testid="post-form-toggle-local-transport">
-                <input type="checkbox" formControlName="localTransport">
+                <input type="checkbox" id="localTransport" formControlName="localTransport">
                 <span class="checkmark"></span>
             </label>
             <label class="edit-post-checkbox-label" for="localTransport" data-testid="post-form-toggle-local-transport-label">Did you use local transport to get to your
@@ -70,7 +71,7 @@
 
         <div class="edit-post-checkbox-wrapper form-check-inline">
             <label class="edit-post-checkbox-container" data-testid="post-form-toggle-entrance-fee">
-                <input type="checkbox" formControlName="entranceFee">
+                <input type="checkbox" id="entranceFee" formControlName="entranceFee">
                 <span class="checkmark"></span>
             </label>
             <label class="edit-post-checkbox-label" for="entranceFee" data-testid="post-form-toggle-entrance-fee-label">Entrance was paid?</label>
@@ -98,7 +99,7 @@
 
         <div class="edit-post-checkbox-wrapper form-check-inline">
             <label class="edit-post-checkbox-container" data-testid="post-form-toggle-place-stay">
-                <input type="checkbox" formControlName="placeStay">
+                <input type="checkbox" id="placeStay" formControlName="placeStay">
                 <span class="checkmark"></span>
             </label>
             <label class="edit-post-checkbox-label" for="placeStay" data-testid="post-form-toggle-place-stay-label">Accommodation?</label>
@@ -123,7 +124,7 @@
             </div>
 
             <div class="form-group">
-                <select id="typePlaceStay" data-testid="post-form-type-place-stay" formControlName="typePlaceStay" class="edit-post-select">
+                <select id="typePlaceStay" aria-label="Type of accommodation" data-testid="post-form-type-place-stay" formControlName="typePlaceStay" class="edit-post-select">
                     <option class="edit-post-option" value="" disabled selected>Choose type of accommodation...</option>
                     <option class="edit-post-option" value="Camping">Camping</option>
                     <option class="edit-post-option" value="Hotel">Hotel</option>
@@ -135,7 +136,7 @@
 
         <div class="edit-post-checkbox-wrapper form-check-inline">
             <label class="edit-post-checkbox-container" data-testid="post-form-toggle-grocery-store">
-                <input type="checkbox" formControlName="groceryStore">
+                <input type="checkbox" id="groceryStore" formControlName="groceryStore">
                 <span class="checkmark"></span>
             </label>
             <label class="edit-post-checkbox-label" for="groceryStore" data-testid="post-form-toggle-grocery-store-label">Grocery stores nearby?</label>
@@ -164,7 +165,7 @@
 
         <div class="edit-post-checkbox-wrapper form-check-inline">
             <label class="edit-post-checkbox-container" data-testid="post-form-toggle-guide">
-                <input type="checkbox" formControlName="guide">
+                <input type="checkbox" id="guide" formControlName="guide">
                 <span class="checkmark"></span>
             </label>
             <label class="edit-post-checkbox-label" for="guide" data-testid="post-form-toggle-guide-label">Guide services?</label>

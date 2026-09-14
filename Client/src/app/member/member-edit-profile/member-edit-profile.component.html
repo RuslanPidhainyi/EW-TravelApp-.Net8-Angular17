@@ -52,19 +52,19 @@
                         </div>
                         <div class="about-container">
                             <form id="editForm" #editForm="ngForm" (ngSubmit)="updateMember()">
-                                <h4>Description</h4>
-                                <textarea [(ngModel)]="member.description" name="description" rows="6"></textarea>
-                                <h4>Interests</h4>
-                                <textarea [(ngModel)]="member.interests" name="interests" rows="6"></textarea>
-                                <h4>Location Details</h4>
+                                <h2 class="h4"><label for="description">Description</label></h2>
+                                <textarea [(ngModel)]="member.description" id="description" name="description" rows="6"></textarea>
+                                <h2 class="h4"><label for="interests">Interests</label></h2>
+                                <textarea [(ngModel)]="member.interests" id="interests" name="interests" rows="6"></textarea>
+                                <h2 class="h4">Location Details</h2>
                                 <div class="location-details-section">
                                     <div class="location-details-input">
                                         <label for="city">City: </label>
-                                        <input type="text" name="city" [(ngModel)]="member.city">
+                                        <input type="text" id="city" name="city" [(ngModel)]="member.city">
                                     </div>
                                     <div class="location-details-input">
                                         <label for="country">Country: </label>
-                                        <input type="text" name="country" [(ngModel)]="member.country">
+                                        <input type="text" id="country" name="country" [(ngModel)]="member.country">
                                     </div>
                                 </div>
                             </form>
